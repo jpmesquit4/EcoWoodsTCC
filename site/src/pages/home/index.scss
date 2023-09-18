@@ -1,0 +1,188 @@
+.pagina-home {
+
+    .cabecalho-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #C57D56;
+
+        padding: 20px;
+
+        img {
+            height: 20px;
+            width: 20px;
+        }
+
+        p {
+            color: white;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-family: 'MontSerrat', sans-serif;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+
+            gap: 20px;
+        }
+
+        .header-mid {
+            display: flex;
+            flex-direction: row;
+
+            h1 {
+                color: white;
+                font-family: 'Gotham Black', sans-serif;
+                font-size: 40px;
+            }
+        }
+
+        .header-bot {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            gap: 20px;
+
+            .notification {
+                text-align: center;
+                background-color: black;
+                border-radius: 50%;
+                padding: 1px 2px;
+                font-size: 10px;
+
+                position: relative;
+                right: 22px;
+                bottom: 10px;
+
+            }
+        }
+        
+    }
+
+    .cabecalho-mid {
+
+        background-color: #C57D56;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+
+        img {
+            width: auto;
+            height: 80px;
+            margin: -5px 20px 10px 20px;
+        }
+    }
+
+    .cabecalho-bot {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #C57D56;
+
+        padding: 70px;
+
+        .card-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .header-button-tit {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                h1 {
+                    text-align: center;
+                    width: 450px;
+                    font-family: 'MontSerrat', sans-serif;
+                    font-weight: 500;
+                    margin-bottom: 20px;
+                }
+
+                button {
+                    background-color: #2a2a2a;
+                    color: white;
+                    padding: 20px 80px;
+
+                    border-radius: 10px;
+                    font-size: 14px;
+
+                    letter-spacing: 2px;
+
+                    font-family: 'MontSerrat', sans-serif;
+                    border: none;
+                }
+            }
+
+            background-color: #fff;
+            padding: 30px;
+            width: 90vw;
+
+            border-radius: 20px;
+        }
+    }
+
+    .desperdicio-de-madeira {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: start;
+
+        border-top: 19px #fff solid;
+        border-bottom: 19px #fff solid;
+
+
+        .image {
+            img {
+                height: auto;
+                width: 50vw;
+            }
+        }
+
+         .info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f1f1f1;
+            padding: 100px 30px 192px;
+
+            gap: 20px;
+
+            p {
+                padding: 0px 38px;
+                font-size: 16px;
+                text-align: left;
+                margin: 15px 0px;
+
+                font-family: 'MontSerrat', sans-serif;
+            }
+
+            h1 {
+                font-family: 'MontSerrat', sans-serif;
+                font-size: 40px;
+            }
+
+            
+
+            button {
+                background-color: #2a2a2a;
+                color: white;
+                padding: 20px 80px;
+
+                border-radius: 10px;
+                font-size: 14px;
+
+                letter-spacing: 2px;
+
+                font-family: 'MontSerrat', sans-serif;
+                border: none;
+            }
+         }
+    }
+}
