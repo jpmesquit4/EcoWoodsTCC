@@ -1,0 +1,148 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  
+  
+  .pagina-loginADM {
+    
+    .logins {
+        display: flex;
+        flex-direction: row;
+        background: rgb(51,153,255);
+        background: linear-gradient(180deg, rgba(51,153,255,1) 0%, rgba(0,51,102,1) 100%);
+        height: 100vh;
+  
+      .part-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 60vw;
+        height: 100vh;
+  
+        .top {
+          img {
+            width: auto;
+            height: 300px;
+          }
+        }
+  
+        .mid {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+  
+          font-family: 'Montserrat', sans-serif;
+          color: white;
+        }
+  
+        .bot {
+          display: flex;
+          justify-content: end;
+          align-items: end;
+  
+          img {
+            width: auto;
+            height: 300px;
+          }
+        }
+  
+      }
+  
+      .part-right {
+         
+        .part-login {
+          height: 100vh;
+  
+          
+          .cinza-top {
+            background-color: rgba(219, 219, 219, 0.40  );
+            height: 15vh;
+            width: 40vw;
+            border-top-left-radius: 50px;
+            position: relative;
+            z-index: 1;
+          }
+  
+          .cinza-bot {
+            background-color: rgba(241, 241, 241, 0.75);
+            height: 15vh;
+            width: 40vw;
+            border-top-left-radius: 50px;
+            z-index: 2;
+            bottom: 60px;
+            position: relative;
+          }
+  
+          .card-login {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            height: 84vh;
+            width: 40vw;
+            padding: 80px;
+  
+            position: relative;
+            bottom: 110px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            z-index: 3;
+  
+            align-items: center;
+  
+            h1 {
+              font-family: 'Montserrat', sans-serif;
+              font-weight: 800;
+              font-size: 40px;
+            }
+  
+            h4 {
+              font-family: 'Montserrat', sans-serif;
+              text-align: center;
+              width: 250px;
+              margin: 10px 0px 35px;
+  
+              font-weight: 400;
+            }
+
+  
+            input {
+  
+              font-family: 'Montserrat', sans-serif;
+              background-color: #e9e9e9;
+  
+              padding: 15px 110px 15px 25px;
+              border: none;
+              border-radius: 50px;
+  
+              margin: 10px 0px;
+            }
+  
+            input:focus {
+              outline: none;
+            }
+  
+            button {
+                background: rgb(51,153,255);
+                background: linear-gradient(90deg, rgba(51,153,255,1) 0%, rgba(0,51,102,1) 100%);
+                padding: 15px 100px;
+                border: none;
+                border-radius: 50px;
+  
+              color: white;
+  
+              margin: 10px 0px;
+  
+              font-family: 'Montserrat', sans-serif;
+              letter-spacing: 2px;
+            }
+          }
+        }
+  
+      }
+  
+  
+    }
+  }
+  
