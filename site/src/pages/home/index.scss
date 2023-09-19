@@ -463,16 +463,116 @@
         flex-direction: row;
         background-color: #b6b6b6;
 
+        padding: 0px 50px 100px;
+        height: 100%;
+        
+
         .images-sus {
             margin-top: 80px;
+
+            div {
+                .saladeestar {
+                    height: 350px;
+                    width: auto;
+                }
+
+                img {
+                    width: 123px;
+                    margin: 10px 10px 0px 0px;
+                    border-radius: 10px;
+                }
+            }
         }
 
         .info {
             margin-top: 80px;
+            padding: 0px 50px;
 
             h1 {
                 font-family: 'MontSerrat', sans-serif;
+                font-size: 24px;
+                margin-bottom: 15px;
+                width: 300px;
             }
+
+            p {
+                font-family: 'MontSerrat', sans-serif;
+                font-size: 12px;
+                font-weight: 500;
+            }
+
+        }
+     }
+
+     .rodape {
+        display: flex;
+        flex-direction: column;
+        background-color: #2a2a2a;
+        padding-bottom: 30px;
+
+        .rodape-bot {
+            display: flex;
+            justify-content: center;
+
+            padding-top: 30px;
+            p {
+                font-family: 'MontSerrat', sans-serif;
+                color: white;
+                font-size: 8px;
+                font-weight: 300;
+            }
+        }
+
+        .rodape-top {
+            background-color: #2a2a2a;
+            padding: 25px;
+            border-bottom: 1px solid #fff;
+
+            h1 {
+                font-family: 'MontSerrat', sans-serif;
+                color: white;
+                font-size: 16px;
+                letter-spacing: 2px;
+                font-weight: 300;
+            }
+        }
+
+        .rodape-mid {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #2a2a2a;
+
+            gap: 40px;
+            padding: 50px 0px;
+
+            h1 {
+                color: white;
+                font-family: 'MontSerrat', sans-serif;
+                color: white;
+                font-size: 16px;
+                font-weight: 600;
+
+                margin-bottom: 15px;
+            }
+
+            p {
+                color: white;
+                font-family: 'MontSerrat', sans-serif;
+                color: white;
+                font-size: 12px;
+                font-weight: 300;
+                margin-bottom: 8px;
+            }
+        }
+
+        .line {
+            align-self: center;
+            background-color: #ffffff;
+            height: 1px;
+            width: 800px;
         }
      }
 }

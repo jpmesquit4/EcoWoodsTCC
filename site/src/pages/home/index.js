@@ -262,7 +262,7 @@ export default function Home() {
             <div className="viva-a-sustentabilidade">
                 <div className="images-sus">
                     <div>
-                        <img src="/assets/images/saladeestar.png" alt="" />
+                        <img className="saladeestar" src="/assets/images/saladeestar.png" alt="" />
                         <img src="/assets/images/casa-sus.png" alt="" />
                         <img src="/assets/images/empresa-sus.png" alt="" />
                         <img src="/assets/images/quarto-sus.png" alt="" />
@@ -278,6 +278,41 @@ export default function Home() {
                         Ao escolher nossos produtos de madeira sustentável, você está contribuindo diretamente para a preservação das florestas e para um futuro mais verde. Nossos fornecedores são selecionados com rigor, garantindo que a madeira utilizada em nossos produtos seja proveniente de fontes certificadas e manejo responsável.<br/>
                         Queremos oferecer a você a oportunidade de decorar sua casa ou escritório com peças que se destacam pelo seu design elegante, ao mesmo tempo em que respeitam o meio ambiente.<br/>
                         Nossos móveis, pisos, revestimentos e itens de decoração são cuidadosamente fabricados, utilizando métodos que minimizam o desperdício e maximizam a eficiência energética.</p>
+                </div>
+            </div>
+
+            <div className="rodape">
+                <div className="rodape-top">
+                    <h1>EcoWoods - EW</h1>
+                </div>
+
+                <div className="rodape-mid">
+                    <div>
+                        <h1>Produtos</h1>
+                        <p>Perguntas frequentes</p>
+                        <p>Entrega</p>
+                        <p>Garantia</p>
+                    </div>
+
+                    <div>
+                        <h1>Serviços</h1>
+                        <p>Reparos</p>
+                        <p>Presentear</p>
+                        <p>Salve as árvores</p>
+                    </div>
+
+                    <div>
+                        <h1>Ajuda</h1>
+                        <p>Reclame aqui</p>
+                        <p>Email de Contato</p>
+                        <p>Sustentabilidade</p>
+                    </div>
+                </div>
+
+                <div className="line"></div>
+
+                <div className="rodape-bot">
+                    <p>EcoWood Comércio Eletrônico S/A. – CNPJ 13.800.191/0001-69 - CEP 04773-000. Av. Coronel Octaviano de Freitas Costa, 463 - Socorro, São Paulo</p>
                 </div>
             </div>
 
