@@ -257,6 +257,30 @@ export default function Home() {
                 </div>
 
             </div>
+            <div className="linha"></div>
+
+            <div className="viva-a-sustentabilidade">
+                <div className="images-sus">
+                    <div>
+                        <img src="/assets/images/saladeestar.png" alt="" />
+                        <img src="/assets/images/casa-sus.png" alt="" />
+                        <img src="/assets/images/empresa-sus.png" alt="" />
+                        <img src="/assets/images/quarto-sus.png" alt="" />
+                        <img src="/assets/images/palnta-sus.png" alt="" />
+                    </div>
+                </div>
+
+                <div className="info">
+                    <h1>Viva a sustentabilidade!</h1>
+
+                    <p>Você está procurando produtos de madeira de alta qualidade, duráveis ​​e, acima de tudo, sustentáveis?<br/>
+                        Então você veio ao lugar certo! Nossa loja de madeira sustentável está aqui para oferecer a você uma experiência única de compra, combinando beleza, funcionalidade e responsabilidade ambiental.<br/>
+                        Ao escolher nossos produtos de madeira sustentável, você está contribuindo diretamente para a preservação das florestas e para um futuro mais verde. Nossos fornecedores são selecionados com rigor, garantindo que a madeira utilizada em nossos produtos seja proveniente de fontes certificadas e manejo responsável.<br/>
+                        Queremos oferecer a você a oportunidade de decorar sua casa ou escritório com peças que se destacam pelo seu design elegante, ao mesmo tempo em que respeitam o meio ambiente.<br/>
+                        Nossos móveis, pisos, revestimentos e itens de decoração são cuidadosamente fabricados, utilizando métodos que minimizam o desperdício e maximizam a eficiência energética.</p>
+                </div>
+            </div>
+
         </div>
     )
 

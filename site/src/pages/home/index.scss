@@ -457,4 +457,22 @@
             }
         }
      }
+
+     .viva-a-sustentabilidade {
+        display: flex;
+        flex-direction: row;
+        background-color: #b6b6b6;
+
+        .images-sus {
+            margin-top: 80px;
+        }
+
+        .info {
+            margin-top: 80px;
+
+            h1 {
+                font-family: 'MontSerrat', sans-serif;
+            }
+        }
+     }
 }
