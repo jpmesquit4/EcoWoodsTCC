@@ -134,14 +134,13 @@
         justify-content: center;
         align-items: start;
 
-        border-top: 19px #fff solid;
-        border-bottom: 19px #fff solid;
-
-
         .image {
+
+            height: 70vh;
+
             img {
-                height: auto;
-                width: 50vw;
+                height: 70vh;
+                width: 40vw;
             }
         }
 
@@ -150,7 +149,9 @@
             flex-direction: column;
             align-items: center;
             background-color: #f1f1f1;
-            padding: 100px 30px 192px;
+            padding: 100px 30px;
+            height: 70vh;
+            width: 60vw;
 
             gap: 20px;
 
@@ -159,6 +160,7 @@
                 font-size: 16px;
                 text-align: left;
                 margin: 15px 0px;
+                width: 600px;
 
                 font-family: 'MontSerrat', sans-serif;
             }
@@ -184,5 +186,187 @@
                 border: none;
             }
          }
+
     }
+
+    .linha {
+        background-color: #fff;
+        width: 100%;
+        height: 10px;
+        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 20;
+    }
+
+    .cards-empresa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        background-color: #b6b6b6;
+
+        .projetos-visao-certificacoes {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+            width: 80vw;
+            margin: 80px 0px;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+
+                background-color: #fff;
+                padding: 10px;
+                box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.247);
+
+                h1 {
+                    font-family: 'MontSerrat', sans-serif;
+                    font-weight: 600;
+                    font-size: 20px;
+                    margin: 10px 0px;
+                }
+
+                p {
+                    margin: 0px 0px 10px;
+                    font-family: 'MontSerrat', sans-serif;
+                    font-weight: 500;
+                    font-size: 12px;
+                    width: 350px;
+                }
+            }
+
+
+        }
+
+        .madeiraRenovavel-Design {
+            margin: 80px 0px 0px;
+            padding: 35px;
+            border-radius: 10px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            background-color: #ffffff;
+            box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.247);
+            width: 60vw;
+            
+            .card-part {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+
+                img {
+                    height: auto;
+                    width: 400px;
+                    margin: 0px 0px 10px;
+                    border-radius: 8px;
+                    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.247);
+                }
+
+                p {
+                    width: 350px;
+                    margin: 10px 0px;
+                    font-family: 'MontSerrat', sans-serif;
+                    font-weight: 400;
+                    font-size: 14px;
+                }
+
+                h1 {
+                    font-family: 'MontSerrat', sans-serif;
+                    font-weight: 600;
+                    font-size: 22px;
+                }
+            }
+
+        }
+     }
+
+     .fundadores {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #C57D56;
+        height: 100%;
+
+        > h1 {
+            margin: 100px 0px 10px;
+            font-family: 'MontSerrat', sans-serif;
+            font-weight: 700;
+            color: white;
+            font-size: 50px;
+        }
+
+        .card-portifolio {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 90px;
+
+            div {
+
+                .card {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    
+
+                    background-color: white;
+                    margin: 20px 10px;
+                    padding: 30px 20px;
+                    width: 350px;
+                    height: 350px;
+                    border-radius: 10px;
+
+                    > p {
+                        font-family: 'MontSerrat', sans-serif;
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: rgb(42, 42, 42, 50%);
+                        width: 250px;
+                    }
+
+                    button {
+                        background-color: #2a2a2a;
+                        border: none;
+                        padding: 15px 30px;
+                        color: #fff;
+
+                        font-family: 'MontSerrat', sans-serif;
+                        letter-spacing: 2px;
+                        border-radius: 20px;
+                        font-weight: 500;
+                    }
+
+                    .card-top {
+                        display: flex;
+                        flex-direction: row;
+
+                        gap: 10px;
+
+                        img {
+                            height: 60px;
+                        }
+
+                        h1 {
+                            font-family: 'MontSerrat', sans-serif;
+                            font-size: 20px;
+                        }
+
+                        p {
+                            font-family: 'MontSerrat', sans-serif;
+                            font-size: 14px;
+                            font-weight: 700;
+                            color: rgb(42, 42, 42, 50%);
+                        }
+                    }
+                }
+            }
+        }
+     }
 }
