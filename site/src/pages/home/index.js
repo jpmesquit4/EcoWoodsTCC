@@ -69,13 +69,13 @@ export default function Home() {
 
                 <div className="madeiraRenovavel-Design">
                     <div className="card-part">
-                        <img src="/assets/images/madeira-eco.png" alt="" />    
+                        <img src="/assets/images/madeira-eco.png" alt="" />
                         <h1>Madeira Renovável</h1>
                         <p>Utilizamos madeiras provenientes de demolições, sobras de produção ou móveis antigos que podem ser reutilizados.</p>
                     </div>
 
                     <div className="card-part">
-                        <img src="/assets/images/troncos.png" alt="" />    
+                        <img src="/assets/images/troncos.png" alt="" />
                         <h1>Design Sustenável</h1>
                         <p>Desenvolvemos móveis com design sustentável, levando em consideração a durabilidade, a facilidade de manutenção e a possibilidade de desmontagem para reciclagem futura.</p>
                     </div>
@@ -110,69 +110,69 @@ export default function Home() {
                 <div className="card-portifolio">
                     <div>
                         <div className="card">
-                        <span className="card-top"> 
-                        
-                        <img src="/assets/images/baixo.png" alt="" />  
+                            <span className="card-top">
 
-                            <div className="ig">
-                                <h1>Guilherme Hegeler</h1>
-                                <p>@guihegeler</p>
-                            </div>  
-                        </span>     
+                                <img src="/assets/images/baixo.png" alt="" />
 
-                        <p>Guilherme Hegeler tem 17 anos e fundou uma empresa de madeira reutilizada e sustentavel</p>
+                                <div className="ig">
+                                    <h1>Guilherme Hegeler</h1>
+                                    <p>@guihegeler</p>
+                                </div>
+                            </span>
 
-                        <button>Nossas Redes</button>  
+                            <p>Guilherme Hegeler tem 17 anos e fundou uma empresa de madeira reutilizada e sustentavel</p>
+
+                            <button>Nossas Redes</button>
                         </div>
 
                         <div className="card">
-                        <span className="card-top"> 
-                        
-                        <img src="/assets/images/hengler.png" alt="" />  
+                            <span className="card-top">
 
-                            <div className="ig">
-                                <h1>João Hengler</h1>
-                                <p>@joaopedrohengler</p>
-                            </div>  
-                        </span>     
+                                <img src="/assets/images/hengler.png" alt="" />
 
-                        <p>João Hengler tem 17 anos e fundou uma empresa de madeira reutilizada e sustentavel</p>
+                                <div className="ig">
+                                    <h1>João Hengler</h1>
+                                    <p>@joaopedrohengler</p>
+                                </div>
+                            </span>
 
-                        <button>Nossas Redes</button>  
+                            <p>João Hengler tem 17 anos e fundou uma empresa de madeira reutilizada e sustentavel</p>
+
+                            <button>Nossas Redes</button>
                         </div>
                     </div>
 
                     <div>
                         <div className="card">
-                        <span className="card-top"> 
-                        
-                        <img src="/assets/images/kauan.png" alt="" />  
+                            <span className="card-top">
 
-                            <div className="ig">
-                                <h1>Kauan Pedro</h1>
-                                <p>@kauankk._</p>
-                            </div>  
-                        </span>     
+                                <img src="/assets/images/kauan.png" alt="" />
 
-                        <p>Kauan Pedro tem 17 anos e fundou uma empresa de madeira reutilizada e sustentavel</p>
+                                <div className="ig">
+                                    <h1>Kauan Pedro</h1>
+                                    <p>@kauankk._</p>
+                                </div>
+                            </span>
 
-                        <button>Nossas Redes</button>  
+                            <p>Kauan Pedro tem 17 anos e fundou uma empresa de madeira reutilizada e sustentavel</p>
+
+                            <button>Nossas Redes</button>
                         </div>
 
                         <div className="card">
-                        <span className="card-top"> 
-                        
-                        <img src="/assets/images/mesquita.png" alt="" />  
+                            <span className="card-top">
 
-                            <div className="ig">
-                                <h1>João Mesquita</h1>
-                                <p>@mesquit_</p>
-                            </div>  
-                        </span>     
+                                <img src="/assets/images/mesquita.png" alt="" />
 
-                        <p>João Mesquita tem 17 anos e fundou uma empresa de madeira reutilizada e sustentavel</p>
+                                <div className="ig">
+                                    <h1>João Mesquita</h1>
+                                    <p>@mesquit_</p>
+                                </div>
+                            </span>
 
-                        <button>Nossas Redes</button>   
+                            <p>João Mesquita tem 17 anos e fundou uma empresa de madeira reutilizada e sustentavel</p>
+
+                            <button>Nossas Redes</button>
                         </div>
                     </div>
                 </div>
@@ -180,7 +180,81 @@ export default function Home() {
             </div>
             <div className="linha"></div>
 
-            <div className="sobre-nos">
+            <div className="desperdicio-de-madeira">
+
+                <div className="image">
+                    <img src="/assets/images/sobrenos.png" alt="" />
+                </div>
+
+                <div className="info">
+                    <h1>Sobre nós</h1>
+
+                    <p>Bem-vindo à nossa loja de madeira sustentável, onde a qualidade e a consciência ambiental se encontram. <br />
+
+                        Somos apaixonados por oferecer soluções em madeira que respeitam o meio ambiente, proporcionando beleza e durabilidade aos nossos clientes. Nossa empresa nasceu do desejo de promover práticas sustentáveis ​​e preservar as riquezas naturais das florestas.<br />
+
+                        Acreditamos que a madeira sustentável é a escolha certa para aqueles que valorizam não apenas a estética e a funcionalidade, mas também o impacto positivo que suas escolhas podem ter no planeta.</p>
+
+                </div>
+
+            </div>
+            <div className="linha"></div>
+
+            <div className="comentarios">
+
+                <h1>COMENTÁRIOS DE NOSSOS CLIENTES</h1>
+
+                <div className="card-comentario">
+                    <div>
+                        <div className="card">
+                            <span className="card-top">
+
+                                <img src="/assets/images/icons-comentarios.png" alt="" />
+
+                                <div className="ig">
+                                    <h1>Daniel</h1>
+                                </div>
+                            </span>
+
+                            <p>"Estou extremamente satisfeito com a minha experiência na loja de madeira sustentável. Adquiri um lindo conjunto de móveis para minha sala de estar e fiquei impressionada com a qualidade da madeira e a atenção aos detalhes. Além disso, saber que estou contribuindo para a preservação das florestas me deixa ainda mais feliz com minha escolha."</p>
+
+                        </div>
+    
+                    </div>
+
+                    <div>
+                        <div className="card">
+                            <span className="card-top">
+
+                                <img src="/assets/images/icons-comentarios.png" alt="" />
+
+                                <div className="ig">
+                                    <h1>Ricardo Anastacio</h1>
+                                </div>
+                            </span>
+
+                            <p>"Estou maravilhado com a mesa de jantar de madeira sustentável que adquiri na loja. Além de ser uma peça belíssima e de alta qualidade, sei que minha escolha contribui para a preservação das florestas. O processo de compra foi fácil, o produto foi entregue dentro do prazo e o serviço pós-venda foi excelente. Recomendo a loja a todos que buscam produtos sustentáveis sem abrir mão da elegância."</p>
+
+                        </div>
+                        
+                    </div>
+
+                    <div>
+                        <div className="card">
+                            <span className="card-top">
+
+                                <img src="/assets/images/icons-comentarios.png" alt="" />
+
+                                <div className="ig">
+                                    <h1>João Mesquita</h1>
+                                </div>
+                            </span>
+
+                            <p>"Como arquiteto, prezo muito pela utilização de materiais sustentáveis em meus projetos. A loja de madeira sustentável se tornou minha parceira preferida nesse aspecto. Eles oferecem uma variedade incrível de produtos de madeira certificada, com opções de cores e acabamentos que se adequam perfeitamente aos meus projetos. Além disso, sua equipe está sempre pronta para me ajudar com informações técnicas e soluções personalizadas."</p>
+
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>

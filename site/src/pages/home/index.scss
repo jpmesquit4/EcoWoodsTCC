@@ -140,7 +140,7 @@
 
             img {
                 height: 70vh;
-                width: 40vw;
+                width: 100%;
             }
         }
 
@@ -149,25 +149,25 @@
             flex-direction: column;
             align-items: center;
             background-color: #f1f1f1;
-            padding: 100px 30px;
+            padding: 70px 30px 100px;
             height: 70vh;
-            width: 60vw;
+            width: 55vw;
 
-            gap: 20px;
+            gap: 10px;
 
             p {
                 padding: 0px 38px;
-                font-size: 16px;
-                text-align: left;
+                font-size: 18px;
+                text-align: center;
                 margin: 15px 0px;
-                width: 600px;
+                width: 550px;
 
                 font-family: 'MontSerrat', sans-serif;
             }
 
             h1 {
                 font-family: 'MontSerrat', sans-serif;
-                font-size: 40px;
+                font-size: 28px;
             }
 
             
@@ -210,14 +210,15 @@
             flex-direction: row;
             justify-content: space-evenly;
 
-            width: 80vw;
             margin: 80px 0px;
 
-            div {
+            > div {
                 display: flex;
                 flex-direction: column;
                 text-align: left;
 
+                width: 25vw;
+                margin: 20px;
                 background-color: #fff;
                 padding: 10px;
                 box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.247);
@@ -225,7 +226,7 @@
                 h1 {
                     font-family: 'MontSerrat', sans-serif;
                     font-weight: 600;
-                    font-size: 20px;
+                    font-size: 16px;
                     margin: 10px 0px;
                 }
 
@@ -234,7 +235,7 @@
                     font-family: 'MontSerrat', sans-serif;
                     font-weight: 500;
                     font-size: 12px;
-                    width: 350px;
+                    width: 230px;
                 }
             }
 
@@ -252,7 +253,7 @@
 
             background-color: #ffffff;
             box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.247);
-            width: 60vw;
+            width: auto;
             
             .card-part {
                 display: flex;
@@ -266,6 +267,7 @@
                     margin: 0px 0px 10px;
                     border-radius: 8px;
                     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.247);
+                    margin: 15px 20px;
                 }
 
                 p {
@@ -361,6 +363,92 @@
                         p {
                             font-family: 'MontSerrat', sans-serif;
                             font-size: 14px;
+                            font-weight: 700;
+                            color: rgb(42, 42, 42, 50%);
+                        }
+                    }
+                }
+            }
+        }
+     }
+
+     .comentarios {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #C57D56;
+        height: 100%;
+
+        > h1 {
+            margin: 100px 0px 10px;
+            font-family: 'MontSerrat', sans-serif;
+            font-weight: 700;
+            color: white;
+            font-size: 38px;
+        }
+
+        .card-comentario {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 90px;
+
+            div {
+
+                .card {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    gap: 30px;
+                    
+
+                    background-color: white;
+                    margin: 20px 10px;
+                    padding: 30px 20px;
+                    width: 290px;
+                    height: 350px;
+                    border-radius: 10px;
+
+                    > p {
+                        font-family: 'MontSerrat', sans-serif;
+                        font-size: 12px;
+                        font-weight: 700;
+                        color: rgb(42, 42, 42, 50%);
+                        width: 240px;
+                    }
+
+                    button {
+                        align-self: center;
+                        background-color: #2a2a2a;
+                        border: none;
+                        padding: 15px 30px;
+                        color: #fff;
+
+                        font-family: 'MontSerrat', sans-serif;
+                        letter-spacing: 2px;
+                        border-radius: 20px;
+                        font-weight: 500;
+                    }
+
+                    .card-top {
+                        display: flex;
+                        flex-direction: row;
+
+                        gap: 10px;
+
+                        img {
+                            height: 60px;
+                        }
+
+                        h1 {
+                            font-family: 'MontSerrat', sans-serif;
+                            font-size: 14px;
+                            margin-top: 20px;
+                        }
+
+                        p {
+                            font-family: 'MontSerrat', sans-serif;
+                            font-size: 12px;
                             font-weight: 700;
                             color: rgb(42, 42, 42, 50%);
                         }
