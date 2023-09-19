@@ -99,3 +99,10 @@ BT_Pagamento			bool,
 FOREIGN KEY (ID_Produto) REFERENCES TB_Produto(ID_Produto),
 FOREIGN KEY (ID_Pedido) REFERENCES TB_Pedido(ID_Pedido)
 );
+
+drop tables TB_Admin;
+create table TB_Admin(
+ID_Adm					int primary key auto_increment,
+NM_Adm					varchar(100),
+DS_Senha				varchar(100)
+);
