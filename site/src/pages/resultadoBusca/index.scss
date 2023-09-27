@@ -1,0 +1,180 @@
+.pagina-result {
+    width: 100%;
+    height: 100%;
+
+    header {
+        .cabecalho-top {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+
+            padding: 20px;
+
+            img {
+                height: 20px;
+                width: 20px;
+                color: #000;
+            }
+
+            p {
+                color: #000;
+                letter-spacing: 2px;
+                font-size: 12px;
+                font-family: 'MontSerrat', sans-serif;
+            }
+
+            .header-left {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+
+                gap: 20px;
+            }
+
+            .header-mid {
+                display: flex;
+                flex-direction: row;
+
+                h1 {
+                    color: #000;
+                    font-family: 'Gotham Black', sans-serif;
+                    font-size: 40px;
+                }
+            }
+
+            .header-bot {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                gap: 20px;
+
+                .notification {
+                    text-align: center;
+                    background-color: black;
+                    border-radius: 50%;
+                    padding: 1px 2px;
+                    font-size: 10px;
+
+                    position: relative;
+                    right: 22px;
+                    bottom: 10px;
+
+                }
+            }
+
+        }
+
+        .cabecalho-mid {
+
+            background-color: #fff;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+
+            img {
+                width: auto;
+                height: 80px;
+                margin: -5px 20px 10px 20px;
+            }
+        }
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: #D1D1D1;
+
+        .input-verificar {
+            width: 80%;
+            margin-top: 50px;
+
+            input {
+                
+                width: 100%;
+                height: 35px;
+                padding-left: 20px;
+
+                background-image: url('../../../public/assets/images/lupa-input.png');
+                background-repeat: no-repeat;
+                background-size: 16.5px;
+                background-position: 770px 9px;
+                border: transparent;
+                border-radius: 7.5px;
+
+                ::placeholder {
+                    font-size: 20px;
+                }  
+            }
+
+            input:focus{
+                outline: none;
+            }
+        }
+
+        .container-content{
+            margin-top: 70px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 100px;
+            width: 100%;
+            // gap: 300px;
+
+            .nav-left{
+                width: 17%;
+
+
+            }
+
+            .nav-right{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                width: 52.7%;
+                flex-wrap: wrap;
+                gap: 30px;
+
+                .cards{
+                    
+                    width: 250px;
+                    height: auto;
+
+                    .img-produto{
+                        background-color: #B1B1B1;
+                        width: 250px;
+                        height: 250px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        img{
+                            width: 200px;
+                        }
+                    }
+
+                    .info-produto{
+                        width: 100%;
+                        background-color: #fff;
+                        padding-left: 15px;
+
+                        p{
+                            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                            font-size: 17px;
+                            font-weight: bold;
+                            padding-top: 10px;
+
+                            span{
+                                font-size: 15px;
+                                color: rgb(101, 150, 53);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
