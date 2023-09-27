@@ -1,7 +1,16 @@
 import './index.scss';
+import { useNavigate } from 'react-router-dom';
 
 export default function CadastroProdutos() {
     
+    const navigate = useNavigate();
+
+    const handleButton1Click = () => {
+        // Use navigate para mudar a URL quando o botão for clicado
+        navigate('/admin'); // Substitua '/nova-url' pela URL desejada
+      };
+
+
 
     return (
         <div className="pagina-cadastroProdutos">
@@ -36,6 +45,7 @@ export default function CadastroProdutos() {
 
             <div className="part-right">
                 <div className="cabecalho-right">
+                    <span> <button onClick={handleButton1Click}>Home</button> </span>
                     <span> <img className="carta-sino" src="/assets/images/sino.png" alt="" /></span>
                     <span> <img className="carta-sino" src="/assets/images/carta.png" alt="" /></span>
                     <span> <img className="icon-perfil" src="/assets/images/icon-perfil.png" alt="" /></span>

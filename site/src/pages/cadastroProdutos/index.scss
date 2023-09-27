@@ -11,7 +11,7 @@
 
         display: flex;
         flex-direction: column;
-        width: 22%;
+        width: 26%;
 
         .cabecalho-left {
             display: flex;
@@ -87,7 +87,7 @@
         height: auto;
         box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
         position: relative;
-        z-index: 20;
+        z-index: 22;
     }
 
     .part-right {
@@ -103,7 +103,8 @@
 
             background-color: #F0E1D2;
             height: 15vh;
-            width: 78vw;
+            width: 73vw;
+            padding: 20px 0px;
 
             margin-bottom: 80px;
 
@@ -120,6 +121,25 @@
                     padding-right: 90px;
                     height: 60px;
                     width: auto;
+                }
+
+                button {
+                    padding: 15px 50px;
+                    background-color: #7f7f7f;
+                    color: white;
+                    font-family: 'montserrat', sans-serif;
+                    border-radius: 30px;
+                    border: none;
+                    margin-right: 30px;
+                    transition: 0.5s;
+                }
+
+                button:hover {
+                    transform: scale(1.03);
+                }
+
+                button:active {
+                    background-color: #2a2a2a;
                 }
             }
 
