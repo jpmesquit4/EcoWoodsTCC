@@ -65,9 +65,16 @@
 
                 border: none;
                 background-color: white;
+                transition: 0.2s;
+                
             }
 
             button:focus{
+                background: #2F88E1;
+                color: white;
+            }
+
+            button:hover {
                 background: #2F88E1;
                 color: white;
             }
@@ -89,11 +96,34 @@
         align-items: center;
 
         .cabecalho-right {
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            align-items: center;
+
             background-color: #F0E1D2;
             height: 15vh;
             width: 78vw;
 
             margin-bottom: 80px;
+
+           span {
+
+                .carta-sino {
+                    background-color: #fff;
+                    padding: 15px;
+                    border-radius: 50%;  
+                    margin-right: 30px;
+                }
+
+                .icon-perfil {
+                    padding-right: 90px;
+                    height: 60px;
+                    width: auto;
+                }
+            }
+
+
         }
 
         .menu-right {

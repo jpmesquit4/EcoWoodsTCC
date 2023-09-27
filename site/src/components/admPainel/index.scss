@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+.pagina-cadastroProdutos {
+  display: flex;
+  flex-direction: row;
+
+  .part-left {
+
+      display: flex;
+      flex-direction: column;
+      width: 22%;
+
+      .cabecalho-left {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0px 15px 15px;
+          height: 15vh;
+
+          .divisor {
+
+              background-color: black;
+              height: 80px;
+              width: 1px;
+              margin-left: 120px;
+              margin-top: 15px;
+              margin-right: 10px;
+          }
+
+          div {
+
+              img {
+                  position: absolute;
+                  top: -15px;
+                  left: 20px;
+              }
+
+              h1 {
+                  font-family: 'Gotham Black';
+                  font-size: 30px;
+                  margin-top: 15px;
+              }
+
+              p {
+                  font-family: 'MontSerrat', sans-serif;
+                  font-size: 16px;
+              }
+          }
+      }
+
+      .menu-left {
+          display: flex;
+          flex-direction: column;
+          
+
+          button {
+              padding: 25px;
+              font-size: 16px;
+              font-family: 'MontSerrat', sans-serif;
+              letter-spacing: 1px;
+
+              border: none;
+              background-color: white;
+              transition: 0.2s;
+              
+          }
+
+          button:focus{
+              background: #2F88E1;
+              color: white;
+          }
+
+          button:hover {
+              background: #2F88E1;
+              color: white;
+          }
+      }
+  }
+
+  .linha {
+      background-color: #fff;
+      width: 10px;
+      height: auto;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 20;
+  }
+}

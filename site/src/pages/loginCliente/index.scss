@@ -123,8 +123,7 @@
           }
 
           button {
-            background: rgb(245,225,206);
-            background: linear-gradient(90deg, rgba(245,225,206,1) 0%, rgba(197,125,86,1) 100%);
+            background: rgb(221, 167, 138);
 
             padding: 15px 100px;
             border: none;
@@ -136,6 +135,16 @@
 
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 2px;
+            transition: 0.5s;
+          }
+
+          button:hover {
+            background: rgba(197,125,86,1);
+            transform: scale(1.03);
+          }
+
+          button:active {
+            background: black;
           }
         }
       }

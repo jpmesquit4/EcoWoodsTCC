@@ -36,7 +36,9 @@ export default function CadastroProdutos() {
 
             <div className="part-right">
                 <div className="cabecalho-right">
-
+                    <span> <img className="carta-sino" src="/assets/images/sino.png" alt="" /></span>
+                    <span> <img className="carta-sino" src="/assets/images/carta.png" alt="" /></span>
+                    <span> <img className="icon-perfil" src="/assets/images/icon-perfil.png" alt="" /></span>
                 </div>
 
                 <div className="menu-right">
