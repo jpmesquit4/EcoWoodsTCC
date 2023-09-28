@@ -55,7 +55,6 @@
         .menu-left {
             display: flex;
             flex-direction: column;
-            
 
             button {
                 padding: 25px;
@@ -155,6 +154,32 @@
             padding: 100px 30px;
 
             margin-bottom: 100px;
+
+            .menu-top {
+
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                span {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100px;
+                    height: 100px;
+                    margin: 0px 10px 10px;
+                    background-color: #ffffff;
+                    border: 2px solid #7f7f7f;
+                    color: #7f7f7f;
+                    font-size: 50px;
+                    font-weight: 200;
+                }
+
+                .buttons-edit-add {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
 
             .button-blue {
                 padding: 17px;

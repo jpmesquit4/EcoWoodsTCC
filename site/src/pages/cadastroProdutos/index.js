@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './index.scss';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,6 +11,17 @@ export default function CadastroProdutos() {
         navigate('/admin'); // Substitua '/nova-url' pela URL desejada
       };
 
+
+
+
+    const [nome, setNome] = useState('');
+    const [descricao, setDescricao] = useState('');
+    const [preco, setPreco] = useState('');
+    const [qntEstoque, setQntEstoque] = useState(0);
+    const [categoria, setCategoria] = useState('');
+    const [tamanhos, setTamanhos] = useState('');
+
+    
 
 
     return (
@@ -53,8 +65,17 @@ export default function CadastroProdutos() {
 
                 <div className="menu-right">
 
-                    <button className="button-blue">Adicionar imagem</button>  
-                    <button className="button-blue">Editar imagem</button>
+                    <div className='menu-top'>
+
+                        <span> + </span>
+
+                        <div className='buttons-edit-add'>
+                            <button className="button-blue">Adicionar imagem</button>  
+                            <button className="button-blue">Editar imagem</button>
+                        </div>
+
+                    </div>
+                    
 
                     <h1>Adicionar Produto</h1>
 

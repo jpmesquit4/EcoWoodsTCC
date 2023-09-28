@@ -49,7 +49,7 @@ export default function AdmPainel() {
                     <span> <img className="carta-sino" src="/assets/images/carta.png" alt="" /></span>
                     <span> <img className="icon-perfil" src="/assets/images/icon-perfil.png" alt="" /></span>
                 </div>
-                </div>
+            </div>
         </div>
   );
 }
