@@ -12,6 +12,9 @@
         display: flex;
         flex-direction: column;
         width: 26%;
+        height: 100%;
+        background-color: #fff;
+        
 
         .cabecalho-left {
             display: flex;
@@ -63,30 +66,30 @@
                 letter-spacing: 1px;
 
                 border: none;
-                background-color: white;
-                transition: 0.2s;
-                
+                background-color: rgb(255, 255, 255);
+                transition: 0.5s;
+                border: 2px solid transparent;
             }
 
-            button:focus{
-                background: #2F88E1;
-                color: white;
+            .vazio {
+                padding: 40px 25px;
             }
+
 
             button:hover {
-                background: #2F88E1;
+                transform: scale(1.03);
+                background-color: transparent;
+                color: #2a2a2a;
+                border: 2px solid #2a2a2a;
+            }
+
+            button:active {
+                background-color: #2a2a2a;
                 color: white;
             }
-        }
-    }
 
-    .linha {
-        background-color: #fff;
-        width: 10px;
-        height: auto;
-        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
-        position: relative;
-        z-index: 22;
+            
+        }
     }
 
     .part-right {
@@ -97,15 +100,13 @@
         .cabecalho-right {
             display: flex;
             flex-direction: row;
-            justify-content: end;
             align-items: center;
+            justify-content: end;
 
-            background-color: #F0E1D2;
+            background-color: #86b3e4;
             height: 15vh;
             width: 73vw;
             padding: 20px 0px;
-
-            margin-bottom: 80px;
 
            span {
 
@@ -124,21 +125,27 @@
 
                 button {
                     padding: 15px 50px;
-                    background-color: #7f7f7f;
-                    color: white;
+                    background-color: #fff;
+                    color: #2a2a2a;
                     font-family: 'montserrat', sans-serif;
                     border-radius: 30px;
                     border: none;
+                    border: 2px solid transparent;
                     margin-right: 30px;
                     transition: 0.5s;
                 }
 
                 button:hover {
                     transform: scale(1.03);
+                    background-color: transparent;
+                    color: #2a2a2a;
+                    border: 2px solid #2a2a2a;
                 }
 
                 button:active {
                     background-color: #2a2a2a;
+                    color: white;
+                    transform: scale(1.0);
                 }
             }
 
@@ -149,11 +156,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #F0E1D2;
-            width: 85%;
+            background-color: #BAD3ED;
+            width: 100%;
             padding: 100px 30px;
-
-            margin-bottom: 100px;
 
             .menu-top {
 

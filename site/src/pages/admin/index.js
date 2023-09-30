@@ -1,5 +1,7 @@
-import './index.scss';
+import storage from 'local-storage'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import './index.scss';
 
 export default function AdmPainel() {
 
@@ -9,6 +11,12 @@ export default function AdmPainel() {
       // Use navigate para mudar a URL quando o botão for clicado
       navigate('/cadastroprodutos'); // Substitua '/nova-url' pela URL desejada
     };
+
+    useEffect(() => {
+        if(!storage('usuario-logado')) {
+            navigate('/loginadm')
+        }
+    }, [])
 
 
   return (
@@ -32,15 +40,19 @@ export default function AdmPainel() {
                 <div className="menu-left">
                     <button onClick={handleButtonClick}>Gestão de Produtos</button>
 
+                    <button>Gestão de Produtos</button>
+
                     <button>Pedidos e Gestão de Vendas</button>
 
                     <button>Gestão de Clientes</button>
 
                     <button>Visão Geral do Painel</button>
+
+                    <span className='vazio'></span>
+
+                    <button>Sair</button>
                 </div>
             </div>
-
-            <div className="linha"></div>
 
             <div className="part-right">
                 <div className="cabecalho-right">
@@ -48,6 +60,10 @@ export default function AdmPainel() {
                     <span> <img className="carta-sino" src="/assets/images/sino.png" alt="" /></span>
                     <span> <img className="carta-sino" src="/assets/images/carta.png" alt="" /></span>
                     <span> <img className="icon-perfil" src="/assets/images/icon-perfil.png" alt="" /></span>
+                </div>
+
+                <div className='menu-right'>
+
                 </div>
             </div>
         </div>

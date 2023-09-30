@@ -1,4 +1,5 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+import storage from 'local-storage'
 import './index.scss';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,19 +8,21 @@ export default function CadastroProdutos() {
     const navigate = useNavigate();
 
     const handleButton1Click = () => {
-        // Use navigate para mudar a URL quando o botão for clicado
-        navigate('/admin'); // Substitua '/nova-url' pela URL desejada
+        navigate('/admin'); 
       };
 
+      function sairClick() {
+        storage.remove('usuario-logado');
+        navigate('/loginadm')
+      }
 
 
-
-    const [nome, setNome] = useState('');
-    const [descricao, setDescricao] = useState('');
-    const [preco, setPreco] = useState('');
-    const [qntEstoque, setQntEstoque] = useState(0);
-    const [categoria, setCategoria] = useState('');
-    const [tamanhos, setTamanhos] = useState('');
+    // const [nome, setNome] = useState('');
+    // const [descricao, setDescricao] = useState('');
+    // const [preco, setPreco] = useState('');
+    // const [qntEstoque, setQntEstoque] = useState(0);
+    // const [categoria, setCategoria] = useState('');
+    // const [tamanhos, setTamanhos] = useState('');
 
     
 
@@ -33,7 +36,7 @@ export default function CadastroProdutos() {
                         <img src="/assets/images/logo.png" alt="" />
                     </div>
 
-                        <div className="divisor"></div>
+                        <div className="divisor">&nbsp;</div>
 
                     <div>
                         <h1>Ecowoods</h1>
@@ -50,10 +53,12 @@ export default function CadastroProdutos() {
                     <button>Gestão de Clientes</button>
 
                     <button>Visão Geral do Painel</button>
+
+                    <span className='vazio'></span>
+
+                    <button onClick={sairClick}>Sair</button>
                 </div>
             </div>
-
-            <div className="linha"></div>
 
             <div className="part-right">
                 <div className="cabecalho-right">

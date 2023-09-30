@@ -90,6 +90,13 @@
             z-index: 3;
   
             align-items: center;
+
+            > p {
+              font-size: 12px;
+              font-family: 'montserrat', sans-serif;
+              font-weight: 600;
+              color: rgb(255, 0, 0);
+            }
   
             h1 {
               font-family: 'Montserrat', sans-serif;
@@ -124,11 +131,11 @@
             }
   
             button {
-                background: rgb(51,153,255);
-                background: linear-gradient(90deg, rgba(51,153,255,1) 0%, rgba(0,51,102,1) 100%);
+                background: #3399ff;
                 padding: 15px 100px;
                 border: none;
                 border-radius: 50px;
+                border: 2px solid transparent;
   
               color: white;
   
@@ -136,6 +143,20 @@
   
               font-family: 'Montserrat', sans-serif;
               letter-spacing: 2px;
+              transition: 0.5s;
+            }
+
+            button:hover {
+              cursor: pointer;
+              transform: scale(1.03);
+              background-color: transparent;
+              color: #2a2a2a;
+              border: 2px solid #2a2a2a;
+            }
+
+            button:active {
+              background-color: #2a2a2a;
+              color: white;
             }
           }
         }
