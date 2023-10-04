@@ -1,5 +1,30 @@
-*{
+* {
   margin: 0px;
   box-sizing: border-box;
   padding: 0px;
+}
+
+@font-face {
+  font-family: 'gotham-black';
+  src: url('../public/assets/font/Gotham-Font/Gotham-Black.otf');
+}
+
+@font-face {
+  font-family: 'gotham-bold';
+  src: url('../public/assets/font/Gotham-Font/Gotham-Bold.otf');
+}
+
+@font-face {
+  font-family: 'gotham-book';
+  src: url('../public/assets/font/Gotham-Font/GothamBook.ttf');
+}
+
+@font-face {
+  font-family: 'gotham-bookItalic';
+  src: url('../public/assets/font/Gotham-Font/Gotham-BookItalic.otf');
+}
+
+@font-face {
+  font-family: 'gotham-light';
+  src: url('../public/assets/font/Gotham-Font/Gotham-Light.otf');
 }

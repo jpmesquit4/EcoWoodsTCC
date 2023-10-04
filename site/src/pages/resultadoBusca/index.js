@@ -1,21 +1,10 @@
 import './index.scss';
 import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Resultado() {
 
-    const [mostrar, setMostrar] = useState(false);
-
-    // async function inputsh() {
-    //     if ( sacola += 1) {
-    //         setMostrar(true);
-
-
-    //     }
-
-    //     else{
-    //         setMostrar(false);
-    //     }
-    // }
+    
 
     return (
         <main className="pagina-result">
@@ -26,8 +15,10 @@ export default function Resultado() {
                         <img src="/assets/images/barra.png" alt="" />
                         <p>Menu</p>
 
-                        <img src="/assets/images/buscar.png" alt="" />
-                        <p>Buscar</p>
+                        <Link className='nav-link' to='/'>
+                            <img src="/assets/images/botao-home.png" alt="" />
+                            <p>Inicio</p>
+                        </Link>
                     </div>
 
                     <div className="header-mid">
@@ -55,6 +46,10 @@ export default function Resultado() {
             <section>
                 <div className="input-verificar">
                     <input type="text" placeholder='Pesquisa' />
+                    <button className='button-thumb'>
+                        <div></div>
+                        <img className='icon-relative' src="/assets/images/proc-2.png" alt="" />
+                    </button>
                 </div>
 
                 <main className="container-content">
@@ -63,53 +58,177 @@ export default function Resultado() {
                             Coleção
                         </p>
 
-                        <div>
-                            <input type="checkbox" />
-                            <label>
-                                Tudo <span classname="show-on">({''})</span>
-                            </label>
-                        </div>
+                        <div className='container-check'>
+                            <div className='sub-container'>
+                                <div class="custom-checkbox">
+                                    <input id="checkbox-1" type="checkbox" />
+                                    <label for="checkbox-1">Tudo { }</label>
+                                </div>
+                            </div>
 
-                        <div>
-                            <input type="checkbox" />
-                            <label>
-                                Cozinha <span classname="show-on">({''})</span>
-                            </label>
-                        </div>
+                            <div className='sub-container'>
+                                <div class="custom-checkbox">
+                                    <input id="checkbox-2" type="checkbox" />
+                                    <label for="checkbox-2">Cozinha { }</label>
+                                </div>
+                            </div>
 
-                        <div>
-                            <input type="checkbox" />
-                            <label>
-                                Decoração <span classname="show-on">({''})</span>
-                            </label>
-                        </div>
+                            <div className='sub-container'>
+                                <div class="custom-checkbox">
+                                    <input id="checkbox-3" type="checkbox" />
+                                    <label for="checkbox-3">Decoração { }</label>
+                                </div>
+                            </div>
 
-                        <div>
-                            <input type="checkbox" />
-                            <label>
-                                Quarto <span classname="show-on">({''})</span>
-                            </label>
+                            <div className='sub-container'>
+                                <div class="custom-checkbox">
+                                    <input id="checkbox-4" type="checkbox" />
+                                    <label for="checkbox-4">Quarto { }</label>
+                                </div>
+                            </div>
                         </div>
 
                         <hr />
 
                         <div className='input-move'>
                             <label for="valor">Valor</label>
-                            <input type="range" id="valor" name="volume" min="0" max="100"  />
+                            <input type="range" id="valor" name="volume" min="0" max="100" />
 
                             <div className='nav-valores'>
                                 <span>
-                                    ${''}
+                                    {/* usar para aparecer os valores disponiveis minimo */}
+                                    {''}
                                 </span>
 
                                 <span>
-                                    ${''}
+                                    {/* usar para aparecer os valores disponiveis maximos */}
+                                    {''}
                                 </span>
                             </div>
                         </div>
                     </div>
 
                     <div className="nav-right">
+                        <div className="cards">
+                            <div className="img-produto">
+                                <img src="/assets/images/img-result.png" alt="" />
+                            </div>
+
+                            <div className="info-produto">
+                                <p>
+                                    Escrivaninha de Carvalho
+                                    {/*
+                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
+                                {''}
+                            
+                                    */}
+                                    <br />
+                                    <span>
+                                        R$60,00
+                                    </span>
+                                </p>
+                                <p>
+                                    <img src="/assets/images/favoritar-result.png" alt="" />
+
+                                    {/* 
+                                USAR PARA PUXAR O FAVORITO DO BD
+                                {''} 
+                            
+                                    */}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="cards">
+                            <div className="img-produto">
+                                <img src="/assets/images/img-result.png" alt="" />
+                            </div>
+
+                            <div className="info-produto">
+                                <p>
+                                    Escrivaninha de Carvalho
+                                    {/*
+                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
+                                {''}
+                            
+                                    */}
+                                    <br />
+                                    <span>
+                                        R$60,00
+                                    </span>
+                                </p>
+                                <p>
+                                    <img src="/assets/images/favoritar-result.png" alt="" />
+
+                                    {/* 
+                                USAR PARA PUXAR O FAVORITO DO BD
+                                {''} 
+                            
+                                    */}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="cards">
+                            <div className="img-produto">
+                                <img src="/assets/images/img-result.png" alt="" />
+                            </div>
+
+                            <div className="info-produto">
+                                <p>
+                                    Escrivaninha de Carvalho
+                                    {/*
+                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
+                                {''}
+                            
+                                    */}
+                                    <br />
+                                    <span>
+                                        R$60,00
+                                    </span>
+                                </p>
+                                <p>
+                                    <img src="/assets/images/favoritar-result.png" alt="" />
+
+                                    {/* 
+                                USAR PARA PUXAR O FAVORITO DO BD
+                                {''} 
+                            
+                                    */}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="cards">
+                            <div className="img-produto">
+                                <img src="/assets/images/img-result.png" alt="" />
+                            </div>
+
+                            <div className="info-produto">
+                                <p>
+                                    Escrivaninha de Carvalho
+                                    {/*
+                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
+                                {''}
+                            
+                                    */}
+                                    <br />
+                                    <span>
+                                        R$60,00
+                                    </span>
+                                </p>
+                                <p>
+                                    <img src="/assets/images/favoritar-result.png" alt="" />
+
+                                    {/* 
+                                USAR PARA PUXAR O FAVORITO DO BD
+                                {''} 
+                            
+                                    */}
+                                </p>
+                            </div>
+                        </div>
+
                         <div className="cards">
                             <div className="img-produto">
                                 <img src="/assets/images/img-result.png" alt="" />

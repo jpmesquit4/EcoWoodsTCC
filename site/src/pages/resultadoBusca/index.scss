@@ -1,6 +1,6 @@
 .pagina-result {
     width: 100%;
-    height: 100vh;
+    height: 100%;
 
     hr {
         border: transparent;
@@ -35,8 +35,15 @@
                 display: flex;
                 align-items: center;
                 flex-direction: row;
-
                 gap: 20px;
+
+                .nav-link{
+                    gap: 15px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    text-decoration: none;
+                }
             }
 
             .header-mid {
@@ -92,25 +99,26 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
-        height: 100%;
+        height: auto;
         background-color: #D1D1D1;
 
         .input-verificar {
             width: 80%;
+            height: 35px;
             margin-top: 50px;
 
             input {
-
                 width: 100%;
                 height: 35px;
                 padding-left: 20px;
 
-                background-image: url('../../../public/assets/images/lupa-input.png');
-                background-repeat: no-repeat;
-                background-size: 16.5px;
-                background-position: 975px 9px;
+                // background-image: url('../../../public/assets/images/lupa-input.png');
+                // background-repeat: no-repeat;
+                // background-size: 16.5px;
+                // background-position: 1055px 9px;
                 border: transparent;
                 border-radius: 7.5px;
+                
 
                 ::placeholder {
                     font-size: 20px;
@@ -119,6 +127,36 @@
 
             input:focus {
                 outline: none;
+            }
+
+            .button-thumb {
+                position: relative;
+                // display: flex;
+                // flex-direction: row;
+                // justify-content: end;
+                top: -35px;
+                right: -1063px;
+                cursor: pointer;
+                width: 45px;
+                height: 35px;
+                border: none;
+                
+                background-color: transparent;
+
+                >div{
+                    width: 100%;
+                    height: 100%;
+                    background-color: #a5b8cc;
+                    border-radius: 0 7.5px 7.5px 0;
+                }
+
+                .icon-relative{
+                    position: relative;
+                    top: -27px;
+                    width: 20px;
+                    height: 20px;
+                    z-index: 5555;
+                }
             }
         }
 
@@ -130,88 +168,111 @@
             gap: 100px;
             width: 100%;
             height: 100%;
+            padding-left: 100px;
             // gap: 300px;
 
             .nav-left {
                 display: flex;
                 flex-direction: column;
                 width: 17%;
+                height: 100%;
 
                 hr {
                     border: transparent;
                     height: 1px;
                     background: #787878;
+                    margin: 15px 0;
                 }
 
                 >p {
                     font-size: 20px;
-                    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-family: gotham-light;
                     color: rgba(0, 0, 0, 0.75);
                     margin-bottom: 15px;
                     margin-left: 10px;
                 }
 
-                >div {
-                    padding-left: 10px;
-                    margin-bottom: 5px;
-                    display: inline-block;
-                    vertical-align: middle;
+                .container-check {
+                    .sub-container {
+                        margin-bottom: 5px;
+                        .custom-checkbox input {
+                            display: none;
+                        }
 
-                    label {
-                        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                        font-size: 15px;
-                    }
+                        .custom-checkbox input+label:before {
+                            content: '';
+                            width: 15px;
+                            height: 15px;
+                            border-radius: 4px;
+                            background-color: white;
+                            border: 1px solid gray;
+                            display: inline-block;
+                            vertical-align: middle;
+                            margin-right: 8px;
+                            margin-bottom: 3px;
+                            cursor: pointer;
+                        }
 
-                    input {
-                        width: 15px;
-                        height: 15px;
-                        margin-right: 10px;
+                        .custom-checkbox input:checked+label:before {
+                            background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
+                            background-repeat: no-repeat;
+                            background-color: #007bff;
+                            background-position: center;
+                            border: none;
+                            padding: 1px;
+                        }
 
-                        overflow: hidden;
-                        padding: 0;
-                        border: 0;
-                        border-radius: 20px;
-                        // :checked{
-                        //     color: aqua;
-                        // }
+                        label {
+                            font-family: gotham-bold;
+                            font-size: 14px;
+                        }
                     }
                 }
-                .input-move{
-                    margin-top: 20px;
-                    label{
-                        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+                .input-move {
+                    label {
+                        font-family: gotham-light;
                         color: rgba(0, 0, 0, 0.75);
                     }
-                    input[type="range"] {
+
+                    [type="range"] {
+                        margin: 10px 0;
                         width: 100%;
-                        height: 10px;
-                        background-color: #ddd;
-                    }
-    
-                    /* Estilizando a parte preenchida do controle deslizante */
-                    input[type="range"]::-webkit-slider-runnable-track {
                         background-color: #ffffff;
+                        appearance: none;
+                        display: block;
+                        padding: 0 0;
+                        border-radius: 5px;
                     }
-    
-                    /* Estilizando o botão (alça) do controle deslizante */
-                    input[type="range"]::-webkit-slider-thumb {
+
+                    [type="range"]::-webkit-slider-thumb {
+                        appearance: none;
+                        height: 10px;
                         width: 20px;
-                        height: 20px;
-                        background-color: #007bff;
-                        border: 2px solid #fff;
-                        border-radius: 50%;
+                        background-color: #2A2A2A;
+                        border-radius: 5px;
                     }
 
-                    >label{
+                    /* Estilizando a parte preenchida do controle deslizante */
+                    // input[type="range"]::-webkit-slider-runnable-track {
+
+                    // }
+
+                    /* Estilizando o botão (alça) do controle deslizante */
+
+
+                    >label {
                         font-size: 20px;
+                        margin-left: 10px;
                     }
 
-                    .nav-valores{
+                    .nav-valores {
                         display: flex;
                         justify-content: space-between;
                         padding: 0px 10px;
 
-                        span{
+                        span {
                             font-size: 13px;
                             font-family: Arial, Helvetica, sans-serif;
                         }
@@ -223,26 +284,34 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
-                width: 52.7%;
-
+                width: 100%;
+                background-color: #fff;
                 flex-wrap: wrap;
-                gap: 30px;
+                gap: 10px;
+                padding: 40px 35px 0;
+                border-radius: 5px;
 
                 .cards {
-
+                    margin-bottom: 30px;
+                    transition: .2s;
                     width: 250px;
                     height: auto;
+                    padding: 0 10px 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-self: flex-start;
+                    border-radius: 3px;
+                    background-color: #D1D1D1;
 
                     .img-produto {
-                        background-color: #B1B1B1;
-                        width: 250px;
+                        width: 100%;
                         height: 250px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
 
                         img {
-                            width: 200px;
+                            width: 100%;
                         }
                     }
 
@@ -250,19 +319,25 @@
                         width: 100%;
                         background-color: #fff;
                         padding-left: 15px;
+                        padding-bottom: 10px;
 
                         p {
-                            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                            font-size: 17px;
-                            font-weight: bold;
+                            font-family: gotham-black;
+                            font-size: 15.5px;
                             padding-top: 10px;
 
                             span {
-                                font-size: 15px;
+                                font-family: gotham-bold;
+                                font-size: 12px;
                                 color: rgb(101, 150, 53);
                             }
                         }
                     }
+                }
+
+                .cards:hover{
+                    cursor: pointer;
+                    transform: scale(1.02);
                 }
             }
         }
