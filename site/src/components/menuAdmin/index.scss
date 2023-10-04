@@ -1,0 +1,96 @@
+.part-left {
+
+    display: flex;
+    flex-direction: column;
+    width: 26%;
+    height: 100%;
+    background-color: #fff;
+    
+
+    .cabecalho-left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 15px 15px;
+        height: 15vh;
+
+        .divisor {
+
+            background-color: black;
+            height: 80px;
+            width: 1px;
+            margin-left: 120px;
+            margin-top: 15px;
+            margin-right: 10px;
+        }
+
+        div {
+
+            img {
+                position: absolute;
+                top: -15px;
+                left: 20px;
+            }
+
+            h1 {
+                font-family: 'Gotham Black';
+                font-size: 30px;
+                margin-top: 15px;
+            }
+
+            p {
+                font-family: 'MontSerrat', sans-serif;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .menu-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 67px;
+        border-radius: 30px;
+
+        a {
+            text-decoration: none;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            font-size: 14px;
+            border-radius: 40px;
+            font-family: 'MontSerrat', sans-serif;
+            letter-spacing: 1px;
+
+            border: none;
+            background-color: #Fff;
+            transition: 0.5s;
+            border: 2px solid transparent;
+            box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+            color: #2a2a2a;
+        }
+
+        .selecionado {
+            background-color: #2a2a2a;
+            color: white;
+        }
+
+        .vazio {
+            padding: 50px 25px;
+        }
+
+
+        a:hover {
+            transform: scale(1.03);
+            background-color: #2a2a2a;
+            color: white;
+            border: 2px solid #2a2a2a;
+        }
+
+        a:active {
+            background-color: #2a2a2a;
+            color: white;
+            transform: scale(1.0);
+        }
+    }
+}

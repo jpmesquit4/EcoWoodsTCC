@@ -1,20 +1,9 @@
 // import { useState } from 'react';
-import storage from 'local-storage'
 import './index.scss';
-import { useNavigate } from 'react-router-dom';
+import CabecalhoAdm from '../../components/cabecalhoAdmin';
+import MenuAdm from '../../components/menuAdmin';
 
 export default function CadastroProdutos() {
-    
-    const navigate = useNavigate();
-
-    const handleButton1Click = () => {
-        navigate('/admin'); 
-      };
-
-      function sairClick() {
-        storage.remove('usuario-logado');
-        navigate('/loginadm')
-      }
 
 
     // const [nome, setNome] = useState('');
@@ -30,43 +19,10 @@ export default function CadastroProdutos() {
     return (
         <div className="pagina-cadastroProdutos">
 
-            <div className="part-left">
-                <div className="cabecalho-left">
-                    <div>
-                        <img src="/assets/images/logo.png" alt="" />
-                    </div>
-
-                        <div className="divisor">&nbsp;</div>
-
-                    <div>
-                        <h1>Ecowoods</h1>
-
-                        <p>ADMIN PAINEL</p>
-                    </div>
-                </div>
-
-                <div className="menu-left">
-                    <button>Gestão de Produtos</button>
-
-                    <button>Pedidos e Gestão de Vendas</button>
-
-                    <button>Gestão de Clientes</button>
-
-                    <button>Visão Geral do Painel</button>
-
-                    <span className='vazio'></span>
-
-                    <button onClick={sairClick}>Sair</button>
-                </div>
-            </div>
+            <MenuAdm selecionado='cadastroprodutos' />
 
             <div className="part-right">
-                <div className="cabecalho-right">
-                    <span> <button onClick={handleButton1Click}>Home</button> </span>
-                    <span> <img className="carta-sino" src="/assets/images/sino.png" alt="" /></span>
-                    <span> <img className="carta-sino" src="/assets/images/carta.png" alt="" /></span>
-                    <span> <img className="icon-perfil" src="/assets/images/icon-perfil.png" alt="" /></span>
-                </div>
+                <CabecalhoAdm />
 
                 <div className="menu-right">
 

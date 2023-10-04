@@ -7,155 +7,9 @@
     display: flex;
     flex-direction: row;
 
-    .part-left {
-
-        display: flex;
-        flex-direction: column;
-        width: 26%;
-        height: 100%;
-        background-color: #fff;
-        
-
-        .cabecalho-left {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0px 15px 15px;
-            height: 15vh;
-
-            .divisor {
-
-                background-color: black;
-                height: 80px;
-                width: 1px;
-                margin-left: 120px;
-                margin-top: 15px;
-                margin-right: 10px;
-            }
-
-            div {
-
-                img {
-                    position: absolute;
-                    top: -15px;
-                    left: 20px;
-                }
-
-                h1 {
-                    font-family: 'Gotham Black';
-                    font-size: 30px;
-                    margin-top: 15px;
-                }
-
-                p {
-                    font-family: 'MontSerrat', sans-serif;
-                    font-size: 16px;
-                }
-            }
-        }
-
-        .menu-left {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 67px;
-            border-radius: 30px;
-
-            button {
-                margin-bottom: 20px;
-                padding: 15px 20px;
-                font-size: 14px;
-                border-radius: 40px;
-                font-family: 'MontSerrat', sans-serif;
-                letter-spacing: 1px;
-
-                border: none;
-                background-color: #Fff;
-                transition: 0.5s;
-                border: 2px solid transparent;
-                box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
-            }
-
-            .vazio {
-                padding: 50px 25px;
-            }
-
-
-            button:hover {
-                transform: scale(1.03);
-                background-color: transparent;
-                color:  #2a2a2a;
-                border: 2px solid #2a2a2a;
-            }
-
-            button:active {
-                background-color: #2a2a2a;
-                color: white;
-                transform: scale(1.0);
-            }
-
-            
-        }
-    }
-
     .part-right {
         display: flex;
         flex-direction: column;
-        align-items: center;
-
-        .cabecalho-right {
-            display: flex;
-            flex-direction: row;
-
-            background-color: #86b3e4;
-            height: 15vh;
-            width: 73vw;
-            padding: 20px 0px;
-
-           span {
-
-                .carta-sino {
-                    background-color: #fff;
-                    padding: 15px;
-                    border-radius: 50%;  
-                    margin-right: 30px;
-                }
-
-                .icon-perfil {
-                    padding-right: 90px;
-                    height: 60px;
-                    width: auto;
-                }
-
-                button {
-                    padding: 15px 50px;
-                    background-color: #fff;
-                    color: #2a2a2a;
-                    font-family: 'montserrat', sans-serif;
-                    border-radius: 30px;
-                    border: none;
-                    border: 2px solid transparent;
-                    margin-right: 30px;
-                    transition: 0.5s;
-                }
-
-                button:hover {
-                    transform: scale(1.03);
-                    background-color: transparent;
-                    color: #2a2a2a;
-                    border: 2px solid #2a2a2a;
-                }
-
-                button:active {
-                    background-color: #2a2a2a;
-                    color: white;
-                    transform: scale(1.0);
-                }
-            }
-
-
-        }
 
         .menu-right {
             display: flex;
@@ -163,8 +17,7 @@
             align-items: center;
             background-color: #BAD3ED;
             width: 100%;
-            height: auto;
-            min-height: 85vh;
+            height: 85vh;
         }
     }
 }

@@ -1,0 +1,67 @@
+.cabecalho-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #86b3e4;
+    height: 15vh;
+    width: 73vw;
+    padding: 20px 40px;
+
+    .bem-vindo {
+        
+        p {
+            font-family: 'montserrat', sans-serif;
+            font-size: 16px;
+            color: #fff;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+    }
+
+   .botao-perfil {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .icon-perfil {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'montserrat', sans-serif;
+            width: 50px;
+            height: 50px;
+            background-color: #adcae6;
+            border-radius: 50%;
+            color: #fff;
+        }
+
+        button {
+            padding: 15px 50px;
+            background-color: #fff;
+            color: #2a2a2a;
+            font-family: 'montserrat', sans-serif;
+            border-radius: 30px;
+            border: none;
+            border: 2px solid transparent;
+            margin-right: 30px;
+            transition: 0.5s;
+        }
+
+        button:hover {
+            transform: scale(1.03);
+            background-color: transparent;
+            color: #2a2a2a;
+            border: 2px solid #2a2a2a;
+        }
+
+        button:active {
+            background-color: #2a2a2a;
+            color: white;
+            transform: scale(1.0);
+        }
+    }
+
+
+}
