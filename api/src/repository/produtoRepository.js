@@ -52,5 +52,11 @@ export async function removerProduto(id) {
     return resposta.affectedRows;
 }
 
+export async function alterarImagem(imagem, id) {
+    const comando = `
+        
+    `
+}
+
 
 

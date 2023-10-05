@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+
 import './index.scss'
+
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 
@@ -25,7 +27,7 @@ export default function CabecalhoAdm() {
         <div className="cabecalho-right">
 
             <div className='bem-vindo'>
-                <p>Seja bem-vindo, {usuario} </p>
+                <p>Seja bem-vindo, {usuario}! </p>
             </div>
 
             <div className='botao-perfil'>

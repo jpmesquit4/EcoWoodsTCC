@@ -46,15 +46,15 @@ export default function MenuAdm(props) {
                 <div className="menu-left">
                     <Link to='/cadastroprodutos' className={verificarMenuSelecionado('cadastroprodutos')}>Gestão de Produtos</Link>
 
-                    <button>Pedidos e Gestão de Vendas</button>
+                    <Link>Pedidos e Gestão de Vendas</Link>
 
-                    <button>Gestão de Clientes</button>
+                    <Link>Gestão de Clientes</Link>
 
-                    <button>Visão Geral do Painel</button>
+                    <Link>Visão Geral do Painel</Link>
 
                     <span className='vazio'></span>
 
-                    <button onClick={sairClick}>Sair</button>
+                    <a onClick={sairClick} href='#'>Sair</a>
                 </div>
             </div>
     )
