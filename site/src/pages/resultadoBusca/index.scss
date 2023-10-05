@@ -103,9 +103,26 @@
         background-color: #D1D1D1;
 
         .input-verificar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             width: 80%;
             height: 35px;
             margin-top: 50px;
+
+            .icon-relative{
+                background-color: rgb(173, 173, 173);
+                padding: 10px;
+                width: 35px;
+                height: 35px;
+                z-index: 5555;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+            
+            .icon-relative:hover{
+                cursor: pointer;
+            }
 
             input {
                 width: 100%;
@@ -117,7 +134,8 @@
                 // background-size: 16.5px;
                 // background-position: 1055px 9px;
                 border: transparent;
-                border-radius: 7.5px;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
                 
 
                 ::placeholder {
@@ -130,12 +148,10 @@
             }
 
             .button-thumb {
-                position: relative;
+                position: absolute;
                 // display: flex;
                 // flex-direction: row;
                 // justify-content: end;
-                top: -35px;
-                right: -1063px;
                 cursor: pointer;
                 width: 45px;
                 height: 35px;
@@ -148,14 +164,6 @@
                     height: 100%;
                     background-color: #a5b8cc;
                     border-radius: 0 7.5px 7.5px 0;
-                }
-
-                .icon-relative{
-                    position: relative;
-                    top: -27px;
-                    width: 20px;
-                    height: 20px;
-                    z-index: 5555;
                 }
             }
         }

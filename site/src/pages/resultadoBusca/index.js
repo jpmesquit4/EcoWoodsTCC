@@ -46,10 +46,7 @@ export default function Resultado() {
             <section>
                 <div className="input-verificar">
                     <input type="text" placeholder='Pesquisa' />
-                    <button className='button-thumb'>
-                        <div></div>
-                        <img className='icon-relative' src="/assets/images/proc-2.png" alt="" />
-                    </button>
+                    <img onClick={''} className='icon-relative' src="/assets/images/proc-2.png" alt="" />
                 </div>
 
                 <main className="container-content">
