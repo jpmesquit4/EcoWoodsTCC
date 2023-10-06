@@ -12,7 +12,9 @@ Select NM_Usuario, DS_Senha from TB_Usuario where NM_Usuario = ? and DS_Senha = 
 
 
 -- 3° Login ADM
-Select NM_Adm, DS_Senha from TB_Admin where NM_Adm = ? and DS_Senha = ?;
+
+insert into TB_Admin(NM_Adm, DS_email, DS_Senha)
+			   value('admin', 'admin@admin.com.br', '1234');
 
 
 
@@ -43,3 +45,5 @@ where ID_Usuario = ?;
 
 -- 7° Deletar Produto
 Delete from TB_Produto where ID_Produto = ?
+
+
