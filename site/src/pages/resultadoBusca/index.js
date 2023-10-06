@@ -1,10 +1,11 @@
 import './index.scss';
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../../components/footer';
 
 export default function Resultado() {
 
-    
+
 
     return (
         <main className="pagina-result">
@@ -106,188 +107,206 @@ export default function Resultado() {
                     </div>
 
                     <div className="nav-right">
-                        <div className="cards">
-                            <div className="img-produto">
-                                <img src="/assets/images/img-result.png" alt="" />
-                            </div>
+                        <div className='container-cards'>
+                            <div className="cards">
+                                <div className="img-produto">
+                                    <img src="/assets/images/img-result.png" alt="" />
+                                </div>
 
-                            <div className="info-produto">
-                                <p>
-                                    Escrivaninha de Carvalho
-                                    {/*
+                                <div className="info-produto">
+                                    <p>
+                                        Escrivaninha de Carvalho
+                                        {/*
                                 USAR PARA PUXAR AS INFORMAÇÕES DO BD
                                 {''}
                             
                                     */}
-                                    <br />
-                                    <span>
-                                        R$60,00
-                                    </span>
-                                </p>
-                                <p>
-                                    <img src="/assets/images/favoritar-result.png" alt="" />
+                                        <br />
+                                        <span>
+                                            R$60,00
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <img src="/assets/images/favoritar-result.png" alt="" />
 
-                                    {/* 
+                                        {/* 
                                 USAR PARA PUXAR O FAVORITO DO BD
                                 {''} 
                             
                                     */}
-                                </p>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="cards">
+                                <div className="img-produto">
+                                    <img src="/assets/images/img-result.png" alt="" />
+                                </div>
+
+                                <div className="info-produto">
+                                    <p>
+                                        Escrivaninha de Carvalho
+                                        {/*
+                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
+                                {''}
+                            
+                                    */}
+                                        <br />
+                                        <span>
+                                            R$60,00
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <img src="/assets/images/favoritar-result.png" alt="" />
+
+                                        {/* 
+                                USAR PARA PUXAR O FAVORITO DO BD
+                                {''} 
+                            
+                                    */}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="cards">
+                                <div className="img-produto">
+                                    <img src="/assets/images/img-result.png" alt="" />
+                                </div>
+
+                                <div className="info-produto">
+                                    <p>
+                                        Escrivaninha de Carvalho
+                                        {/*
+                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
+                                {''}
+                            
+                                    */}
+                                        <br />
+                                        <span>
+                                            R$60,00
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <img src="/assets/images/favoritar-result.png" alt="" />
+
+                                        {/* 
+                                USAR PARA PUXAR O FAVORITO DO BD
+                                {''} 
+                            
+                                    */}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="cards">
+                                <div className="img-produto">
+                                    <img src="/assets/images/img-result.png" alt="" />
+                                </div>
+
+                                <div className="info-produto">
+                                    <p>
+                                        Escrivaninha de Carvalho
+                                        {/*
+                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
+                                {''}
+                            
+                                    */}
+                                        <br />
+                                        <span>
+                                            R$60,00
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <img src="/assets/images/favoritar-result.png" alt="" />
+
+                                        {/* 
+                                USAR PARA PUXAR O FAVORITO DO BD
+                                {''} 
+                            
+                                    */}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="cards">
+                                <div className="img-produto">
+                                    <img src="/assets/images/img-result.png" alt="" />
+                                </div>
+
+                                <div className="info-produto">
+                                    <p>
+                                        Escrivaninha de Carvalho
+                                        {/*
+                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
+                                {''}
+                            
+                                    */}
+                                        <br />
+                                        <span>
+                                            R$60,00
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <img src="/assets/images/favoritar-result.png" alt="" />
+
+                                        {/* 
+                                USAR PARA PUXAR O FAVORITO DO BD
+                                {''} 
+                            
+                                    */}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="cards">
+                                <div className="img-produto">
+                                    <img src="/assets/images/img-result.png" alt="" />
+                                </div>
+
+                                <div className="info-produto">
+                                    <p>
+                                        Escrivaninha de Carvalho
+                                        {/*
+                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
+                                {''}
+                            
+                                    */}
+                                        <br />
+                                        <span>
+                                            R$60,00
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <img src="/assets/images/favoritar-result.png" alt="" />
+
+                                        {/* 
+                                USAR PARA PUXAR O FAVORITO DO BD
+                                {''} 
+                            
+                                    */}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-
-                        <div className="cards">
-                            <div className="img-produto">
-                                <img src="/assets/images/img-result.png" alt="" />
-                            </div>
-
-                            <div className="info-produto">
-                                <p>
-                                    Escrivaninha de Carvalho
-                                    {/*
-                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
-                                {''}
+                        <div className='change-pages'>
+                            <span className='click-menor'>
+                                <img src="/assets/images/menor.png" alt="" />
+                            </span>
                             
-                                    */}
-                                    <br />
-                                    <span>
-                                        R$60,00
-                                    </span>
-                                </p>
-                                <p>
-                                    <img src="/assets/images/favoritar-result.png" alt="" />
+                            <span>
+                                {/* como vamos fazer isso? não tenho ideia ainda*/}
+                                1 2 3 4 5
+                            </span>
 
-                                    {/* 
-                                USAR PARA PUXAR O FAVORITO DO BD
-                                {''} 
-                            
-                                    */}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="cards">
-                            <div className="img-produto">
-                                <img src="/assets/images/img-result.png" alt="" />
-                            </div>
-
-                            <div className="info-produto">
-                                <p>
-                                    Escrivaninha de Carvalho
-                                    {/*
-                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
-                                {''}
-                            
-                                    */}
-                                    <br />
-                                    <span>
-                                        R$60,00
-                                    </span>
-                                </p>
-                                <p>
-                                    <img src="/assets/images/favoritar-result.png" alt="" />
-
-                                    {/* 
-                                USAR PARA PUXAR O FAVORITO DO BD
-                                {''} 
-                            
-                                    */}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="cards">
-                            <div className="img-produto">
-                                <img src="/assets/images/img-result.png" alt="" />
-                            </div>
-
-                            <div className="info-produto">
-                                <p>
-                                    Escrivaninha de Carvalho
-                                    {/*
-                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
-                                {''}
-                            
-                                    */}
-                                    <br />
-                                    <span>
-                                        R$60,00
-                                    </span>
-                                </p>
-                                <p>
-                                    <img src="/assets/images/favoritar-result.png" alt="" />
-
-                                    {/* 
-                                USAR PARA PUXAR O FAVORITO DO BD
-                                {''} 
-                            
-                                    */}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="cards">
-                            <div className="img-produto">
-                                <img src="/assets/images/img-result.png" alt="" />
-                            </div>
-
-                            <div className="info-produto">
-                                <p>
-                                    Escrivaninha de Carvalho
-                                    {/*
-                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
-                                {''}
-                            
-                                    */}
-                                    <br />
-                                    <span>
-                                        R$60,00
-                                    </span>
-                                </p>
-                                <p>
-                                    <img src="/assets/images/favoritar-result.png" alt="" />
-
-                                    {/* 
-                                USAR PARA PUXAR O FAVORITO DO BD
-                                {''} 
-                            
-                                    */}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="cards">
-                            <div className="img-produto">
-                                <img src="/assets/images/img-result.png" alt="" />
-                            </div>
-
-                            <div className="info-produto">
-                                <p>
-                                    Escrivaninha de Carvalho
-                                    {/*
-                                USAR PARA PUXAR AS INFORMAÇÕES DO BD
-                                {''}
-                            
-                                    */}
-                                    <br />
-                                    <span>
-                                        R$60,00
-                                    </span>
-                                </p>
-                                <p>
-                                    <img src="/assets/images/favoritar-result.png" alt="" />
-
-                                    {/* 
-                                USAR PARA PUXAR O FAVORITO DO BD
-                                {''} 
-                            
-                                    */}
-                                </p>
-                            </div>
+                            <span className='click-maior'>
+                                <img src="/assets/images/menor.png" alt="" />
+                            </span>
                         </div>
                     </div>
                 </main>
             </section>
+
+            <Footer />
         </main>
 
     );
