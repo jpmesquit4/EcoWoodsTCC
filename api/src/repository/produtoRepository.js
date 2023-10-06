@@ -1,23 +1,26 @@
 import { con } from './connection.js';
 
-export async function inserirProduto(categoria, produto, descricao, preco, estoque, favorito) {
-    const comando = `insert into TB_Produto(ID_Categoria, NM_Produto, DS_Descricao, VL_Preco, NR_Estoque, BT_Favorito)
-                                            value(?, ?, ?, ?, ?, ?);`
+export async function inserirProduto(produto) {
+    const comando = `insert into TB_Produto(ID_Adm, NM_Produto, DS_Descricao, VL_Preco, NR_Estoque, ID_Categoria, DS_Tamanho)
+                                            value(?, ?, ?, ?, ?, ?, ?);`
 
 
-    const [linhas] = await con.query(comando, [categoria, produto, descricao, preco, estoque, favorito])
-    return linhas[0];
+    const [resposta] = await con.query(comando, [produto.adm, produto.nome, produto.descricao, produto.preco, produto.estoque, produto.categoria, produto.tamanhos])
+    produto.id = resposta.insertId;
+
+    return produto;
 }
 
 export async function buscarTodosProdutos() {
     const comando =
         `
-    select  ID_Categoria        categoria,
-            NM_produto          produto,
+    select  ID_Categoria            categoria,
+            NM_produto              produto,
 		    DS_Descricao            descricao,
-            VL_Preco              preco,
-            NR_Estoque            estoque,
-            BT_Favorito         favorito
+            VL_Preco                preco,
+            DS_Tamanho              tamanho,
+            NR_Estoque              estoque,
+            ID_Adm                  adm
     from    TB_Produto;
     `
 
@@ -53,9 +56,14 @@ export async function removerProduto(id) {
 }
 
 export async function alterarImagem(imagem, id) {
-    const comando = `
-        
+    const comando = `   
+        update  TB_Produto
+        set     IMG_Produto     = ?
+        where   ID_Produto      = ?;
     `
+
+    const [resposta] = await con.query(comando, [imagem, id]);
+    return resposta.affectedRows;
 }
 
 

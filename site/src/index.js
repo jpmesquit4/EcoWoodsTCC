@@ -11,19 +11,23 @@ import AdmPainel from './pages/admin';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Resultado from './pages/resultadoBusca';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/logincliente' element={<LoginCliente />}/>
-        <Route path='/cadastrocliente' element={<CadastroCliente />}/>
-        <Route path='/loginadm' element={<LoginADM />}/>
-        <Route path='/resultadoBuscar' element={<Resultado/>} />
-        <Route path='/cadastroprodutos' element={<CadastroProdutos/>} />
-        <Route path='/admin' element={<AdmPainel/>} />
-      </Routes>
+      <ToastContainer />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/logincliente' element={<LoginCliente />}/>
+          <Route path='/cadastrocliente' element={<CadastroCliente />}/>
+          <Route path='/loginadm' element={<LoginADM />}/>
+          <Route path='/resultadoBuscar' element={<Resultado/>} />
+          <Route path='/cadastroprodutos' element={<CadastroProdutos/>} />
+          <Route path='/admin' element={<AdmPainel/>} />
+        </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -19,26 +19,59 @@ insert into TB_Admin(NM_Adm, DS_email, DS_Senha)
 
 
 -- 4° Cadastro Produto
-insert into TB_Produto(ID_Categoria, NM_Produto, DS_Descricao, VL_Preco, NR_Estoque, BT_Favorito)
-				value(?, ?, ?, ?, ?, ?);
+insert into TB_Produto(ID_Categoria, NM_Produto, DS_Descricao, VL_Preco, NR_Estoque, BT_Favorito, img_prdouto)
+				value(?, ?, ?, ?, ?, ?, ?);
+
+--4.1° alterar imagem
+update  TB_Produto
+set     IMG_Produto     = '/storage/produto/asdasdasd.jpg'
+where   ID_Produto      = 1;
                 
 
--- 5° Consultar produto
-select * from TB_Produto
-INNER JOIN TB_Produto_Imagem
-ON TB_Produto.ID_Produto = TB_Produto_Imagem.ID_Produto;
+-- 5° Consultar todos produto
+select  ID_Produto           id,
+        NM_Produto           nome,
+        DS_Descricao         descricao,
+        VL_Preco             preco,
+        NR_Estoque           estoque,
+        BT_Favorito          favorito
+from    TB_Produto;  
+
+
+-- 5.1° Consultar produtos por nome
+select  ID_Produto           id,
+        NM_Produto           nome,
+        DS_Descricao         descricao,
+        VL_Preco             preco,
+        NR_Estoque           estoque,
+        BT_Favorito          favorito
+from    TB_Produto
+where   NM_Produto          like '%a%';
+
+-- 5.2° Consultar produtos por id
+select  ID_Produto           id,
+        NM_Produto           nome,
+        DS_Descricao         descricao,
+        VL_Preco             preco,
+        NR_Estoque           estoque,
+        BT_Favorito          favorito,
+        img_produto          image,
+from    TB_Produto
+where   ID_Produto          = ?;  
+       
 
 
 
 -- 6° Editar Produto
-update TB_Produto
-set ID_Categoria = ?,
-    NM_Produto = ?,
-    DS_Descricao = ?,
-    VL_Preco = ?,
-    NR_Estoque = ?,
-    BT_Favorito = ?
-where ID_Usuario = ?;
+update  TB_Produto
+set     ID_Categoria = ?,
+        NM_Produto = ?,
+        DS_Descricao = ?,
+        VL_Preco = ?,
+        NR_Estoque = ?,
+        BT_Favorito = ?,
+        img_Produto = ?
+where   ID_Produto = ?;
 
 
 

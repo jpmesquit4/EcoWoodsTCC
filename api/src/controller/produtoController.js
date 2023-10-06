@@ -1,14 +1,37 @@
-import { alterarProdutoPorID, buscarTodosProdutos, inserirProduto, removerProduto} from '../repository/produtoRepository.js'
+import { alterarProdutoPorID, buscarTodosProdutos, inserirProduto, removerProduto, alterarImagem} from '../repository/produtoRepository.js'
+import multer from 'multer';
 import { Router } from "express";
 
 const server = Router();
+const upload = multer({ dest: 'storage/imageProdutos'})
 
 server.post('/produto', async (req, resp) => {
     try {
-        const { categoria, produto, descricao, preco, estoque, favorito } = req.body;
+        const novoProduto = req.body;
 
-        const resposta = await inserirProduto(categoria, produto, descricao, preco, estoque, favorito);
-        resp.send(resposta)
+        if(!novoProduto.nome)
+        throw new Error('Nome do produto é obrigatório!')
+
+        if(!novoProduto.descricao)
+        throw new Error('Descrição do produto é obrigatória!')
+
+        if(novoProduto.preco <= 0 || novoProduto.preco === undefined)
+        throw new Error('Preço do produto é obrigatório!')
+
+        if(!novoProduto.estoque)
+        throw new Error('Quantidade no estoque é obrigatório!')
+    
+        if(!novoProduto.categoria)
+        throw new Error('Categoria do produto é obrigatório!')
+
+        if(!novoProduto.tamanhos)
+        throw new Error('Tamanho do produto é obrigatório!')
+
+        if(!novoProduto.adm)
+        throw new Error('Adm não logado!')
+
+        const produtoInserido = await inserirProduto(novoProduto);
+        resp.send(produtoInserido);
 
     } catch (err) {
         resp.status(400).send({
@@ -29,23 +52,23 @@ server.get('/produto', async (req, resp) => {
     }
 })
 
-// server.put('/produto/:id/image', upload.single('image'), async (req, resp) => {
-//     try {
-//         const { id } = req.params;
-//         const imagem = req.file.path;
+server.put('/produto/:id/image', upload.single('image'), async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const imagem = req.file.path;
 
-//         const resposta = await alterarImagem(imagem, id);
-//         if (resposta != 1)
-//             throw new Error('A imagem não pode ser salva.')
+        const resposta = await alterarImagem(imagem, id);
+        if (resposta != 1)
+            throw new Error('A imagem não pode ser salva.')
 
-//         resp.status(204).send();
+        resp.status(204).send();
 
-//     } catch (err) {
-//         resp.status(400).send({
-//             erro: err.message
-//         });
-//     }
-// })
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
+    }
+})
 
 server.delete('/produto/:id', async (req, resp) => {
     try {

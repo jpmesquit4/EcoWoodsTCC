@@ -11,6 +11,11 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
+// liberar arquivos da storage
+server.use('/storage/imageProdutos', express.static('storage/imageProdutos'));
+
+
+// configuração dos endpoints
 server.use(produtoController);
 server.use(clienteController);
 server.use(usuarioController);

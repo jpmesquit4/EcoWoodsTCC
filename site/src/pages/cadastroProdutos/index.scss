@@ -3,6 +3,20 @@
     margin: 0px;
 }
 
+.Toastify__progress-bar-theme--dark {
+    background-color:#2F88E1 !important;
+}
+
+.Toastify__toast-theme--dark {
+    font-family: 'gotham' !important;
+    font-size: 14px;
+}
+
+.Toastify__toast--error {
+    font-family: 'gotham' !important;
+    font-size: 14px;
+}
+
 .pagina-cadastroProdutos {
     display: flex;
     flex-direction: row;

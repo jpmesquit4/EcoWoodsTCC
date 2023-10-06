@@ -26,7 +26,7 @@ FOREIGN KEY (ID_Produto) REFERENCES TB_Produto(ID_Produto)
 
 drop table TB_Produto_Imagem;
 create table TB_Produto_Imagem(
-ID_Imagem_roduto			int primary key auto_increment,
+ID_Imagem_produto			int primary key auto_increment,
 ID_Produto					int,
 IMG_Produto					varchar(100),
 FOREIGN KEY (ID_Produto) REFERENCES TB_Produto(ID_Produto)
