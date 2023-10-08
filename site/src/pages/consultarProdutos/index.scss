@@ -3,6 +3,11 @@
     box-sizing: border-box;
 }
 
+.Toastify__toast--success {
+    font-family: 'gotham' !important;
+    font-size: 14px;
+}
+
 .pagina-consultarProdutos {
     display: flex;
     flex-direction: row;

@@ -74,12 +74,11 @@ export async function alterarProdutoPorID(id, produto) {
         SET     ID_Categoria            = ?,
                 NM_produto              = ?,
                 VL_Preco                = ?,
-                NR_Estoque              = ?,
-                BT_Favorito             = ?
+                NR_Estoque              = ?
         WHERE   ID_Produto = ?
         `;
 
-    const [resposta] = await con.query(comando, [produto.categoria, produto.produto, produto.preco, produto.estoque, produto.favorito, id])
+    const [resposta] = await con.query(comando, [produto.categoria, produto.produto, produto.preco, produto.estoque, id])
     return resposta.affectedRows;
 }
 

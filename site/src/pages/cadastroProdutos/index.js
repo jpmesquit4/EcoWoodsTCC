@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './index.scss';
 
 import CabecalhoAdm from '../../components/cabecalhoAdmin';
 import MenuAdm from '../../components/menuAdmin';
 
-import storage from 'local-storage'
-import { cadastrarProduto, enviarImagemProduto, alterarPrdotuo } from '../../api/produtoApi'
+import storage from 'local-storage';
+import { cadastrarProduto, enviarImagemProduto, alterarPrdotuo, buscarPorId, buscarImagem } from '../../api/produtoApi';
+import { useParams } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
 
@@ -20,6 +21,26 @@ export default function CadastroProdutos() {
     const [tamanhos, setTamanhos] = useState('');
     const [imagem, setImagem] = useState();
     const [id, setId] = useState(0);
+
+    const { idParam } = useParams();
+
+    useEffect(() => {
+        if(idParam) {
+            carregarProduto();
+        }
+    }, [])
+
+    async function carregarProduto() {
+        const resposta = await buscarPorId(idParam);
+        setNome(resposta.produto);
+        setDescricao(resposta.descricao);
+        setPreco(resposta.preco);
+        setEstoque(resposta.estoque) ;
+        setCategoria(resposta.categoria);
+        setTamanhos(resposta.tamanho);
+        setImagem(resposta.imagem);
+        setId(resposta.id);
+    }
 
     
 
@@ -37,7 +58,9 @@ export default function CadastroProdutos() {
                 toast.dark('🚀 Produto cadastrado com sucesso!');
             } else {
                 await alterarPrdotuo(id, nome, descricao, preco, estoque, categoria, tamanhos, usuario);
-                await enviarImagemProduto(id, imagem);
+
+                if (typeof(imagem) == 'object')
+                    await enviarImagemProduto(id, imagem);
                 toast.dark('🚀 Produto alterado com sucesso!');
             }
 
@@ -57,7 +80,12 @@ export default function CadastroProdutos() {
     }
 
     function mostrarImagem() {
-        return URL.createObjectURL(imagem);
+        if (typeof (imagem) == 'object') {
+            return URL.createObjectURL(imagem);
+        } 
+        else {
+            return buscarImagem(imagem);
+        }
     }
 
     function novoClick() {

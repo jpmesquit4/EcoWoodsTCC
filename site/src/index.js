@@ -14,7 +14,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Resultado from './pages/resultadoBusca';
 
 import { ToastContainer } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,7 +29,10 @@ root.render(
           <Route path='/cadastrocliente' element={<CadastroCliente />}/>
           <Route path='/loginadm' element={<LoginADM />}/>
           <Route path='/resultadoBuscar' element={<Resultado/>} />
+
           <Route path='/cadastroprodutos' element={<CadastroProdutos/>} />
+          <Route path='/alterar/:idParam' element={<CadastroProdutos/>} />
+
           <Route path='/consultarprodutos' element={<ConsultarProdutos/>} />
           <Route path='/admin' element={<AdmPainel/>} />
         </Routes>

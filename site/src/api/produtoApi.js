@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const api = axios.create({
     baseURL: 'http://localhost:6969'
@@ -32,9 +32,9 @@ export async function enviarImagemProduto(id, imagem) {
     return resposta.data;
 }
 
-export async function alterarPrdotuo(id, nome, descricao, preco, estoque, categoria, tamanhos, adm) {
+export async function alterarPrdotuo(id, produto, descricao, preco, estoque, categoria, tamanhos, adm) {
     const resposta = await api.put(`/produto/${id}`, {
-        nome: nome,
+        produto: produto,
         descricao: descricao,
         preco: preco,
         estoque: estoque,
@@ -56,3 +56,16 @@ export async function buscarProdutosPorNome(nome) {
     return resposta.data;
 }
 
+export async function removerProduto(id) {
+    const resposta = await api.delete(`/produto/${id}`);
+    return resposta.status;
+}
+
+export async function buscarPorId(id) {
+    const resposta = await api.get(`/produto/${id}`);
+    return resposta.data;
+}
+
+export function buscarImagem(imagem) {
+    return `${api.getUri()}/${imagem}`
+}

@@ -3,14 +3,53 @@ import './index.scss';
 import CabecalhoAdm from '../../components/cabecalhoAdmin';
 import MenuAdm from '../../components/menuAdmin';
 
-import { listarTodosProdutos, buscarProdutosPorNome } from '../../api/produtoApi'
+import { confirmAlert } from 'react-confirm-alert';
+
+import { listarTodosProdutos, buscarProdutosPorNome, removerProduto } from '../../api/produtoApi'
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { toast } from 'react-toastify'
 
 export default function ConsultarProdutos() {
 
     const [produtos, setProdutos] = useState([]);
     const [filtro, setFiltro] = useState('');
+    const navigate = useNavigate();
+
+    function editarProduto(id) {
+        navigate(`/alterar/${id}`)
+    }
     
+    async function removerProdutoClick(id, produto) {
+
+        confirmAlert({
+            title: 'Remover produto',
+            message: `Deseja remover o produto ${produto}`,
+            buttons: [
+                {
+                    label: 'Sim',
+                    onClick: async () => {
+                        const resposta = await removerProduto(id, produto);
+                            if(filtro === '')
+                                carregarTodosProdutos();
+                            else
+                                filtrar();
+
+                        toast.success('Filme Removido')
+                    }
+                },
+                {
+                    label: 'Não'
+                }
+            ]
+        })
+
+
+
+        
+    }
+
     async function filtrar() {
         const resp = await buscarProdutosPorNome(filtro);
         setProdutos(resp);
@@ -60,7 +99,7 @@ export default function ConsultarProdutos() {
                                 <tbody>
 
                                 {produtos.map(item =>
-                                    <tr>
+                                    <tr key={item.id}>
                                         <td>{item.id}</td>
                                         <td>{item.produto}</td>
                                         <td>{item.descricao}</td>
@@ -68,8 +107,8 @@ export default function ConsultarProdutos() {
                                         <td>{item.quantidade}</td>
                                         <td>{item.categoria}</td>
                                         <td>{item.tamanho}</td>
-                                        <img src="/assets/images/lixo.svg" alt="" />
-                                        <img src="/assets/images/editar.svg" alt="" />
+                                        <img src="/assets/images/editar.svg" alt="" onClick={() => editarProduto(item.id)} />
+                                        <img src="/assets/images/lixo.svg" alt="" onClick={() => removerProdutoClick(item.id, item.produto)}/>
                                     </tr>
                                 )}
 

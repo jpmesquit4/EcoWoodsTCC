@@ -24,7 +24,7 @@ server.post('/produto', async (req, resp) => {
         if(!novoProduto.categoria)
         throw new Error('Categoria do produto é obrigatório!')
 
-        if(!novoProduto.tamanho)
+        if(!novoProduto.tamanhos)
         throw new Error('Tamanho do produto é obrigatório!')
 
         if(!novoProduto.adm)
