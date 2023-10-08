@@ -1,0 +1,110 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.pagina-consultarProdutos {
+    display: flex;
+    flex-direction: row;
+
+    .menu-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #BAD3ED;
+        width: 100%;    
+        height: auto;
+        min-height: 85vh;
+        padding: 50px 30px;
+
+        .buscar {
+            display: flex;
+            align-items: center;
+
+            input {
+                padding: 20px 500px 20px 20px;
+                border: none;
+                border-bottom-left-radius: 3px;
+                border-top-left-radius: 3px;
+                font-family: 'gotham';
+                font-size: 14px;
+
+                
+            }
+
+            ::placeholder {
+                font-size: 12px;
+            }
+
+            input:focus {
+                outline: none;
+            }
+
+            img {
+                background-color: white;
+                height: 55px;
+                padding: 15px;
+                border-bottom-right-radius: 3px;
+                border-top-right-radius: 3px;
+            }
+        }
+
+        .tabela {
+            margin-top: 50px;
+
+            
+
+            table {
+                border-collapse:collapse;
+
+                thead, tbody {
+                    td, th {
+                        font-family: 'gotham';
+                        font-size: 12px;
+                        color: #2a2a2a;
+                    }
+                }
+
+                thead {
+                    background-color: #86b3e4;
+
+                    th {
+                        text-align: left;
+                        padding: 20px;
+                        color: white;
+                        letter-spacing: 0.3px;
+                    }
+                    
+                }
+
+                tbody {
+                    background-color: white;
+                    transition: 0.3s;
+
+                    tr {
+                        img {
+                            height: auto;
+                            width: 20px;
+                            padding-top: 15px;
+                            margin-right: 10px;
+                        }
+                            
+                        td {
+                            text-align: left;
+                            padding: 20px 40px 20px 20px;
+                            max-width: 320px;
+                        }
+                    }
+
+                    
+                }
+
+                tbody:hover {
+                    background-color: #f1f1f1;
+                }
+            }
+        }
+    }
+
+
+}

@@ -5,7 +5,7 @@ import CabecalhoAdm from '../../components/cabecalhoAdmin';
 import MenuAdm from '../../components/menuAdmin';
 
 import storage from 'local-storage'
-import { cadastrarProduto, enviarImagemProduto } from '../../api/produtoApi'
+import { cadastrarProduto, enviarImagemProduto, alterarPrdotuo } from '../../api/produtoApi'
 
 import { toast } from 'react-toastify';
 
@@ -18,19 +18,58 @@ export default function CadastroProdutos() {
     const [estoque, setEstoque] = useState(0);
     const [categoria, setCategoria] = useState('');
     const [tamanhos, setTamanhos] = useState('');
-    const [imagem, setImagem] = useState ('')
+    const [imagem, setImagem] = useState();
+    const [id, setId] = useState(0);
 
     
 
     async function salvarClick() {
         try {
+            if (!imagem)
+                throw new Error('Escolha uma imagem.')
+            
             const usuario = storage('usuario-logado').id;
-            const resposta = await cadastrarProduto(nome, descricao, preco, estoque, categoria, tamanhos, usuario)
+            if (id === 0) {
+                const novoProduto = await cadastrarProduto(nome, descricao, preco, estoque, categoria, tamanhos, usuario);
+                await enviarImagemProduto(novoProduto.id, imagem);
 
-            toast.dark('🚀 Produto cadastrado com sucesso!');
+                setId(novoProduto.id);
+                toast.dark('🚀 Produto cadastrado com sucesso!');
+            } else {
+                await alterarPrdotuo(id, nome, descricao, preco, estoque, categoria, tamanhos, usuario);
+                await enviarImagemProduto(id, imagem);
+                toast.dark('🚀 Produto alterado com sucesso!');
+            }
+
+            
         } catch (err) {
-            toast.error(err.response.data.erro)
+            if (err.response)
+                toast.error(err.response.data.erro);
+            else
+                toast.error(err.message);
         }
+    }
+
+
+
+    function escolherImagem() {
+        document.getElementById('ImagemImage').click()
+    }
+
+    function mostrarImagem() {
+        return URL.createObjectURL(imagem);
+    }
+
+    function novoClick() {
+        setId(0);
+        setNome('');
+        setDescricao('');
+        setPreco('');
+        setEstoque(0);
+        setCategoria('');
+        setTamanhos('');
+        setImagem();
+        setId(0);
     }
 
     return (
@@ -44,12 +83,13 @@ export default function CadastroProdutos() {
 
                     <div className='menu-top'>
 
-                        <span> + </span>
+                    {!imagem && 
+                        <span onClick={escolherImagem}> <input id='ImagemImage' type="file" onChange={e => setImagem(e.target.files[0])} /> + </span>
+                    }   
 
-                        <div className='buttons-edit-add'>
-                            <button className="button-blue">Adicionar imagem</button>  
-                            <button className="button-blue">Editar imagem</button>
-                        </div>
+                    {imagem &&
+                        <img className='ImagemCadastrada' src={mostrarImagem()} alt="" />
+                    }
 
                     </div>
                     
@@ -82,11 +122,14 @@ export default function CadastroProdutos() {
                     </div>
 
                     <div className="inputs-add">
-                        <p>Tamanhos</p>
+                        <p>Tamanho</p>
                         <input placeholder='..' value={tamanhos} onChange={e => setTamanhos(e.target.value)} type="text" />
                     </div>
 
-                    <button className="button-2a" onClick={salvarClick}> Cadastrar </button>
+                    <div className='buttons-cadastro-novo'>
+                        <button onClick={salvarClick}> { id === 0 ? 'Cadastrar' : 'Alterar'} </button> &nbsp; &nbsp;
+                        <button onClick={novoClick}>Novo</button>
+                    </div>
                 </div>
             </div>
 

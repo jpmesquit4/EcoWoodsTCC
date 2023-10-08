@@ -14,7 +14,8 @@ export async function inserirProduto(produto) {
 export async function buscarTodosProdutos() {
     const comando =
         `
-    select  ID_Categoria            categoria,
+    select  ID_Produto              id,
+            ID_Categoria            categoria,
             NM_produto              produto,
 		    DS_Descricao            descricao,
             VL_Preco                preco,
@@ -25,6 +26,44 @@ export async function buscarTodosProdutos() {
     `
 
     const [linhas] = await con.query(comando)
+    return linhas;
+}
+
+export async function buscarPorId(id) {
+    const comando =
+        `
+    select  ID_Produto              id,
+            ID_Categoria            categoria,
+            NM_produto              produto,
+		    DS_Descricao            descricao,
+            VL_Preco                preco,
+            DS_Tamanho              tamanho,
+            NR_Estoque              estoque,
+            img_produto             imagem
+    from    TB_Produto
+    where   ID_Produto = ?
+    `;
+
+    const [linhas] = await con.query(comando, [id])
+    return linhas[0];
+}
+
+export async function buscarPorNome(nome) {
+    const comando =
+        `
+    select  ID_Produto              id,
+            ID_Categoria            categoria,
+            NM_produto              produto,
+		    DS_Descricao            descricao,
+            VL_Preco                preco,
+            DS_Tamanho              tamanho,
+            NR_Estoque              estoque,
+            ID_Adm                  adm
+    from    TB_Produto
+    where   NM_Produto              like ?
+    `;
+
+    const [linhas] = await con.query(comando, [ `%${nome}%` ])
     return linhas;
 }
 

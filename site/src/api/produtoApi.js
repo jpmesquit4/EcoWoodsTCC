@@ -31,3 +31,28 @@ export async function enviarImagemProduto(id, imagem) {
 
     return resposta.data;
 }
+
+export async function alterarPrdotuo(id, nome, descricao, preco, estoque, categoria, tamanhos, adm) {
+    const resposta = await api.put(`/produto/${id}`, {
+        nome: nome,
+        descricao: descricao,
+        preco: preco,
+        estoque: estoque,
+        categoria: categoria,
+        tamanhos: tamanhos,
+        adm: adm
+    })
+
+    return resposta.data;
+}
+
+export async function listarTodosProdutos() {
+    const resposta = await api.get('/produto');
+    return resposta.data;
+}
+
+export async function buscarProdutosPorNome(nome) {
+    const resposta = await api.get(`/produto/busca?nome=${nome}`);
+    return resposta.data;
+}
+

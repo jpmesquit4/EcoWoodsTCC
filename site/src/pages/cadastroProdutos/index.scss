@@ -40,6 +40,12 @@
                 flex-direction: row;
                 align-items: center;
 
+                .ImagemCadastrada {
+                    width: 95px;
+                    height: 95px;
+                    margin: 10px;
+                }
+
                 span {
                     display: flex;
                     justify-content: center;
@@ -52,6 +58,13 @@
                     color: #7f7f7f;
                     font-size: 50px;
                     font-weight: 200;
+
+                    #ImagemImage {
+                        width: 95px;
+                        height: 95px;
+                        position: absolute;
+                        visibility: hidden;
+                    } 
                 }
 
                 .buttons-edit-add {
@@ -74,18 +87,23 @@
                 margin: 0px 0px 10px;
             }
 
-            .button-2a {
-                padding: 17px;
-                width: 200px;
-                background-color: #2a2a2a;
-                border-radius: 30px;
-                border: none;
-                font-family: 'MontSerrat', sans-serif;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                font-size: 10px;
-                color: white;
-                margin: 10px 0px;
+            .buttons-cadastro-novo {
+
+                margin-top: 15px;
+
+                button {
+                    padding: 17px;
+                    width: 200px;
+                    background-color: #2a2a2a;
+                    border-radius: 30px;
+                    border: none;
+                    font-family: 'MontSerrat', sans-serif;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    font-size: 10px;
+                    color: white;
+                }
+                
             }
 
             h1 {

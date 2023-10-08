@@ -1,4 +1,4 @@
-import { alterarProdutoPorID, buscarTodosProdutos, inserirProduto, removerProduto, alterarImagem} from '../repository/produtoRepository.js'
+import { alterarProdutoPorID, buscarTodosProdutos, inserirProduto, removerProduto, alterarImagem, buscarPorId, buscarPorNome} from '../repository/produtoRepository.js'
 import multer from 'multer';
 import { Router } from "express";
 
@@ -24,7 +24,7 @@ server.post('/produto', async (req, resp) => {
         if(!novoProduto.categoria)
         throw new Error('Categoria do produto é obrigatório!')
 
-        if(!novoProduto.tamanhos)
+        if(!novoProduto.tamanho)
         throw new Error('Tamanho do produto é obrigatório!')
 
         if(!novoProduto.adm)
@@ -32,6 +32,23 @@ server.post('/produto', async (req, resp) => {
 
         const produtoInserido = await inserirProduto(novoProduto);
         resp.send(produtoInserido);
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
+    }
+})
+
+server.get('/produto/busca', async (req, resp) => {
+    try {
+        const { nome } = req.query;
+
+        const resposta = await buscarPorNome(nome);
+        if (resposta.length == 0)
+            resp.status(404).send([]);
+        else
+            resp.send(resposta);
 
     } catch (err) {
         resp.status(400).send({
@@ -52,8 +69,32 @@ server.get('/produto', async (req, resp) => {
     }
 })
 
+server.get('/produto/:id', async (req, resp) => {
+    try {
+        const id = Number(req.params.id);
+
+        const resposta = await buscarPorId(id);
+        
+        if (!resposta)
+            resp.status(404).send([]);
+        else
+            resp.send(resposta);
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
+    }
+})
+
+
+
 server.put('/produto/:id/image', upload.single('image'), async (req, resp) => {
     try {
+
+        if (!req.file)
+            throw new Error('Escolha uma Imagem.')
+
         const { id } = req.params;
         const imagem = req.file.path;
 

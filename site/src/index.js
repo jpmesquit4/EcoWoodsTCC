@@ -8,6 +8,8 @@ import LoginADM from './pages/loginADM';
 import Home from './pages/home';
 import CadastroProdutos from './pages/cadastroProdutos';
 import AdmPainel from './pages/admin';
+import ConsultarProdutos from './pages/consultarProdutos';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Resultado from './pages/resultadoBusca';
 
@@ -26,6 +28,7 @@ root.render(
           <Route path='/loginadm' element={<LoginADM />}/>
           <Route path='/resultadoBuscar' element={<Resultado/>} />
           <Route path='/cadastroprodutos' element={<CadastroProdutos/>} />
+          <Route path='/consultarprodutos' element={<ConsultarProdutos/>} />
           <Route path='/admin' element={<AdmPainel/>} />
         </Routes>
     </BrowserRouter>
