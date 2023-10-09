@@ -10,6 +10,8 @@ import CadastroProdutos from './pages/cadastroProdutos';
 import AdmPainel from './pages/admin';
 import ConsultarProdutos from './pages/consultarProdutos';
 
+import Produtos from './components/produtos';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Resultado from './pages/resultadoBusca';
 
@@ -32,6 +34,8 @@ root.render(
 
           <Route path='/cadastroprodutos' element={<CadastroProdutos/>} />
           <Route path='/alterar/:idParam' element={<CadastroProdutos/>} />
+
+          <Route path='/produtos/:idParam' element={<Produtos />} />
 
           <Route path='/consultarprodutos' element={<ConsultarProdutos/>} />
           <Route path='/admin' element={<AdmPainel/>} />
