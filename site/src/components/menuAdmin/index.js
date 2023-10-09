@@ -44,9 +44,9 @@ export default function MenuAdm(props) {
                 </div>
 
                 <div className="menu-left">
-                    <Link to='/cadastroprodutos' className={verificarMenuSelecionado('cadastroprodutos')}>Gestão de Produtos</Link>
+                    <Link to='/cadastroprodutos' className={verificarMenuSelecionado('cadastroprodutos')}>Cadastrar Produtos</Link>
 
-                    <Link to='/consultarprodutos' className={verificarMenuSelecionado('consultarprodutos')}>Pedidos e Gestão de Vendas</Link>
+                    <Link to='/consultarprodutos' className={verificarMenuSelecionado('consultarprodutos')}>Gestão de Produtos</Link>
 
                     <Link>Gestão de Clientes</Link>
 
