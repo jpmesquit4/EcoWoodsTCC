@@ -36,7 +36,7 @@ export default function ConsultarProdutos() {
                             else
                                 filtrar();
 
-                        toast.success('Filme Removido')
+                        toast.success('Produto Removido')
                     }
                 },
                 {
@@ -104,14 +104,13 @@ export default function ConsultarProdutos() {
                                         <td>{item.produto}</td>
                                         <td>{item.descricao}</td>
                                         <td>{item.preco}</td>
-                                        <td>{item.quantidade}</td>
+                                        <td>{item.estoque}</td>
                                         <td>{item.categoria}</td>
                                         <td>{item.tamanho}</td>
-                                        <img src="/assets/images/editar.svg" alt="" onClick={() => editarProduto(item.id)} />
-                                        <img src="/assets/images/lixo.svg" alt="" onClick={() => removerProdutoClick(item.id, item.produto)}/>
+                                        <img src="/assets/images/editar.svg" onClick={() => editarProduto(item.id)} />
+                                        <img src="/assets/images/lixo.svg" onClick={() => removerProdutoClick(item.id, item.produto)}/>
                                     </tr>
                                 )}
-
                                     
                                 </tbody>
                             </table>

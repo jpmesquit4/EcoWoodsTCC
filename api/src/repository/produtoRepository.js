@@ -96,7 +96,7 @@ export async function removerProduto(id) {
 export async function alterarImagem(imagem, id) {
     const comando = `   
         update  TB_Produto
-        set     IMG_Produto     = ?
+        set     img_produto     = ?
         where   ID_Produto      = ?;
     `
 

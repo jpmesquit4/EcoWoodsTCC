@@ -52,10 +52,9 @@ export default function CadastroProdutos() {
             const usuario = storage('usuario-logado').id;
             if (id === 0) {
                 const novoProduto = await cadastrarProduto(nome, descricao, preco, estoque, categoria, tamanhos, usuario);
-                await enviarImagemProduto(novoProduto.id, imagem);
-
-                setId(novoProduto.id);
-                toast.dark('🚀 Produto cadastrado com sucesso!');
+                    await enviarImagemProduto(novoProduto.id, imagem);
+                    setId(novoProduto.id);
+                    toast.dark('🚀 Produto cadastrado com sucesso!');
             } else {
                 await alterarPrdotuo(id, nome, descricao, preco, estoque, categoria, tamanhos, usuario);
 

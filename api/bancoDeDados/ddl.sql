@@ -12,7 +12,7 @@ NM_Produto			varchar(100),
 DS_Descricao		varchar(200),
 VL_Preco			decimal(8,2),
 NR_Estoque			int,
-BT_Favorito			bool,
+img_produto         varchar(100)
 FOREIGN KEY (ID_Categoria) REFERENCES TB_Categoria(ID_Categoria)
 );
 
