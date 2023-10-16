@@ -5,13 +5,14 @@
 
 
 .pagina-loginCliente {
-  
+
   .logins {
     display: flex;
     flex-direction: row;
-    background: rgb(245,225,206);
-    background: linear-gradient(180deg, rgba(245,225,206,1) 0%, rgba(197,125,86,1) 75%);
+    background: rgb(245, 225, 206);
+    background: linear-gradient(180deg, rgba(245, 225, 206, 1) 0%, rgba(197, 125, 86, 1) 75%);
     height: 100%;
+    width: 100%;
 
     .part-left {
       display: flex;
@@ -19,6 +20,8 @@
       justify-content: space-between;
       width: 60vw;
       height: 100vh;
+      background: rgb(245, 225, 206);
+      background: linear-gradient(180deg, rgba(245, 225, 206, 1) 0%, rgba(197, 125, 86, 1) 75%);
 
       .top {
         img {
@@ -51,43 +54,18 @@
     }
 
     .part-right {
-       
+
       .part-login {
-        height: 100vh;
-
-        
-        .cinza-top {
-          background-color: rgba(219, 219, 219, 0.40  );
-          height: 15vh;
-          width: 40vw;
-          border-top-left-radius: 50px;
-          position: relative;
-          z-index: 1;
-        }
-
-        .cinza-bot {
-          background-color: rgba(241, 241, 241, 0.75);
-          height: 15vh;
-          width: 40vw;
-          border-top-left-radius: 50px;
-          z-index: 2;
-          bottom: 60px;
-          position: relative;
-        }
 
         .card-login {
           display: flex;
           flex-direction: column;
           background-color: white;
-          height: 84%;
+          height: 100%;
           width: 40vw;
-          padding: 80px;
 
-          position: relative;
-          bottom: 110px;
           border-top-left-radius: 50px;
           border-bottom-left-radius: 50px;
-          z-index: 3;
 
           align-items: center;
 
@@ -139,7 +117,7 @@
           }
 
           button:hover {
-            background: rgba(197,125,86,1);
+            background: rgba(197, 125, 86, 1);
             transform: scale(1.03);
           }
 

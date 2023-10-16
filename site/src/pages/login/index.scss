@@ -1,0 +1,104 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #F5E1CE;
+    height: 100vh;
+
+    .imagem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: #e7c19c;
+        height: 50vh;
+        width: 30vw;
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: lightblue;
+            height: 20vh;
+            width: 15vw;
+            border-radius: 50%;
+            font-family: 'gotham';
+
+            font-size: 50px;
+            color: white;
+        }
+    }
+
+    .card-login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 15px;
+
+        background-color: #fff;
+        height: 50vh;
+        width: 30vw;
+
+        h1 {
+            font-family: 'gotham';
+            font-size: 20px;
+            margin: 30px 0px 10px 0px;
+        }
+
+        p {
+            font-family: 'gotham';
+            font-size: 16px;
+            text-align: center;
+        }
+
+        button {
+            border: none;
+            background-color: #Fff;
+            transition: 0.5s;
+            border: 2px solid transparent;
+            box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+            color: #2a2a2a;
+
+            width: 200px;
+            padding: 10px;
+            margin: 10px 0px;
+        }
+
+        button:hover {
+            transform: scale(1.03);
+            background-color: #2a2a2a;
+            color: white;
+            border: 2px solid #2a2a2a;
+            cursor: pointer;
+        }
+
+        button:active {
+            background-color: #2a2a2a;
+            color: white;
+            transform: scale(1.0);
+        }
+
+        .inputs {
+            margin-top: 20px;
+            input {
+                padding: 10px 175px 10px 10px;
+                margin: 10px 0px;
+
+                font-family: 'gotham';
+                border: 1px solid #2a2a2a;
+                border-radius: 3px;
+            }
+
+            input:focus {
+                outline: none;
+            }
+        }
+    }
+}

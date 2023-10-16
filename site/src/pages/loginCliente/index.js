@@ -29,9 +29,7 @@ export default function LoginCliente() {
         <div className="part-right">
 
             <div className="part-login">
-              <div className="cinza-top"></div>
-              <div className="cinza-bot"></div>
-
+              
               <div className="card-login">
                   <h1>Log in</h1>
 
