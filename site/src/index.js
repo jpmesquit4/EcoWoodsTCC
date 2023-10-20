@@ -9,6 +9,7 @@ import Home from './pages/home';
 import CadastroProdutos from './pages/cadastroProdutos';
 import AdmPainel from './pages/admin';
 import ConsultarProdutos from './pages/consultarProdutos';
+import Pagamento from './pages/Pagamento';
 
 import Produtos from './components/produtos';
 
@@ -22,6 +23,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import Login from './pages/login';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -33,6 +35,7 @@ root.render(
           <Route path='/cadastrocliente' element={<CadastroCliente />}/>
           <Route path='/loginadm' element={<LoginADM />}/>
           <Route path='/resultadoBuscar' element={<Resultado/>} />
+          <Route path='/finalizarPedidos' element={<Pagamento />} />
 
           <Route path='/cadastroprodutos' element={<CadastroProdutos/>} />
           <Route path='/alterar/:idParam' element={<CadastroProdutos/>} />
