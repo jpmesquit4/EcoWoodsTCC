@@ -1,27 +1,27 @@
 import { con } from './connection.js';
 
-export async function inserirCliente(usuario, telefone, email, senha, nascimento, genero) {
-    const comando = `insert into TB_Usuario(NM_Usuario, NR_Telefone, DS_Email, DS_Senha, DT_Nascimento, DS_Genero)
-                                      value(?,?,?,?,?,?);`
+export async function inserirCliente(usuario) {
+     const comando = `insert into TB_Usuario(NM_Usuario, DS_Email, DS_Senha, DT_Nascimento, DS_Genero)
+                                       value(?,?,?,?,?);`
 
 
-    const [linhas] = await con.query(comando, [usuario, telefone, email, senha, nascimento, genero])
-    return linhas[0];
+     const [resposta] = await con.query(comando, [usuario.usuario, usuario.email, usuario.senha, usuario.nascimento, usuario.genero])
+     usuario.id = resposta.insertId;
+
+     return usuario;
 }
 
+export async function loginCliente(usuario, email, senha) {
+    const comando = 
+    `
+    SELECT ID_Usuario AS id, NM_Usuario AS nome, DS_Email AS email
+    FROM TB_Usuario
+    WHERE NM_Usuario = ?   
+    AND DS_Email = ?  
+    AND DS_Senha = ?   
+    `;
 
-// export async function buscarTodosCliente() {
-//     const comando =
-//         `
-//     select  id_cliente          id,
-//             nm_cliente          nome,
-// 		    ds_email            email,
-//             ds_telefone         telefone,
-//             ds_cpf              cpf,
-//             ds_cnh              cnh    
-//     from tb_clienteVeiculos;
-//     `
-
-//     const [linhas] = await con.query(comando)
-//     return linhas;
-// }
+    const [linhas] = await con.query(comando, [usuario, email, senha])
+    return linhas[0];
+ 
+}

@@ -57,39 +57,19 @@
         .part-login {
           height: 100vh;
   
-          
-          .cinza-top {
-            background-color: rgba(219, 219, 219, 0.40  );
-            height: 15vh;
-            width: 40vw;
-            border-top-left-radius: 50px;
-            position: relative;
-            z-index: 1;
-          }
-  
-          .cinza-bot {
-            background-color: rgba(241, 241, 241, 0.75);
-            height: 15vh;
-            width: 40vw;
-            border-top-left-radius: 50px;
-            z-index: 2;
-            bottom: 60px;
-            position: relative;
-          }
-  
           .card-login {
             display: flex;
             flex-direction: column;
             background-color: white;
-            height: 84%;
+            height: 100%;
             width: 40vw;
             padding: 80px;
   
             position: relative;
-            bottom: 110px;
+            top: 0px;
+            
             border-top-left-radius: 50px;
             border-bottom-left-radius: 50px;
-            z-index: 3;
   
             align-items: center;
 

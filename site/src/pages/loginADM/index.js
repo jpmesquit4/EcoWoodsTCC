@@ -60,7 +60,7 @@ export default function LoginADM() {
 
     return (
         <div className="pagina-loginADM">
-          <LoadingBar color='#3ef' ref={ref} />
+          <LoadingBar color='3ef' ref={ref} />
       
       <div className="logins">
 
@@ -84,8 +84,6 @@ export default function LoginADM() {
         <div className="part-right">
 
             <div className="part-login">
-              <div className="cinza-top"></div>
-              <div className="cinza-bot"></div>
 
               <div className="card-login">
                   <h1>Log in</h1>

@@ -21,8 +21,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
-import Login from './pages/login';
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -44,7 +42,6 @@ root.render(
 
           <Route path='/consultarprodutos' element={<ConsultarProdutos/>} />
           <Route path='/admin' element={<AdmPainel/>} />
-          <Route path='/login' element={<Login/>} />
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

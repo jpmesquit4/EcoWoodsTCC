@@ -1,7 +1,26 @@
-import './index.scss'
+import './index.scss';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import storage from 'local-storage';
+
+
+
+
 
 export default function Home() {
 
+    const navigate = useNavigate();
+
+    function sairClick() {
+        storage.remove('cliente-logado');
+        navigate('/logincliente')
+    }
+
+    useEffect(() => {
+        if(!storage('cliente-logado')) {
+            navigate('/logincliente')
+        }
+    }, [])
 
 
     return (
@@ -14,6 +33,8 @@ export default function Home() {
 
                     <img src="/assets/images/lupa.png" alt="" />
                     <p>Buscar</p>
+
+                    <button onClick={sairClick}>Sair</button>
                 </div>
 
                 <div className="header-mid">

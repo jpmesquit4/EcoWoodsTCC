@@ -9,6 +9,36 @@
 
         padding: 20px;
 
+        button {
+            background: #fff;
+            padding: 15px 50px;
+            border: none;
+            border-radius: 50px;
+            border: 2px solid transparent;
+
+            color: #2a2a2a;
+
+            margin: 10px 0px;
+
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            transition: 0.5s;
+        }
+
+        button:hover {
+          cursor: pointer;
+          transform: scale(1.03);
+          background-color: transparent;
+          color: #fff;
+          border: 2px solid #fff;
+        }
+
+        button:active {
+          background-color: #fff;
+          color: #2a2a2a;
+        }
+
         img {
             height: 20px;
             width: 20px;
