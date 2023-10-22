@@ -1,18 +1,28 @@
 import './index.scss';
 import axios from 'axios';
-import { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/footer';
-import { buscarPorId, buscarImagem } from '../../api/produtoApi';
-import { useParams } from 'react-router-dom';
+import { buscarImagem, buscarProdutosPorNome, listarTodosProdutos } from '../../api/produtoApi';
 
 export default function Resultado() {
 
     const[produtos, setProdutos] = useState([]);
+    const [filtro, setFiltro] = useState('');
+    const [selecionar, setSelecionar] = useState(Boolean);
+     
+
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         carregarProduto();
     }, [])
+
+    function paginaDetalhes() {
+        navigate('/detalhesproduto');
+    }
 
     async function carregarProduto() {
         const url = 'http://localhost:6969/produto';
@@ -44,10 +54,98 @@ export default function Resultado() {
           setProdutos(listaProdutos);
     }
 
-    console.log(produtos)
+    async function carregarProdutoTipo() {
+        const url = `http://localhost:6969/produto/tipoBusca?categoria=3`;
 
-    
+        let response = await axios.get(url);
 
+        let listaProdutos = [];
+
+        if ( selecionar != true ) {
+
+            for (let item of response.data) {
+
+                function mostrarImagem() {
+                    if (typeof (item.imagem) == 'object') {
+                        return URL.createObjectURL(item.imagem);
+                    } 
+                    else {
+                        return buscarImagem(item.imagem);
+                    }
+                }
+
+                listaProdutos.push({
+                  nome: item.produto,
+                  preco: item.preco,
+                  imagem: mostrarImagem()
+                })
+              }
+
+              setProdutos(listaProdutos);
+
+        }  else if (selecionar != false) {
+            
+        const url = 'http://localhost:6969/produto';
+
+        let response = await axios.get(url);
+
+        let listaProdutos = [];
+
+        for (let item of response.data) {
+
+            function mostrarImagem() {
+                if (typeof (item.imagem) == 'object') {
+                    return URL.createObjectURL(item.imagem);
+                } 
+                else {
+                    return buscarImagem(item.imagem);
+                }
+            }
+
+            listaProdutos.push({
+              nome: item.produto,
+              preco: item.preco,
+              imagem: mostrarImagem()
+            })
+          }
+
+          
+      
+          setProdutos(listaProdutos);
+        }
+
+          
+    }
+
+    async function filtrar() {
+        const url = `http://localhost:6969/produto/busca?nome=${filtro}`;
+
+        let response = await axios.get(url);
+
+        let listaProdutos = [];
+
+        for (let item of response.data) {
+
+            function mostrarImagem() {
+                if (typeof (item.imagem) == 'object') {
+                    return URL.createObjectURL(item.imagem);
+                } 
+                else {
+                    return buscarImagem(item.imagem);
+                }
+            }
+
+            listaProdutos.push({
+              nome: item.produto,
+              preco: item.preco,
+              imagem: mostrarImagem()
+            })
+          }
+
+          
+      
+          setProdutos(listaProdutos); 
+    }
 
     return (
         <main className="pagina-result">
@@ -88,8 +186,8 @@ export default function Resultado() {
 
             <section>
                 <div className="input-verificar">
-                    <input type="text" placeholder='Pesquisa' />
-                    <img className='icon-relative' src="/assets/images/proc-2.png" alt="" />
+                    <input type="text" placeholder='Pesquisa' value={filtro} onChange={e => setFiltro(e.target.value)} />
+                    <img className='icon-relative' onClick={filtrar} src="/assets/images/proc-2.png" alt="" />
                 </div>
 
                 <main className="container-content">
@@ -101,22 +199,15 @@ export default function Resultado() {
                         <div className='container-check'>
                             <div className='sub-container'>
                                 <div class="custom-checkbox">
-                                    <input id="checkbox-1" type="checkbox" />
-                                    <label for="checkbox-1">Tudo { }</label>
+                                    <input id="checkbox-1" type="checkbox"value={selecionar} onChange={e => setSelecionar(e.target.checked)} />
+                                    <label for="checkbox-1" >Sala de Estar { }</label>
                                 </div>
                             </div>
 
                             <div className='sub-container'>
                                 <div class="custom-checkbox">
-                                    <input id="checkbox-2" type="checkbox" />
+                                    <input id="checkbox-2" type="checkbox" onClick={carregarProdutoTipo} value={selecionar} onChange={e => setSelecionar(e.target.checked)} />
                                     <label for="checkbox-2">Cozinha { }</label>
-                                </div>
-                            </div>
-
-                            <div className='sub-container'>
-                                <div class="custom-checkbox">
-                                    <input id="checkbox-3" type="checkbox" />
-                                    <label for="checkbox-3">Decoração { }</label>
                                 </div>
                             </div>
 
@@ -166,9 +257,10 @@ export default function Resultado() {
 
                                         <img src="/assets/images/favoritar-result.png" alt="" />
 
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
+                                        <svg onClick={paginaDetalhes} xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
                                             <path d="M0.760249 17.9069L19.3437 -4.46763e-05L19.3434 17.9071L0.760249 17.9069Z" fill="#2A2A2A"/>
                                         </svg>
+                               
                                         
                                     </div>
                                 </div>

@@ -10,6 +10,7 @@ import CadastroProdutos from './pages/cadastroProdutos';
 import AdmPainel from './pages/admin';
 import ConsultarProdutos from './pages/consultarProdutos';
 import Pagamento from './pages/Pagamento';
+import DetalhesProduto from './pages/detalhesProduto';
 
 import Produtos from './components/produtos';
 
@@ -20,6 +21,7 @@ import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -33,6 +35,8 @@ root.render(
           <Route path='/cadastrocliente' element={<CadastroCliente />}/>
           <Route path='/loginadm' element={<LoginADM />}/>
           <Route path='/resultadoBuscar' element={<Resultado/>} />
+          <Route path='/resultadoBuscarCategoria/:idParam' element={<Resultado/>} />
+
           <Route path='/finalizarPedidos' element={<Pagamento />} />
 
           <Route path='/cadastroprodutos' element={<CadastroProdutos/>} />
@@ -42,6 +46,10 @@ root.render(
 
           <Route path='/consultarprodutos' element={<ConsultarProdutos/>} />
           <Route path='/admin' element={<AdmPainel/>} />
+
+          <Route path='/detalhesProduto' element={<DetalhesProduto/>} />
+
+
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

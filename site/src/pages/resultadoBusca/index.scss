@@ -337,6 +337,20 @@
 
                             svg {
                                 align-self: flex-end;
+                                transition: 0.5s;
+
+                                path {
+                                    transition: 0.3s;
+                                }
+
+                                path:hover {
+                                    fill: #007bff;
+                                }
+                            }
+
+                            svg:hover {
+                                transform: scale(1.04);
+                                cursor: pointer;
                             }
 
                             .nomeProduto {

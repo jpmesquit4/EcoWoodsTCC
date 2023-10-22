@@ -105,7 +105,7 @@ export default function ConsultarProdutos() {
                                         <td>{item.descricao}</td>
                                         <td>{item.preco}</td>
                                         <td>{item.estoque}</td>
-                                        <td>{item.categoria}</td>
+                                        <td>{item.nome_categoria}</td>
                                         <td>{item.tamanho}</td>
                                         <img src="/assets/images/editar.svg" onClick={() => editarProduto(item.id)} />
                                         <img src="/assets/images/lixo.svg" onClick={() => removerProdutoClick(item.id, item.produto)}/>

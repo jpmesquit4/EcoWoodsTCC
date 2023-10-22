@@ -56,6 +56,11 @@ export async function buscarProdutosPorNome(nome) {
     return resposta.data;
 }
 
+export async function buscarProdutosPorCategoria(categoria) {
+    const resposta = await api.get(`/produto/busca?categoria=${categoria}`);
+    return resposta.data;
+}
+
 export async function removerProduto(id) {
     const resposta = await api.delete(`/produto/${id}`);
     return resposta.status;

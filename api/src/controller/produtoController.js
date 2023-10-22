@@ -1,4 +1,4 @@
-import { alterarProdutoPorID, buscarTodosProdutos, inserirProduto, removerProduto, alterarImagem, buscarPorId, buscarPorNome} from '../repository/produtoRepository.js'
+import { alterarProdutoPorID, buscarTodosProdutos, inserirProduto, removerProduto, alterarImagem, buscarPorId, buscarPorNome, buscarPorCategoria} from '../repository/produtoRepository.js'
 import multer from 'multer';
 import { Router } from "express";
 
@@ -46,6 +46,23 @@ server.get('/produto/busca', async (req, resp) => {
 
         const resposta = await buscarPorNome(nome);
         if (resposta.length == 0)
+            resp.status(404).send([]);
+        else
+            resp.send(resposta);
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
+    }
+})
+
+server.get('/produto/tipoBusca', async (req, resp) => {
+    try {
+        const { categoria } = req.query;
+
+        const resposta = await buscarPorCategoria(categoria);
+        if (!resposta)
             resp.status(404).send([]);
         else
             resp.send(resposta);
