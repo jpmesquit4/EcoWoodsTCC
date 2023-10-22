@@ -146,6 +146,17 @@
 
                     font-family: 'MontSerrat', sans-serif;
                     border: none;
+                    transition: 0.5s;
+                }
+
+                button:hover {
+                    cursor: pointer;
+                    transform: scale(1.02);
+                    background-color: black;
+                }
+
+                button:active {
+                    transform: scale(1.0);
                 }
             }
 

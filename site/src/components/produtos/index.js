@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import { buscarPorId, buscarImagem } from '../../api/produtoApi'
+import { buscarPorId, buscarImagem } from '../../api/produtoApi';
 
 import './index.scss';
 

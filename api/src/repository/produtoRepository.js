@@ -21,6 +21,7 @@ export async function buscarTodosProdutos() {
             VL_Preco                preco,
             DS_Tamanho              tamanho,
             NR_Estoque              estoque,
+            img_produto             imagem,
             ID_Adm                  adm
     from    TB_Produto;
     `

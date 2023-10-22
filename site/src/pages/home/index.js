@@ -5,15 +5,17 @@ import storage from 'local-storage';
 
 
 
-
-
 export default function Home() {
 
     const navigate = useNavigate();
 
     function sairClick() {
         storage.remove('cliente-logado');
-        navigate('/logincliente')
+        navigate('/logincliente');
+    }
+
+    function paginaResultadoBusca() {
+        navigate('/resultadoBuscar');
     }
 
     useEffect(() => {
@@ -64,7 +66,9 @@ export default function Home() {
                     <div className="header-button-tit">
                         <h1>Transformando seu Lar, Preservando a Natureza</h1>
 
-                        <button>COMPRE AGORA</button>
+                   
+                        <button onClick={paginaResultadoBusca}>COMPRE AGORA</button>
+                     
                     </div>
                 </div>
             </div>

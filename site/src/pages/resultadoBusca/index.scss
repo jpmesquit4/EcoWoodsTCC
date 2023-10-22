@@ -98,6 +98,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 80px 160px;
         width: 100%;
         height: auto;
         background-color: #D1D1D1;
@@ -106,18 +107,17 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            width: 80%;
-            height: 35px;
-            margin-top: 50px;
+            justify-content: flex-end;
+            width: 100%;
+            margin-left: 90px;
+            padding-right: 110px;
+            
 
             .icon-relative {
-                background-color: rgb(173, 173, 173);
-                padding: 10px;
-                width: 35px;
-                height: 35px;
-                z-index: 5555;
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
+                width: 20px;
+                height: 20px;
+                position: relative;
+                right: 735px;
             }
 
             .icon-relative:hover {
@@ -125,17 +125,14 @@
             }
 
             input {
-                width: 100%;
-                height: 35px;
-                padding-left: 20px;
+                width: 750px;
+                height: 50px;
+                padding-left: 45px;
 
-                // background-image: url('../../../public/assets/images/lupa-input.png');
-                // background-repeat: no-repeat;
-                // background-size: 16.5px;
-                // background-position: 1055px 9px;
                 border: transparent;
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
+                border-radius: 10px;
+
+                font-family: 'gotham';
 
 
                 ::placeholder {
@@ -294,14 +291,12 @@
                 flex-direction: column;
                 align-items: center;
                 width: 100%;
-                background-color: #fff;
                 border-radius: 5px;
 
                 .container-cards {
                     display: flex;
                     flex-direction: row;
-                    justify-content: space-around;
-                    width: 100%;
+                    width: 850px;
                     flex-wrap: wrap;
                     gap: 10px;
                     padding: 40px 35px 0;
@@ -317,7 +312,6 @@
                         flex-direction: column;
                         align-self: flex-start;
                         border-radius: 3px;
-                        background-color: #D1D1D1;
 
                         .img-produto {
                             width: 100%;
@@ -325,6 +319,8 @@
                             display: flex;
                             align-items: center;
                             justify-content: center;
+                            background-color: #b1b1b1;
+                            padding: 40px;
 
                             img {
                                 width: 100%;
@@ -332,28 +328,39 @@
                         }
 
                         .info-produto {
+                            display: flex;
+                            flex-direction: column;
+
                             width: 100%;
                             background-color: #fff;
-                            padding-left: 15px;
-                            padding-bottom: 10px;
+                            padding: 5px 5px 5px 7px;
 
-                            p {
-                                font-family: gotham-black;
-                                font-size: 15.5px;
-                                padding-top: 10px;
-
-                                span {
-                                    font-family: gotham-bold;
-                                    font-size: 12px;
-                                    color: rgb(101, 150, 53);
-                                }
+                            svg {
+                                align-self: flex-end;
                             }
-                        }
-                    }
 
-                    .cards:hover {
-                        cursor: pointer;
-                        transform: scale(1.02);
+                            .nomeProduto {
+                                font-family: 'gotham-black';
+                                font-weight: 900;
+                                font-size: 14px;
+                                padding: 0px;
+                                color: #2A2A2A;
+                            }
+
+                            .precoProduto {
+                                font-family: 'gotham';
+                                font-weight: 600;
+                                font-size: 11px;
+                                color: rgb(101, 150, 53);
+                                padding: 5px 0px;
+                            }
+
+                            img {
+                                height: auto;
+                                width: 15px;
+                            }
+                            
+                        }
                     }
                 }
 
@@ -366,11 +373,27 @@
                     gap: 10px;
                     background: #2A2A2A;
                     padding: 10px 20px;
+                    border-radius: 5px;
 
                     span{
                         display: flex;
                         align-self: center;
-                        color: #fff;
+                        color: #d1d1d1;
+                        font-family: 'gotham-bold';
+                    }
+
+                    span > p {
+                        padding: 0px 3px;
+                    }
+
+                    span > p:hover {
+                        cursor: pointer;
+                        transform:scale(1.04);
+                    }
+
+                    span > p:active {
+                        cursor: pointer;
+                        transform:scale(1.0);
                     }
 
                     img{
