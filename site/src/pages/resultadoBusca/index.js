@@ -10,7 +10,20 @@ export default function Resultado() {
 
     const[produtos, setProdutos] = useState([]);
     const [filtro, setFiltro] = useState('');
-    const [selecionar, setSelecionar] = useState(Boolean);
+
+    const [ salaDeEstar, setSalaDeEstar ] = useState();
+    const [ cozinha, setCozinha ] = useState();
+    const [ closet, setCloset ] = useState();
+    const [ escritorio, setEscritorio ] = useState();
+    const [ banheiro, setBanheiro ] = useState();
+    const [ lavanderia, setLavanderia ] = useState();
+    const [ todosProdutos, setTodosProdutos] = useState();
+    const [ menorEstoque, setMenorEstoque] = useState();
+    const [ semEstoque, setSemEstoque] = useState();
+
+    const[maisRecentes,setMaisRecentes]=useState(false);
+    const[maisAntigos,setMaisAntigos]=useState(false);
+
      
 
 
@@ -54,69 +67,45 @@ export default function Resultado() {
           setProdutos(listaProdutos);
     }
 
-    async function carregarProdutoTipo() {
-        const url = `http://localhost:6969/produto/tipoBusca?categoria=3`;
+    function alterarEstadoInputs(input){
 
-        let response = await axios.get(url);
+        // Para quando clicar no input de "Sem filtro" desmarcar todos os outros
+        if(input===0){
 
-        let listaProdutos = [];
+            setTodosProdutos(true);
 
-        if ( selecionar != true ) {
-
-            for (let item of response.data) {
-
-                function mostrarImagem() {
-                    if (typeof (item.imagem) == 'object') {
-                        return URL.createObjectURL(item.imagem);
-                    } 
-                    else {
-                        return buscarImagem(item.imagem);
-                    }
-                }
-
-                listaProdutos.push({
-                  nome: item.produto,
-                  preco: item.preco,
-                  imagem: mostrarImagem()
-                })
-              }
-
-              setProdutos(listaProdutos);
-
-        }  else if (selecionar != false) {
-            
-        const url = 'http://localhost:6969/produto';
-
-        let response = await axios.get(url);
-
-        let listaProdutos = [];
-
-        for (let item of response.data) {
-
-            function mostrarImagem() {
-                if (typeof (item.imagem) == 'object') {
-                    return URL.createObjectURL(item.imagem);
-                } 
-                else {
-                    return buscarImagem(item.imagem);
-                }
-            }
-
-            listaProdutos.push({
-              nome: item.produto,
-              preco: item.preco,
-              imagem: mostrarImagem()
-            })
-          }
-
-          
-      
-          setProdutos(listaProdutos);
+            setSalaDeEstar(false);
+            setCozinha(false);
+            setCloset(false);
+            setLavanderia(false);
+            setBanheiro(false);
+            setEscritorio(false);
+            setMenorEstoque(false);
         }
 
-          
+        // Para desmarcar o input de "Sem filtro" quando clicar nos outros
+        else if(input>0){
+
+            setTodosProdutos(false);
+        }
+
+        // Para não haver conflito nos filtros de estoque
+        if(input===4){
+
+            setMenorEstoque(false);
+        }
+
+        else if(input===5){
+
+            setSemEstoque(false);
+        }
+
+        // Evitar conflitos nos filtros de data
     }
 
+    console.log(alterarEstadoInputs());
+
+    
     async function filtrar() {
         const url = `http://localhost:6969/produto/busca?nome=${filtro}`;
 
@@ -199,14 +188,14 @@ export default function Resultado() {
                         <div className='container-check'>
                             <div className='sub-container'>
                                 <div class="custom-checkbox">
-                                    <input id="checkbox-1" type="checkbox"value={selecionar} onChange={e => setSelecionar(e.target.checked)} />
-                                    <label for="checkbox-1" >Sala de Estar { }</label>
+                                    <input id="checkbox-1" type="checkbox"  checked={salaDeEstar ? 'checked' : ''} onChange={(e) => {setSalaDeEstar(e.target.checked);alterarEstadoInputs(1)}}/>
+                                    <label for="checkbox-1" >Sala de Estar { salaDeEstar }</label>
                                 </div>
                             </div>
 
                             <div className='sub-container'>
                                 <div class="custom-checkbox">
-                                    <input id="checkbox-2" type="checkbox" onClick={carregarProdutoTipo} value={selecionar} onChange={e => setSelecionar(e.target.checked)} />
+                                    <input id="checkbox-2" type="checkbox" onChange={''} />
                                     <label for="checkbox-2">Cozinha { }</label>
                                 </div>
                             </div>
