@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/footer';
-import { buscarImagem, buscarProdutosPorNome, listarTodosProdutos } from '../../api/produtoApi';
+import { buscarImagem, buscarProdutosPorNome, listarTodosProdutos, consultarProdutos } from '../../api/produtoApi';
 
 export default function Resultado() {
 
@@ -20,9 +20,6 @@ export default function Resultado() {
     const [ todosProdutos, setTodosProdutos] = useState();
     const [ menorEstoque, setMenorEstoque] = useState();
     const [ semEstoque, setSemEstoque] = useState();
-
-    const[maisRecentes,setMaisRecentes]=useState(false);
-    const[maisAntigos,setMaisAntigos]=useState(false);
 
      
 
@@ -66,45 +63,6 @@ export default function Resultado() {
       
           setProdutos(listaProdutos);
     }
-
-    function alterarEstadoInputs(input){
-
-        // Para quando clicar no input de "Sem filtro" desmarcar todos os outros
-        if(input===0){
-
-            setTodosProdutos(true);
-
-            setSalaDeEstar(false);
-            setCozinha(false);
-            setCloset(false);
-            setLavanderia(false);
-            setBanheiro(false);
-            setEscritorio(false);
-            setMenorEstoque(false);
-        }
-
-        // Para desmarcar o input de "Sem filtro" quando clicar nos outros
-        else if(input>0){
-
-            setTodosProdutos(false);
-        }
-
-        // Para não haver conflito nos filtros de estoque
-        if(input===4){
-
-            setMenorEstoque(false);
-        }
-
-        else if(input===5){
-
-            setSemEstoque(false);
-        }
-
-        // Evitar conflitos nos filtros de data
-    }
-
-    console.log(alterarEstadoInputs());
-
     
     async function filtrar() {
         const url = `http://localhost:6969/produto/busca?nome=${filtro}`;
@@ -188,14 +146,14 @@ export default function Resultado() {
                         <div className='container-check'>
                             <div className='sub-container'>
                                 <div class="custom-checkbox">
-                                    <input id="checkbox-1" type="checkbox"  checked={salaDeEstar ? 'checked' : ''} onChange={(e) => {setSalaDeEstar(e.target.checked);alterarEstadoInputs(1)}}/>
+                                    <input id="checkbox-1" type="checkbox" onClick={alterarEstadoInputs} checked={salaDeEstar ? 'checked' : ''} onChange={e => setSalaDeEstar(e.target.checked)}/>
                                     <label for="checkbox-1" >Sala de Estar { salaDeEstar }</label>
                                 </div>
                             </div>
 
                             <div className='sub-container'>
                                 <div class="custom-checkbox">
-                                    <input id="checkbox-2" type="checkbox" onChange={''} />
+                                    <input id="checkbox-2" type="checkbox" checked={cozinha ? 'checked' : ''} onChange={(e) => {setCozinha(e.target.checked)}} />
                                     <label for="checkbox-2">Cozinha { }</label>
                                 </div>
                             </div>

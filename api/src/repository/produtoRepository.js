@@ -96,93 +96,22 @@ export async function buscarPorCategoria(categoria) {
     return linhas;
 }
 
-export async function consultarProdutos(filtro){
+export async function consultarProdutos(id){
 
-    let comandoBase=`    
+    let comando=`
     select  ID_Produto              id,
-    ID_Categoria            categoria,
-    NM_produto              produto,
-    DS_Descricao            descricao,
-    VL_Preco                preco,
-    DS_Tamanho              tamanho,
-    NR_Estoque              estoque,
-    ID_Adm                  adm,
-    img_produto             imagem
+    ID_Categoria                    categoria,
+    NM_produto                      produto,
+    DS_Descricao                    descricao,
+    VL_Preco                        preco,
+    DS_Tamanho                      tamanho,
+    NR_Estoque                      estoque,
+    ID_Adm                          adm,
+    img_produto                     imagem
     from    TB_Produto
-    where   ID_Categoria            = 1
+    where   ID_Categoria            = ?
 `
-
-    let comandoCondicao=``;
-    if(filtro.semEstoque){
-
-        comandoCondicao=comandoCondicao+` and nr_qntdEstoque=0 `
-    }  
-    if(filtro.salaDeEstar){
-
-        comandoCondicao=comandoCondicao+` and ID_Categoria=1 `
-    }                        
-    
-    if(filtro.cozinha){
-
-        comandoCondicao=comandoCondicao+` and ID_Categoria=2 `;
-    }
-
-    if(filtro.closet){
-
-        comandoCondicao=comandoCondicao+` and ID_Categoria=3 `
-    }
-    
-    if(filtro.escritorio){
-
-        comandoCondicao=comandoCondicao+` and ID_Categoria=4 `;
-    }
-
-    if(filtro.banheiro){
-
-        comandoCondicao=comandoCondicao+` and ID_Categoria=5 `;
-    }
-
-    if(filtro.lavanderia){
-
-        comandoCondicao=comandoCondicao+` and ID_Categoria=6 `;
-    }
-
-    let comandoOrder=`ORDER BY `;
-    let contarPosicoes=0;
-    let colunas=[];
-
-    if(filtro.menorEstoque){
-
-        colunas[contarPosicoes]=`NR_Estoque asc`;
-        comandoCondicao=comandoCondicao+` and NR_Estoque!=0 `;
-
-        contarPosicoes=contarPosicoes+1;
-    }
-
-
-    for(let item of colunas){
-
-        if(item!==colunas[colunas.length-1] && item!=undefined){
-
-            comandoOrder=comandoOrder+item+','
-        }
-
-        else{
-
-            comandoOrder=comandoOrder+item
-        }
-    }
-
-    // Caso nenhum dos valores anteriores seja true, seta o comandoOrder como sendo vazio para não dar erro
-    if(comandoOrder=='ORDER BY '){
-
-        comandoOrder='';
-    }
-
-    // #Filtro de quantidade em estoque não pode estar ativo junto do filtro de estoque=0`;
-    let command=comandoBase+comandoCondicao+comandoOrder;
-
-    const [resp] = await con.query(command,[filtro.semEstoque, filtro.salaDeEstar, filtro.cozinha, filtro.closet, filtro.escritorio, filtro.banheiro, filtro.lavanderia, filtro.menorEstoque]);
+    const [resp] = await con.query(comando,[id]);
 
     return resp;
 }

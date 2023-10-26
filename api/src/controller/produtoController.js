@@ -74,22 +74,20 @@ server.get('/produto/tipoBusca', async (req, resp) => {
     }
 })
 
-server.post('/produto/filtroCategoria', async (req,resp) => {
+server.get('/produto/filtroCategoria', async (req,resp) => {
 
-    try{
+    try {
+        const { categoria } = req.query;
 
-        const filtro=req.body;
+        const resposta = await consultarProdutos(categoria);
+        if (!resposta)
+            resp.status(404).send([]);
+        else
+            resp.send(resposta);
 
-        const respostaAPI=await consultarProdutos(filtro);
-
-        resp.send(respostaAPI);
-    }
-
-    catch(err){
-
-        resp.status(404).send({
-
-            erro:err.message
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
         });
     }
 });
