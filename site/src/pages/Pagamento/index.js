@@ -20,15 +20,14 @@ export default function Pagamento() {
                     <p>Opção de Envio</p>
 
                     <div className="inputs">
-                        <select>
+                        <select className="sel-entrega">
+                            <option value="" disable selected>Selecione o Modo de Entrega</option>
                             <option value="" key="">Expresso Padrão</option>
                             <option value="" key="">Expresso Rápido</option>
                             <option value="" key="">Retirar da Loja</option>
                         </select>
 
-                        <div>
-
-
+                        <div className="nav-input">
                             <div>
                                 <input type="text" placeholder="Rua" id="" />
                                 <input type="text" placeholder="Bairro" id="" />
