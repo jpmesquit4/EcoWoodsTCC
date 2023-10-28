@@ -71,8 +71,8 @@ export async function buscarPorId(id) {
     return resposta.data;
 }
 
-export async function consultarProdutos(id) {
-    const resposta = await api.get(`/produto/filtroCategoria?categoria=${id}`);
+export async function consultarProdutos() {
+    const resposta = await api.get(`/produto/filtroCategoriaOne`);
     return resposta.data;
 }
 

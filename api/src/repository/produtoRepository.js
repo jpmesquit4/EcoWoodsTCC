@@ -79,24 +79,32 @@ export async function buscarPorNome(nome) {
 export async function buscarPorCategoria(categoria) {
     const comando =
         `
-    select  ID_Produto              id,
-            ID_Categoria            categoria,
-            NM_produto              produto,
-		    DS_Descricao            descricao,
-            VL_Preco                preco,
-            DS_Tamanho              tamanho,
-            NR_Estoque              estoque,
-            ID_Adm                  adm,
-            img_produto             imagem
-    from    TB_Produto
-    where   ID_Categoria            = ?
+        SELECT
+        TB_Produto.ID_Produto AS id,
+        TB_Produto.ID_Categoria AS categoria,
+        TB_Produto.NM_Produto AS produto,
+        TB_Produto.DS_Descricao AS descricao,
+        TB_Produto.VL_Preco AS preco,
+        TB_Produto.DS_Tamanho AS tamanho,
+        TB_Produto.NR_Estoque AS estoque,
+        TB_Produto.img_produto AS imagem,
+        TB_Produto.ID_Adm AS adm,
+        TB_Categoria.NM_Categoria AS nome_categoria
+    FROM
+        TB_Produto
+    INNER JOIN
+        TB_Categoria
+    ON
+        TB_Produto.ID_Categoria = TB_Categoria.ID_Categoria
+	where 
+		NM_Categoria = ?;
     `;
 
     const [linhas] = await con.query(comando, [categoria])
     return linhas;
 }
 
-export async function consultarProdutos(id){
+export async function consultarProdutos(){
 
     let comando=`
     select  ID_Produto              id,
@@ -109,9 +117,9 @@ export async function consultarProdutos(id){
     ID_Adm                          adm,
     img_produto                     imagem
     from    TB_Produto
-    where   ID_Categoria            = ?
+    where   ID_Categoria            = 1
 `
-    const [resp] = await con.query(comando,[id]);
+    const [resp] = await con.query(comando,[]);
 
     return resp;
 }

@@ -11,18 +11,39 @@ export default function Resultado() {
     const[produtos, setProdutos] = useState([]);
     const [filtro, setFiltro] = useState('');
 
-    const [ salaDeEstar, setSalaDeEstar ] = useState();
-    const [ cozinha, setCozinha ] = useState();
-    const [ closet, setCloset ] = useState();
-    const [ escritorio, setEscritorio ] = useState();
-    const [ banheiro, setBanheiro ] = useState();
-    const [ lavanderia, setLavanderia ] = useState();
-    const [ todosProdutos, setTodosProdutos] = useState();
-    const [ menorEstoque, setMenorEstoque] = useState();
-    const [ semEstoque, setSemEstoque] = useState();
+    const [categoria, setCategoria] = useState('');
 
-     
+    async function carregarProdutoFiltrado() {
+        if (categoria) {
+        const url = `http://localhost:6969/produto/filtroCategoria?categoria=${categoria}`;
 
+        let response = await axios.get(url);
+
+        let listaProdutos = [];
+
+        for (let item of response.data) {
+
+            function mostrarImagem() {
+                if (typeof (item.imagem) == 'object') {
+                    return URL.createObjectURL(item.imagem);
+                } 
+                else {
+                    return buscarImagem(item.imagem);
+                }
+            }
+
+            listaProdutos.push({
+              nome: item.produto,
+              preco: item.preco,
+              imagem: mostrarImagem()
+            })
+          }
+
+          
+      
+          setProdutos(listaProdutos);
+        }
+    }
 
     const navigate = useNavigate();
 
@@ -144,25 +165,16 @@ export default function Resultado() {
                         </p>
 
                         <div className='container-check'>
-                            <div className='sub-container'>
-                                <div class="custom-checkbox">
-                                    <input id="checkbox-1" type="checkbox" onClick={alterarEstadoInputs} checked={salaDeEstar ? 'checked' : ''} onChange={e => setSalaDeEstar(e.target.checked)}/>
-                                    <label for="checkbox-1" >Sala de Estar { salaDeEstar }</label>
-                                </div>
-                            </div>
-
-                            <div className='sub-container'>
-                                <div class="custom-checkbox">
-                                    <input id="checkbox-2" type="checkbox" checked={cozinha ? 'checked' : ''} onChange={(e) => {setCozinha(e.target.checked)}} />
-                                    <label for="checkbox-2">Cozinha { }</label>
-                                </div>
-                            </div>
-
-                            <div className='sub-container'>
-                                <div class="custom-checkbox">
-                                    <input id="checkbox-4" type="checkbox" />
-                                    <label for="checkbox-4">Quarto { }</label>
-                                </div>
+                            <div>
+                            <select onClick={carregarProdutoFiltrado} value={categoria} onChange={e => setCategoria(e.target.value)}>
+                            <option value="" disabled selected>Selecione um cômodo</option>
+                            <option value="Sala de Estar" key="">Sala de Estar</option>
+                            <option value="Cozinha" key="">Cozinha</option>
+                            <option value="Closet" key="">Closet</option>
+                            <option value="Escritorio" key="">Escritório</option>
+                            <option value="Banheiro" key="">Banheiro</option>
+                            <option value="Lavanderia" key="">Lavanderia</option>
+                    </select>
                             </div>
                         </div>
 

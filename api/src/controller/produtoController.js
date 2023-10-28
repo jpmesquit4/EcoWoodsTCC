@@ -79,7 +79,7 @@ server.get('/produto/filtroCategoria', async (req,resp) => {
     try {
         const { categoria } = req.query;
 
-        const resposta = await consultarProdutos(categoria);
+        const resposta = await buscarPorCategoria(categoria);
         if (!resposta)
             resp.status(404).send([]);
         else
