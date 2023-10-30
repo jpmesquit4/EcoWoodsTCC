@@ -1,38 +1,40 @@
-.PagamentosCartao{
+.PagamentosCartao {
     width: 100%;
     height: 100%;
-    .container{
+
+    .container {
         display: flex;
         flex-direction: row;
         background: #D1D1D1;
         width: 100%;
         height: 100%;
 
-        .Produtos{
-            width: 47%;
+        .Produtos {
+            width: 43%;
             height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
 
-            .map{
+            .map {
                 padding: 40px 0 0;
-                h2{
+
+                h2 {
                     font-size: 27px;
                     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                     color: #fff;
                     margin: 0 0 15px;
-                    
+
                 }
 
-                >div{
+                >div {
                     width: auto;
                     height: auto;
                     padding: 20px;
                     background-color: rgba(0, 0, 0, 0.40);
                     border-radius: 50px;
 
-                    img{
+                    img {
                         width: 300px;
                         height: auto;
                     }
@@ -40,21 +42,23 @@
             }
         }
 
-        .nav-right{
+        .nav-right {
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px 60px;
             background: #fff;
             border-radius: 60px 0px 0px 60px;
+            width: 85%;
 
-            >h2{
+            >h2 {
                 font-size: 35px;
                 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                 font-weight: normal;
                 margin: 0 0 10px;
             }
-            >p{
+
+            >p {
                 font-size: 25px;
                 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                 font-weight: lighter;
@@ -62,22 +66,131 @@
                 color: rgba(70, 70, 70, 0.50);
             }
 
-            .inputs{
+            .inputs {
                 display: flex;
                 flex-direction: column;
+                width: 100%;
 
-                .sel-entrega{
+                .sel-entrega {
                     display: flex;
                     align-self: center;
-                    width: 50%;
+                    width: 97%;
                     height: 45px;
-                    padding: 0px 10px;
+                    padding: 0px 20px;
+                    border-radius: 120px;
+                    background-color: #F1F1F1 !important;
+                    color: rgba(70, 70, 70, 0.50);
+                    font-family: 'montserrat', sans-serif;
+                    border: none;
+                    margin-bottom: 10px;
 
-                    appearance: none; /* Remove a aparência padrão da seta */
-                    -webkit-appearance: none; /* Para o Safari */
-                    -moz-appearance: none; /* Para o Firefox */
+                    appearance: none;
+                    /* Remove a aparência padrão da seta */
+                    -webkit-appearance: none;
+                    /* Para o Safari */
+                    -moz-appearance: none;
+                    /* Para o Firefox */
+                    background: url('../../../public/assets/images/icon-select.png');
+                    background-position: 680px;
+                    background-repeat: no-repeat;
+                    background-size: 15px 16px;
                 }
 
+                .sel-entrega:focus {
+                    outline: none;
+                }
+
+                .nav-input {
+                    display: flex;
+                    flex-direction: column;
+
+                    .part-1,
+                    .part-2 {
+
+                        display: flex;
+                        flex-direction: row;
+
+                        input {
+                            display: flex;
+                            align-self: center;
+                            width: 85%;
+                            height: 45px;
+                            padding: 0px 20px;
+                            border-radius: 120px;
+                            background-color: #F1F1F1 !important;
+                            color: rgba(70, 70, 70, 0.50);
+                            font-family: 'montserrat', sans-serif;
+                            border: none;
+                            margin: 10px;
+                        }
+
+                        input::placeholder {
+                            color: rgba(70, 70, 70, 0.50);
+                        }
+
+                        input:focus {
+                            outline: none;
+                        }
+
+                        select {
+                            display: flex;
+                            align-self: center;
+                            width: 85%;
+                            height: 45px;
+                            padding: 0px 20px;
+                            border-radius: 120px;
+                            background-color: #F1F1F1 !important;
+                            color: rgba(70, 70, 70, 0.50);
+                            font-family: 'montserrat', sans-serif;
+                            border: none;
+                            margin: 10px;
+
+                            appearance: none;
+                            /* Remove a aparência padrão da seta */
+                            -webkit-appearance: none;
+                            /* Para o Safari */
+                            -moz-appearance: none;
+                            /* Para o Firefox */
+                            background: url('../../../public/assets/images/icon-select.png');
+                            background-position: 195px;
+                            background-repeat: no-repeat;
+                            background-size: 15px 16px;
+                        }
+
+                        select:focus {
+                            outline: none;
+                        }
+                    }
+                }
+
+                margin-bottom: 30px;
+            }
+
+            .Detalhes {
+                width: 97%;
+                height: 250px;
+                background-color: #F1F1F1;
+                flex-direction: column;
+
+                .p-1 {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .line-1, .line-2, .line-3{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                    }
+                }
+
+                .p-2{
+                    display: flex;
+                    justify-self: flex-end;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
             }
         }
     }
