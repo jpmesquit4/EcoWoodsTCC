@@ -28,30 +28,50 @@ export default function Pagamento() {
                         </select>
 
                         <div className="nav-input">
-                            <div>
-                                <input type="text" placeholder="Rua" id="" />
-                                <input type="text" placeholder="Bairro" id="" />
-
-                                <select className="Cidade">
-                                    <option value="" disable selected>Selecione uma Opção</option>
-                                    <option value="" key="">São Paulo</option>
-                                    <option value="" key="">FotoTeta</option>
-                                </select>
-
+                            <div className="part-2">
                                 <select className="Estado">
-                                    <option value="" disable selected>Selecione uma Opção</option>
+                                    <option value="" disable selected>Estado</option>
                                     <option value="" key="">São Paulo</option>
                                     <option value="" key="">Pinto Rosa</option>
                                 </select>
 
-                                <select className="Tipo">
-                                    <option value="" key="" disable selected>Selecione uma Opção</option>
-                                    <option value="" key="">Tipo sexo ne arrombado</option>
-                                    <option value="" key="">me mama</option>
+                                <select className="Cidade">
+                                    <option value="" disable selected>Cidade</option>
+                                    <option value="" key="">São Paulo</option>
+                                    <option value="" key="">FotoTeta</option>
                                 </select>
-                                
-                                <input type="text" placeholder="CEP" id=""/>
+
+                                <input type="text" placeholder="CEP" id="" />
                             </div>
+
+                            <div className="part-1">
+                                <input type="text" placeholder="Bairro" id="" />
+                                <input type="text" placeholder="Rua" id="" />
+                                <input type='text' placeholder='Complemento (Opcional)' id='' />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="Detalhes">
+                        <div className="p-1">
+                            <span className="line-1">
+                                <p>Detalhes Preço Original</p>
+                                <input type='text' placeholder='Selecione ou Insira o Código' id='' />
+                            </span>
+
+                            <span className="line-2">
+                                <p>Subtotal dos Produtos</p>
+                                {''} {/*Usar para puxar o subtotal dos produtos */}
+                            </span>
+                            <span className="line-3">
+                                <p>Subtotal do Frete</p>
+                                {''} {/*Usar para puxar o frete */}
+                            </span>
+                        </div>
+
+                        <div className="p-2">
+                            <p>Total do Pedido</p>
+                            {''} {/*Usar para puxar o total do pedido */}
                         </div>
                     </div>
                 </div>
