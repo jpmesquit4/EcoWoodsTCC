@@ -226,7 +226,19 @@
 
                 font-family: 'MontSerrat', sans-serif;
                 border: none;
+                transition: 0.5s;
             }
+
+            button:hover {
+                cursor: pointer;
+                transform: scale(1.02);
+                background-color: black; 
+            }
+
+            button:active {
+                    transform: scale(1.0);
+            }
+            
          }
 
     }
@@ -375,17 +387,58 @@
                         width: 250px;
                     }
 
-                    button {
-                        background-color: #2a2a2a;
+                    .Btn {
                         border: none;
-                        padding: 15px 30px;
-                        color: #fff;
-
-                        font-family: 'MontSerrat', sans-serif;
-                        letter-spacing: 2px;
-                        border-radius: 20px;
-                        font-weight: 500;
-                    }
+                        border-radius: 50%;
+                        width: 45px;
+                        height: 45px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition-duration: .4s;
+                        cursor: pointer;
+                        position: relative;
+                        background: #f09433;
+                        background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+                        background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+                        background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+                        overflow: hidden;
+                      }
+                      
+                      .svgIcon {
+                        transition-duration: .3s;
+                      }
+                      
+                      .svgIcon path {
+                        fill: white;
+                      }
+                      
+                      .text {
+                        position: absolute;
+                        color: rgb(255, 255, 255);
+                        width: 120px;
+                        font-family: 'gotham';
+                        font-weight: 600;
+                        opacity: 0;
+                        transition-duration: .4s;
+                      }
+                      
+                      .Btn:hover {
+                        width: 200px;
+                        transition-duration: .4s;
+                        border-radius: 30px;
+                      }
+                      
+                      .Btn:hover .text {
+                        opacity: 1;
+                        transition-duration: .4s;
+                      }
+                      
+                      .Btn:hover .svgIcon {
+                        opacity: 0;
+                        transition-duration: .3s;
+                      }
 
                     .card-top {
                         display: flex;
