@@ -71,7 +71,36 @@ export default function Pagamento() {
 
                         <div className="p-2">
                             <p>Total do Pedido</p>
-                            {''} {/*Usar para puxar o total do pedido */}
+                            <span className="change">
+                                {''} {/*Usar para puxar o total do pedido */}12
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="nav-parcelamento">
+                        <div className="nav-button">
+                            <label className="switch">
+                                <span className="switch-text">Parcelamento</span>
+                                <div className="switch-wrapper">
+                                    <input type="checkbox" />
+                                    <span className="switch-button"></span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div className="nav-input">
+                            <select>
+                                <option value="" key="" disable select>A vista</option>
+                                <option value="" key="">2x</option>
+                                <option value="" key="">3x</option>
+                                <option value="" key="">4x</option>
+                                <option value="" key="">5x</option>
+                                <option value="" key="">6x</option>
+                                <option value="" key="">7x</option>
+                                <option value="" key="">8x</option>
+                                <option value="" key="">9x</option>
+
+                            </select>
                         </div>
                     </div>
                 </div>
