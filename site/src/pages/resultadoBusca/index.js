@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/footer';
-import { buscarImagem, buscarProdutosPorNome, listarTodosProdutos, consultarProdutos } from '../../api/produtoApi';
+import { buscarImagem } from '../../api/produtoApi';
 
 export default function Resultado() {
 
@@ -153,10 +153,6 @@ export default function Resultado() {
             </header>
 
             <section>
-                <div className="input-verificar">
-                    <input type="text" placeholder='Pesquisa' value={filtro} onChange={e => setFiltro(e.target.value)} />
-                    <img className='icon-relative' onClick={filtrar} src="/assets/images/proc-2.png" alt="" />
-                </div>
 
                 <main className="container-content">
                     <div className="nav-left">
@@ -166,15 +162,15 @@ export default function Resultado() {
 
                         <div className='container-check'>
                             <div>
-                            <select onClick={carregarProdutoFiltrado} value={categoria} onChange={e => setCategoria(e.target.value)}>
-                            <option value="" disabled selected>Selecione um cômodo</option>
-                            <option value="Sala de Estar" key="">Sala de Estar</option>
-                            <option value="Cozinha" key="">Cozinha</option>
-                            <option value="Closet" key="">Closet</option>
-                            <option value="Escritorio" key="">Escritório</option>
-                            <option value="Banheiro" key="">Banheiro</option>
-                            <option value="Lavanderia" key="">Lavanderia</option>
-                    </select>
+                                <select onClick={carregarProdutoFiltrado} value={categoria} onChange={e => setCategoria(e.target.value)}>
+                                    <option value="" disabled selected>Cômodos</option>
+                                    <option value="Sala de Estar" key="">Sala de Estar</option>
+                                    <option value="Cozinha" key="">Cozinha</option>
+                                    <option value="Closet" key="">Closet</option>
+                                    <option value="Escritorio" key="">Escritório</option>
+                                    <option value="Banheiro" key="">Banheiro</option>
+                                    <option value="Lavanderia" key="">Lavanderia</option>
+                                </select>
                             </div>
                         </div>
 
@@ -199,6 +195,12 @@ export default function Resultado() {
                     </div>
 
                     <div className="nav-right">
+
+                    <div className="input-verificar">
+                    <input type="text" placeholder='Pesquisa' value={filtro} onChange={e => setFiltro(e.target.value)} />
+                    <img className='icon-relative' onClick={filtrar} src="/assets/images/proc-2.png" alt="" />
+                </div>
+                
                         <div className='container-cards'>
 
                                 {produtos.map( item =>

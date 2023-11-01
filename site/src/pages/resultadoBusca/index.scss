@@ -107,10 +107,9 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: center;
+            margin-left: 10px;
             width: 100%;
-            margin-left: 90px;
-            padding-right: 110px;
             
 
             .icon-relative {
@@ -212,6 +211,7 @@
                         margin: 10px 0px;    
                         text-align: left;
                         font-size: 12px;
+                        width: 150px;
                     } 
                     
                     select:focus {
@@ -285,6 +285,7 @@
                     gap: 10px;
                     padding: 40px 35px 0;
 
+                    
 
                     .cards {
                         margin-bottom: 30px;
