@@ -1,0 +1,71 @@
+.rodape {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding-bottom: 30px;
+
+    .rodape-bot {
+        display: flex;
+        justify-content: center;
+
+        padding-top: 30px;
+        p {
+            font-family: 'MontSerrat', sans-serif;
+            color: #2a2a2a;
+            font-size: 8px;
+            font-weight: 500;
+        }
+    }
+
+    .rodape-top {
+        background-color: #fff;
+        padding: 25px;
+        border-bottom: 1px solid #2a2a2a;
+
+        h1 {
+            font-family: 'MontSerrat', sans-serif;
+            color: #2a2a2a;
+            font-size: 16px;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+    }
+
+    .rodape-mid {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: #fff;
+
+        gap: 40px;
+        padding: 50px 0px;
+
+        h1 {
+            color: #2a2a2a;
+            font-family: 'MontSerrat', sans-serif;
+            color: #2a2a2a;
+            font-size: 16px;
+            font-weight: 600;
+
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #2a2a2a;
+            font-family: 'MontSerrat', sans-serif;
+            color: #2a2a2a;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+    }
+
+    .line {
+        align-self: center;
+        background-color: #2a2a2a;
+        height: 1px;
+        width: 800px;
+    }
+ }

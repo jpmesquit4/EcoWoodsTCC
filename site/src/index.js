@@ -11,6 +11,8 @@ import AdmPainel from './pages/admin';
 import ConsultarProdutos from './pages/consultarProdutos';
 import Pagamento from './pages/Pagamento';
 import DetalhesProduto from './pages/detalhesProduto';
+import Carrinho from './pages/carrinho';
+import Favoritos from './pages/favoritos';
 
 import Produtos from './components/produtos';
 
@@ -48,6 +50,8 @@ root.render(
           <Route path='/admin' element={<AdmPainel/>} />
 
           <Route path='/detalhesProduto' element={<DetalhesProduto/>} />
+          <Route path='/carrinho' element={<Carrinho/>} />
+          <Route path='/favoritos' element={<Favoritos/>} />
 
 
         </Routes>

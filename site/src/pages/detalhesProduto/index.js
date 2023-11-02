@@ -2,6 +2,8 @@ import './index.scss';
 import Cabecalho from '../../components/cabecalhoPrincipal';
 import Rodape from '../../components/rodapePrincipal';
 
+import { Link } from 'react-router-dom';
+
 export default function DetalhesProduto() {
 
 
@@ -82,7 +84,8 @@ export default function DetalhesProduto() {
                     </div>
 
                 <div className='botao-e-input'>
-                    <button>ADICIONAR AO CARRINHO</button>
+
+                    <Link to='/carrinho'><button>ADICIONAR AO CARRINHO</button> </Link>
                     <input type="number" min='1' max='10' />
                 </div>
 

@@ -1,0 +1,96 @@
+.pagina-cabecalho {
+
+    .cabecalho-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+
+        padding: 20px;
+
+        button {
+            background: #2a2a2a;
+            padding: 15px 50px;
+            border: none;
+            border-radius: 50px;
+            border: 2px solid transparent;
+
+            color: #fff;
+
+            margin: 10px 0px;
+
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            transition: 0.5s;
+        }
+
+        button:hover {
+          cursor: pointer;
+          transform: scale(1.03);
+          background-color: transparent;
+          color: #2a2a2a;
+          border: 2px solid #2a2a2a;
+        }
+
+        button:active {
+          background-color: #2a2a2a;
+          color: #fff;
+        }
+
+        img {
+            height: 20px;
+            width: 20px;
+        }
+
+        p {
+            color: #2a2a2a;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-family: 'MontSerrat', sans-serif;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+
+            gap: 20px;
+        }
+
+        .header-mid {
+            display: flex;
+            flex-direction: row;
+
+            h1 {
+                color: #2a2a2a;
+                font-family: 'Gotham Black', sans-serif;
+                font-size: 40px;
+            }
+        }
+
+        .header-bot {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            gap: 20px;
+
+            .notification {
+                text-align: center;
+                background-color: black;
+                border-radius: 50%;
+                padding: 1px 2px;
+                font-size: 10px;
+
+                color: #fff;
+
+                position: relative;
+                right: 22px;
+                bottom: 10px;
+
+            }
+        } 
+    }
+}
