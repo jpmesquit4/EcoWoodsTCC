@@ -1,10 +1,10 @@
 import './index.scss';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useParams } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/footer';
-import { buscarImagem } from '../../api/produtoApi';
+import { buscarImagem, buscarProdutosPorNome, listarTodosProdutos, carregarProdutoCategorizado } from '../../api/produtoApi';
 
 export default function Resultado() {
 
@@ -15,104 +15,29 @@ export default function Resultado() {
 
     async function carregarProdutoFiltrado() {
         if (categoria) {
-        const url = `http://localhost:6969/produto/filtroCategoria?categoria=${categoria}`;
-
-        let response = await axios.get(url);
-
-        let listaProdutos = [];
-
-        for (let item of response.data) {
-
-            function mostrarImagem() {
-                if (typeof (item.imagem) == 'object') {
-                    return URL.createObjectURL(item.imagem);
-                } 
-                else {
-                    return buscarImagem(item.imagem);
-                }
-            }
-
-            listaProdutos.push({
-              nome: item.produto,
-              preco: item.preco,
-              imagem: mostrarImagem()
-            })
-          }
-
-          
-      
-          setProdutos(listaProdutos);
+        const resposta = await carregarProdutoCategorizado(categoria);
+        setProdutos(resposta);
         }
     }
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        carregarProduto();
+        carregarTodosProdutos();
     }, [])
 
-    function paginaDetalhes() {
-        navigate('/detalhesproduto');
+    function abrirDetalhes(id) {
+        navigate(`/detalhesproduto/${id}`)
     }
 
-    async function carregarProduto() {
-        const url = 'http://localhost:6969/produto';
-
-        let response = await axios.get(url);
-
-        let listaProdutos = [];
-
-        for (let item of response.data) {
-
-            function mostrarImagem() {
-                if (typeof (item.imagem) == 'object') {
-                    return URL.createObjectURL(item.imagem);
-                } 
-                else {
-                    return buscarImagem(item.imagem);
-                }
-            }
-
-            listaProdutos.push({
-              nome: item.produto,
-              preco: item.preco,
-              imagem: mostrarImagem()
-            })
-          }
-
-          
-      
-          setProdutos(listaProdutos);
+    async function carregarTodosProdutos() {
+        const resposta = await listarTodosProdutos();
+        setProdutos(resposta);
     }
     
     async function filtrar() {
-        const url = `http://localhost:6969/produto/busca?nome=${filtro}`;
-
-        let response = await axios.get(url);
-
-        let listaProdutos = [];
-
-        for (let item of response.data) {
-
-            function mostrarImagem() {
-                if (typeof (item.imagem) == 'object') {
-                    return URL.createObjectURL(item.imagem);
-                } 
-                else {
-                    return buscarImagem(item.imagem);
-                }
-            }
-
-            listaProdutos.push({
-              nome: item.produto,
-              preco: item.preco,
-              imagem: mostrarImagem()
-            })
-          }
-
-          
-      
-          setProdutos(listaProdutos); 
+        const resp = await buscarProdutosPorNome(filtro);
+        setProdutos(resp);
     }
 
     return (
@@ -207,18 +132,18 @@ export default function Resultado() {
                                 <div className="cards">
 
                                         <div className="img-produto">
-                                            <img src={item.imagem} alt="" />
+                                            <img src={buscarImagem(item.imagem)} alt="" />
                                         </div>
 
                                         <div className="info-produto">
 
-                                        <p className='nomeProduto'> {item.nome} </p>
+                                        <p className='nomeProduto'> {item.produto} </p>
 
                                         <p className='precoProduto'> R${item.preco} </p>
 
                                         <img src="/assets/images/favoritar-result.png" alt="" />
 
-                                        <svg onClick={paginaDetalhes} xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
+                                        <svg onClick={() => abrirDetalhes(item.id)} xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
                                             <path d="M0.760249 17.9069L19.3437 -4.46763e-05L19.3434 17.9071L0.760249 17.9069Z" fill="#2A2A2A"/>
                                         </svg>
                                

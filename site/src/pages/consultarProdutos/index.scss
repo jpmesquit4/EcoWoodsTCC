@@ -86,6 +86,10 @@
                     background-color: white;
                     transition: 0.3s;
 
+                    > tr:hover {
+                        background-color: #f1f1f1;
+                    }
+
                     tr {
                         img {
                             height: auto;
@@ -104,9 +108,7 @@
                     
                 }
 
-                tbody:hover {
-                    background-color: #f1f1f1;
-                }
+                
             }
         }
     }

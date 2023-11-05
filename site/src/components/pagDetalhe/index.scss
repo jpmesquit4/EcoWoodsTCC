@@ -1,0 +1,256 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.pagina-detalhesProduto {
+
+    background-color: #f1f1f1;
+    
+    .photo-and-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        margin-top: 50px;
+
+        .photo {
+            img {
+                width: 500px;
+                height: auto;
+            }
+        }
+
+
+        .info {
+
+            display: flex;
+            flex-direction: column;
+            margin-left: 30px;
+            gap: 15px;
+
+            > p {
+                font-family: 'gotham-bold';
+            }
+
+            > img {
+                height: auto;
+                width: 50px;
+            }
+
+            .nomeProduto {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                img {
+                    margin: 0px 10px;
+                }
+
+                h1 {
+                    font-family: 'gotham black';
+                    font-size: 24px;
+                }
+            }
+
+            .tamanhoProduto {
+
+                background-color: white;
+                padding: 20px 30px;
+                border-radius: 10px;
+
+                p {
+                    font-family: 'gotham-bold';
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                }
+
+                > div {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    
+
+
+                    > p {
+                        border: 2px solid #d1d1d1;
+                        border-radius: 15px;
+                        padding: 5px 15px;
+                        margin: 5px;
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .descProduto {
+
+                background-color: white;
+                padding: 20px 30px;
+                border-radius: 10px;
+
+                > p {
+                    font-family: 'gotham-bold';
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                }
+
+                .desc-cinza {
+                    font-family: 'gotham-bold';
+                    font-weight: 500;
+                    color: #b9b9b9;
+                    font-size: 14px;
+                }
+
+            }
+
+
+            .entregaProduto {
+
+                background-color: white;
+                padding: 20px 30px;
+                border-radius: 10px;
+
+
+                > p {
+                    font-family: 'gotham-bold';
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                }
+
+                .entrega {
+
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    img {
+                        margin: 0px 15px 0px 0px;
+                    }
+
+                    > div {
+
+                        display: flex;
+                        flex-direction: column;
+
+
+                        > p {
+                            font-family: 'gotham-bold';
+                            font-weight: 500;
+                            color: #b9b9b9;
+                            font-size: 12px;
+                            margin: 1px 0px;
+                        }
+                    }
+                }
+
+
+                .line {
+                    display: flex;
+                    flex-direction: row;
+                    border: 1px solid #d9d9d9;
+                    margin: 20px 0px;
+                    height: 1px;
+                    width: 600px;
+                }
+
+                .pagamento {
+                    display: flex;
+                    flex-direction: row;
+
+                    img {
+                        margin: 0px 15px 0px 0px;
+                    }
+
+                    > div {
+                        display: flex;
+                        flex-direction: column;
+
+                        > p {
+                            font-family: 'gotham-bold';
+                            font-weight: 500;
+                            color: #b9b9b9;
+                            font-size: 12px;
+                            margin: 1px 0px;
+                        }
+                    }
+                }
+            }
+
+            .botao-e-input {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                margin: 20px 0px 40px;
+
+                input {
+                    padding: 20px 10px;
+                    width: 100px;
+                    height: 50px;
+
+                    font-family: 'gotham';
+                    border: 1px solid #BBB;
+                    border-color: #BBB #ECECEC #ECECEC #BBB;
+                    border-radius: 5px;
+                    margin-left: 40px;
+                }
+                
+                /* Spin Buttons modified */
+                input[type="number"]::-webkit-outer-spin-button, 
+                input[type="number"]::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    background: #FFF url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAKUlEQVQYlWNgwAT/sYhhKPiPT+F/LJgEsHv37v+EMGkmkuImoh2NoQAANlcun/q4OoYAAAAASUVORK5CYII=) no-repeat center center;
+                    width: 1em;
+                    border-left: 1px solid #BBB;
+                    opacity: .5; /* shows Spin Buttons per default (Chrome >= 39) */
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                }
+                
+                /* Override browser form filling */
+                input:-webkit-autofill {
+                    background: black;
+                    color: red;
+                }
+                
+                
+
+                input:focus {
+                    outline: none;
+                }
+
+                button {
+                    background-color: #2a2a2a;
+                    color: white;
+                    padding: 20px 60px;
+                    border-radius: 30px;
+                    border:none;
+
+                    font-family: 'montserrat', sans-serif;
+                    border: 2px solid transparent;
+                    transition: 0.5s;
+                }
+
+                button:hover {
+                    background-color: transparent;
+                    border: 2px solid #2a2a2a;
+                    color: #2a2a2a;
+
+                    transform: scale(1.03);
+                    cursor: pointer;
+                }
+
+                button:active {
+                    background-color: #2a2a2a;
+                    border: 2px solid transparent;
+                    color: #fff;
+
+                    transform: scale(1);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

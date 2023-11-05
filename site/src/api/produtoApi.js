@@ -79,3 +79,8 @@ export async function consultarProdutos() {
 export function buscarImagem(imagem) {
     return `${api.getUri()}/${imagem}`
 }
+
+export async function carregarProdutoCategorizado(categoria) {
+    const resposta = await api.get(`http://localhost:6969/produto/filtroCategoria?categoria=${categoria}`);
+    return resposta.data;
+}

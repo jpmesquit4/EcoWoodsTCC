@@ -77,6 +77,10 @@
 
             gap: 20px;
 
+            > p:hover {
+                cursor: pointer;
+            }
+
             .notification {
                 text-align: center;
                 background-color: black;

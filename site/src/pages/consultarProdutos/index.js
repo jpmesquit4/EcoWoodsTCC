@@ -60,6 +60,10 @@ export default function ConsultarProdutos() {
         setProdutos(resp);
     }
 
+    function abrirDetalhes(id) {
+        navigate(`/detalhesproduto/${id}`)
+    }
+
     
 
 
@@ -99,7 +103,7 @@ export default function ConsultarProdutos() {
                                 <tbody>
 
                                 {produtos.map(item =>
-                                    <tr key={item.id}>
+                                    <tr key={item.id}  onClick={() => abrirDetalhes(item.id)}>
                                         <td>{item.id}</td>
                                         <td>{item.produto}</td>
                                         <td>{item.descricao}</td>
@@ -107,8 +111,15 @@ export default function ConsultarProdutos() {
                                         <td>{item.estoque}</td>
                                         <td>{item.nome_categoria}</td>
                                         <td>{item.tamanho}</td>
-                                        <img src="/assets/images/editar.svg" onClick={() => editarProduto(item.id)} />
-                                        <img src="/assets/images/lixo.svg" onClick={() => removerProdutoClick(item.id, item.produto)}/>
+                                        <img src="/assets/images/editar.svg" 
+                                        onClick={e => {
+                                            e.stopPropagation();
+                                            editarProduto(item.id);
+                                            }} />
+                                        <img src="/assets/images/lixo.svg" onClick={e => {
+                                            e.stopPropagation();
+                                            removerProdutoClick(item.id, item.produto);
+                                            }}/>
                                     </tr>
                                 )}
                                     

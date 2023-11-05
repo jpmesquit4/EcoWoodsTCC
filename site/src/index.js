@@ -13,6 +13,7 @@ import Pagamento from './pages/Pagamento';
 import DetalhesProduto from './pages/detalhesProduto';
 import Carrinho from './pages/carrinho';
 import Favoritos from './pages/favoritos';
+import CarrinhoProduto from './pages/carrinhoProduto';
 
 import Produtos from './components/produtos';
 
@@ -37,9 +38,10 @@ root.render(
           <Route path='/cadastrocliente' element={<CadastroCliente />}/>
           <Route path='/loginadm' element={<LoginADM />}/>
           <Route path='/resultadoBuscar' element={<Resultado/>} />
-          <Route path='/resultadoBuscarCategoria/:idParam' element={<Resultado/>} />
+          
 
           <Route path='/finalizarPedidos' element={<Pagamento />} />
+          <Route path='/carrinhoProduto' element={<CarrinhoProduto />} />
 
           <Route path='/cadastroprodutos' element={<CadastroProdutos/>} />
           <Route path='/alterar/:idParam' element={<CadastroProdutos/>} />
@@ -49,7 +51,9 @@ root.render(
           <Route path='/consultarprodutos' element={<ConsultarProdutos/>} />
           <Route path='/admin' element={<AdmPainel/>} />
 
-          <Route path='/detalhesProduto' element={<DetalhesProduto/>} />
+          <Route path='/detalhesProduto/:idParam' element={<DetalhesProduto/>} />
+            
+
           <Route path='/carrinho' element={<Carrinho/>} />
           <Route path='/favoritos' element={<Favoritos/>} />
 

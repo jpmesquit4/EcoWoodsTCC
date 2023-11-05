@@ -18,6 +18,10 @@ export default function Home() {
         navigate('/resultadoBuscar');
     }
 
+    function paginaFavoritos() {
+        navigate('/favoritos');
+    }
+
     useEffect(() => {
         if(!storage('cliente-logado')) {
             navigate('/logincliente')
@@ -46,7 +50,7 @@ export default function Home() {
                 <div className="header-bot">
                     <p>Fale Conosco</p>
 
-                    <p>Favoritos</p>
+                    <p onClick={paginaFavoritos}>Favoritos</p>
 
                     <img src="/assets/images/sacolaDeCompras.png" alt="" />
                     <p className="notification">0</p>

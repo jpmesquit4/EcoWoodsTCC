@@ -1,43 +1,30 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-
-import { buscarPorId, buscarImagem } from '../../api/produtoApi';
+import { buscarImagem } from '../../api/produtoApi';
 
 import './index.scss';
 
-export default function Produtos() {
+export default function Produtos(props) {
 
-    const [produto, setProduto] = useState({});
-
-    const { idParam } = useParams();
-
-    useEffect(() => {
-        carregarProduto();
-    }, [])
-
-
-    async function carregarProduto() {
-        const resposta = await buscarPorId(idParam);
-        setProduto(resposta);
-    }
 
     return (
-        <div className='cards'>
+        <div className="cards">
+
             <div className="img-produto">
-                <img src={buscarImagem(produto.imagem)} alt="" />
+                <img src={buscarImagem(props.produtos.imagem)} alt="" />
             </div>
 
             <div className="info-produto">
-                <p>
-                    {produto.produto}
-                    <br />
-                    <span>
-                        R${produto.preco}
-                    </span>
-                </p>
-                <p>
-                    <img src="/assets/images/favoritar-result.png" alt="" />
-                </p>
+
+                <p className='nomeProduto'> {props.produtos.produto} </p>
+
+                <p className='precoProduto'> R${props.produtos.preco}  </p>
+
+                <img src="/assets/images/favoritar-result.png" alt="" />
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
+                    <path d="M0.760249 17.9069L19.3437 -4.46763e-05L19.3434 17.9071L0.760249 17.9069Z" fill="#2A2A2A" />
+                </svg>
+
+
             </div>
         </div>
     )

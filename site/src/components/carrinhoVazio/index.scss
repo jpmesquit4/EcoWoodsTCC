@@ -1,0 +1,100 @@
+.carrinho-vazio {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between !important;
+
+        width: 100%;
+
+        margin: 50px 0px;
+
+        .part-imagem {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #fff;
+            margin-left: 50px;
+            width: 60vw;
+            height: 70vh;
+            border-radius: 5px;
+
+            img {
+                height: auto;
+                width: 100px;
+            }
+
+            p {
+                font-family: 'gotham';
+                margin: 20px 0px 30px;
+            }
+
+            button {
+                border: none;
+                font-family: 'montserrat';
+                letter-spacing: 2px;
+                border-radius: 30px;
+                text-transform: uppercase;
+                background-color: #2a2a2a;
+                border: 2px solid transparent;
+                color: #fff;
+                padding: 20px 40px;
+                transition: 0.5s;
+            }
+
+            button:hover {
+                transform: scale(1.03);
+                border: 2px solid #2a2a2a;
+                background-color: transparent;
+                color: #2a2a2a;
+                cursor: pointer;
+            }
+
+            button:active {
+                transform: scale(1.00);
+                background-color: #2a2a2a;
+                color: #fff;
+            }
+        }
+
+        .part-info {
+            display: flex;
+            flex-direction: column;
+
+            background-color: #fff;
+            padding: 20px 40px;
+            height: 70vh;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+            margin-right: 50px;
+
+            .line {
+                background-color: #d1d1d1;
+                height: 1px;
+                width: 100%;
+            }
+
+            .infos {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 20px;
+
+                
+
+                img {
+                    margin-right: 15px;
+                }
+
+                h1 {
+                    font-family: 'gotham';
+                    font-size: 14px;
+                }
+
+                p {
+                    font-family: 'gotham';
+                    font-size: 12px;
+                }
+            }
+        }
+    }
