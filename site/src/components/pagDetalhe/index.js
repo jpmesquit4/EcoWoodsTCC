@@ -1,10 +1,30 @@
 import './index.scss';
 import { Link} from 'react-router-dom';
 import { buscarImagem } from '../../api/produtoApi';
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { buscarPorId } from '../../api/produtoApi'
 
 
 export default function PagDetalhes(props) {
 
+    const [produto, setProduto] = useState({});
+    const navigate = useNavigate();
+
+    const {idParam} = useParams();
+
+    useEffect(() => {
+        carregarProduto();
+    }, []);
+
+    async function carregarProduto() {
+        const resposta = await buscarPorId(idParam);
+        setProduto(resposta);   
+    }
+
+    function abrirDetalhes(id) {
+        navigate(`/carrinhoProduto/${id}`)
+    }
 
     return(
         <div className='photo-and-info'>
@@ -68,10 +88,9 @@ export default function PagDetalhes(props) {
                     </div>
 
                 <div className='botao-e-input'>
-
-                    <Link to='/carrinho'><button>ADICIONAR AO CARRINHO</button> </Link>
-                    <input type="number" min='1' max='10' />
+                    <button onClick={() => abrirDetalhes(produto.id)}>ADICIONAR AO CARRINHO</button>
                 </div>
+
 
                 </div>
             </div>

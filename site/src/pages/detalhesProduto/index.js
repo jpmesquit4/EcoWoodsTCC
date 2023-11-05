@@ -29,9 +29,11 @@ export default function DetalhesProduto() {
         <div className='pagina-detalhesProduto'>
             <Cabecalho />
 
-            <div className='photo-and-info'>
-                <PagDetalhes produto={produto} />
-            </div>
+        
+                <div className='photo-and-info'>
+                    <PagDetalhes produto={produto} />
+                </div>
+            
 
             <Rodape />
         </div>

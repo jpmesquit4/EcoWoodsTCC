@@ -2,13 +2,17 @@ import './index.scss';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 
-export default function Cabecalho() {
+export default function Cabecalho(props) {
 
     const navigate = useNavigate();
 
     function sairClick() {
         storage.remove('cliente-logado');
         navigate('/logincliente');
+    }
+
+    function abrirCarrinhovazio() {
+        navigate('/carrinho')
     }
 
     return (
@@ -34,8 +38,8 @@ export default function Cabecalho() {
 
                     <p>Favoritos</p>
 
-                    <img src="/assets/images/sacola.png" alt="" />
-                    <p className="notification">0</p>
+                    <img onClick={abrirCarrinhovazio} src="/assets/images/sacola.png" alt="" />
+                    <p className="notification">{props.cartCount}</p>
                 </div>
             </div>
 

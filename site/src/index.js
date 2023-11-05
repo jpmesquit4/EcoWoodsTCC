@@ -41,7 +41,7 @@ root.render(
           
 
           <Route path='/finalizarPedidos' element={<Pagamento />} />
-          <Route path='/carrinhoProduto' element={<CarrinhoProduto />} />
+          <Route path='/carrinhoProduto/:idParam' element={<CarrinhoProduto />} />
 
           <Route path='/cadastroprodutos' element={<CadastroProdutos/>} />
           <Route path='/alterar/:idParam' element={<CadastroProdutos/>} />
