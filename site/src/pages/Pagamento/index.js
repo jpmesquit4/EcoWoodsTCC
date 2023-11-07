@@ -1,4 +1,5 @@
-import "./index.scss"
+import "./index.scss";
+import VMask from "v-mask";
 
 export default function Pagamento() {
 
@@ -99,8 +100,13 @@ export default function Pagamento() {
                                 <option value="" key="">7x</option>
                                 <option value="" key="">8x</option>
                                 <option value="" key="">9x</option>
-
                             </select>
+                        </div>
+                    </div>
+                    <div className="nav-pagamento">
+                        <input type="text" />
+                        <div>
+
                         </div>
                     </div>
                 </div>
