@@ -1,5 +1,9 @@
 import "./index.scss";
-import VMask from "v-mask";
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState, useParams } from 'react';
+import axios from 'axios';
+import InputMask from "react-input-mask"
 
 export default function Pagamento() {
 
@@ -89,8 +93,8 @@ export default function Pagamento() {
                             </label>
                         </div>
 
-                        <div className="nav-input">
-                            <select>
+                        <div className="selecionar-parcelas">
+                            <select className="selecionar-parc">
                                 <option value="" key="" disable select>A vista</option>
                                 <option value="" key="">2x</option>
                                 <option value="" key="">3x</option>
@@ -104,10 +108,15 @@ export default function Pagamento() {
                         </div>
                     </div>
                     <div className="nav-pagamento">
-                        <input type="text" />
+                        <InputMask type="text" mask="9999.9999.9999.9999" placeholder="Número do Cartão" id="" />
                         <div>
-
+                            <InputMask type="text" mask="99/9999" placeholder="Vencimento" id="" />
+                            <input type="text" placeholder="CVV" id="" />
                         </div>
+                        <input type="text" placeholder="Nome do Títular" />
+                    </div>
+                    <div className="nav-confirmar">
+                        <Link to="" className="Link">Finalizar Compra</Link>
                     </div>
                 </div>
             </section>
