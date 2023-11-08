@@ -56,8 +56,6 @@ root.render(
 
           <Route path='/carrinho' element={<Carrinho/>} />
           <Route path='/favoritos' element={<Favoritos/>} />
-
-
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

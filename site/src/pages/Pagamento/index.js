@@ -66,16 +66,18 @@ export default function Pagamento() {
 
                             <span className="line-2">
                                 <p>Subtotal dos Produtos</p>
+                                <span>12</span>
                                 {''} {/*Usar para puxar o subtotal dos produtos */}
                             </span>
                             <span className="line-3">
                                 <p>Subtotal do Frete</p>
+                                <span>12</span>
                                 {''} {/*Usar para puxar o frete */}
                             </span>
                         </div>
 
                         <div className="p-2">
-                            <p>Total do Pedido</p>
+                            <p>Total do Pedido (1 item): {''} {/*Colocar a quantidade de pedidos*/}</p>
                             <span className="change">
                                 {''} {/*Usar para puxar o total do pedido */}12
                             </span>
@@ -95,7 +97,7 @@ export default function Pagamento() {
 
                         <div className="selecionar-parcelas">
                             <select className="selecionar-parc">
-                                <option value="" key="" disable select>A vista</option>
+                                <option value="" key="" disable select>Selecione a quantidade</option>
                                 <option value="" key="">2x</option>
                                 <option value="" key="">3x</option>
                                 <option value="" key="">4x</option>
@@ -107,11 +109,44 @@ export default function Pagamento() {
                             </select>
                         </div>
                     </div>
+
+                    <div className="Detalhes">
+                        <div className="p-1">
+                            <span className="line-1">
+                                <p>Detalhes Preço Parcelado</p>
+                            </span>
+
+                            <span className="line-2">
+                                <p>Taxa de Juros:</p>
+                                <span>
+                                    12
+                                    {''} {/*Usar para puxar o subtotal dos produtos */}
+                                    %
+                                </span>
+                            </span>
+                            <span className="line-3">
+                                <p>Valor das Parcelas</p>
+                                <span>
+                                    12
+                                    {''} {/*Usar para puxar o frete */}
+                                </span>
+                                
+                            </span>
+                        </div>
+
+                        <div className="p-2">
+                            <p>Total do Pedido</p>
+                            <span className="change">
+                                {''} {/*Usar para puxar o total do pedido */}12
+                            </span>
+                        </div>
+                    </div>
+
                     <div className="nav-pagamento">
                         <InputMask type="text" mask="9999.9999.9999.9999" placeholder="Número do Cartão" id="" />
                         <div>
                             <InputMask type="text" mask="99/9999" placeholder="Vencimento" id="" />
-                            <input type="text" placeholder="CVV" id="" />
+                            <InputMask type="text" maxLength="4" placeholder="CVV" id="" />
                         </div>
                         <input type="text" placeholder="Nome do Títular" />
                     </div>
