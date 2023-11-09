@@ -26,10 +26,10 @@ export default function Pagamento() {
 
                     <div className="inputs">
                         <select className="sel-entrega">
-                            <option value="" disable selected>Selecione o Modo de Entrega</option>
-                            <option value="" key="">Expresso Padrão</option>
-                            <option value="" key="">Expresso Rápido</option>
-                            <option value="" key="">Retirar da Loja</option>
+                            <option className="opt" value="" disable selected>Selecione o Modo de Entrega</option>
+                            <option className="opt" key="">Expresso Padrão</option>
+                            <option className="opt" key="">Expresso Rápido</option>
+                            <option className="opt" key="">Retirar da Loja</option>
                         </select>
 
                         <div className="nav-input">
@@ -46,7 +46,7 @@ export default function Pagamento() {
                                     <option value="" key="">FotoTeta</option>
                                 </select>
 
-                                <input type="text" placeholder="CEP" id="" />
+                                <InputMask mask='99999-999' type="text" placeholder="CEP" id="" />
                             </div>
 
                             <div className="part-1">

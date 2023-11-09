@@ -14,7 +14,7 @@ import DetalhesProduto from './pages/detalhesProduto';
 import Carrinho from './pages/carrinho';
 import Favoritos from './pages/favoritos';
 import CarrinhoProduto from './pages/carrinhoProduto';
-
+import Situacao from './pages/situacaoPedido';
 import Produtos from './components/produtos';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -38,7 +38,7 @@ root.render(
           <Route path='/cadastrocliente' element={<CadastroCliente />}/>
           <Route path='/loginadm' element={<LoginADM />}/>
           <Route path='/resultadoBuscar' element={<Resultado/>} />
-          
+          <Route path='/situacaoPedidos' element={<Situacao />} />
 
           <Route path='/finalizarPedidos' element={<Pagamento />} />
           <Route path='/carrinhoProduto/:idParam' element={<CarrinhoProduto />} />
@@ -52,7 +52,6 @@ root.render(
           <Route path='/admin' element={<AdmPainel/>} />
 
           <Route path='/detalhesProduto/:idParam' element={<DetalhesProduto/>} />
-            
 
           <Route path='/carrinho' element={<Carrinho/>} />
           <Route path='/favoritos' element={<Favoritos/>} />

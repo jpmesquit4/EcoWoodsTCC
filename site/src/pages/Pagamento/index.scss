@@ -87,15 +87,21 @@
                     margin-bottom: 10px;
 
                     appearance: none;
-                    /* Remove a aparência padrão da seta */
                     -webkit-appearance: none;
-                    /* Para o Safari */
                     -moz-appearance: none;
-                    /* Para o Firefox */
                     background: url('../../../public/assets/images/icon-select.png');
                     background-position: 97%;
                     background-repeat: no-repeat;
                     background-size: 15px 16px;
+
+                    option {
+                        appearance: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        color: #000;
+                        font-weight: 425;
+                        font-family: 'montserrat', sans-serif;
+                    }
                 }
 
                 input::placeholder {
@@ -129,6 +135,10 @@
                             font-family: 'montserrat', sans-serif;
                             border: none;
                             margin: 10px;
+                            color: rgba(32, 32, 32, 0.897);
+                            font-family: 'montserrat', sans-serif;
+                            font-size: 15px;
+                            font-weight: 405;
                         }
 
                         input::placeholder {
@@ -165,6 +175,15 @@
 
                         select:focus {
                             outline: none;
+                        }
+
+                        option {
+                            appearance: none;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            color: #000;
+                            font-weight: 405;
+                            font-family: 'montserrat', sans-serif;
                         }
                     }
                 }
@@ -312,7 +331,7 @@
                         height: 19px;
                         position: absolute;
                         left: 4px;
-                        bottom: 4px;
+                        bottom: 4.05px;
                         border-radius: 50%;
                         transition: .4s all ease;
                         background-color: aliceblue;
@@ -364,6 +383,15 @@
                         outline: none;
                     }
 
+                    option {
+                        appearance: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        color: #000;
+                        font-weight: 405;
+                        font-family: 'montserrat', sans-serif;
+                    }
+
                     // .sel-entrega:active{
                     //     color: rgba(12, 12, 12, 0.5);
                     // }
@@ -389,6 +417,7 @@
                     color: rgba(32, 32, 32, 0.897);
                     font-family: 'montserrat', sans-serif;
                     font-size: 15px;
+                    font-weight: 405;
                 }
 
                 input:focus {
