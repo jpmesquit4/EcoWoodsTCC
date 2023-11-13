@@ -15,6 +15,10 @@ export default function Cabecalho(props) {
         navigate('/carrinho')
     }
 
+    function voltarHome() {
+        navigate('/')
+    }
+
     return (
         <div className='pagina-cabecalho'>
             <div className="cabecalho-top">
@@ -23,8 +27,12 @@ export default function Cabecalho(props) {
                     <img src="/assets/images/barra.png" alt="" />
                     <p>Menu</p>
 
+                    <span onClick={voltarHome}>
+                    
                     <img src="/assets/images/botao-home.png" alt="" />
-                    <p>Buscar</p>
+                    <p>Início</p>
+
+                    </span>
 
                     <button onClick={sairClick}>Sair</button>
                 </div>

@@ -1,3 +1,18 @@
+.react-confirm-alert-body {
+    width: 60vw !important;
+    color: #2a2a2a !important;
+    font-family: 'gotham' !important;
+    padding: 40px !important;
+
+    h1 {
+        padding-bottom: 15px !important;
+    }
+}
+
+.react-confirm-alert-button-group {
+    display: none !important;
+}
+
 .carrinho-cheio {
     display: flex;
     flex-direction: row;

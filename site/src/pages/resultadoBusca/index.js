@@ -2,6 +2,7 @@ import './index.scss';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useParams } from 'react';
+import storage from 'local-storage';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/footer';
 import { buscarImagem, buscarProdutosPorNome, listarTodosProdutos, carregarProdutoCategorizado } from '../../api/produtoApi';
@@ -24,6 +25,12 @@ export default function Resultado() {
 
     useEffect(() => {
         carregarTodosProdutos();
+    }, [])
+
+    useEffect(() => {
+        if(!storage('cliente-logado')) {
+            navigate('/logincliente')
+        }
     }, [])
 
     function abrirDetalhes(id) {

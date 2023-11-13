@@ -22,12 +22,9 @@ export default function Home() {
         navigate('/favoritos');
     }
 
-    useEffect(() => {
-        if(!storage('cliente-logado')) {
-            navigate('/logincliente')
-        }
-    }, [])
-
+    function paginaProdutos() {
+        navigate('/resultadoBuscar')
+    }
 
     return (
         <div className="pagina-home">
@@ -37,8 +34,10 @@ export default function Home() {
                     <img src="/assets/images/menu.png" alt="" />
                     <p>Menu</p>
 
+                    <span onClick={paginaProdutos}> 
                     <img src="/assets/images/lupa.png" alt="" />
                     <p>Buscar</p>
+                    </span>
 
                     <button onClick={sairClick}>Sair</button>
                 </div>

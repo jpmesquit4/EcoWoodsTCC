@@ -1,21 +1,37 @@
 import "./index.scss";
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState, useParams } from 'react';
-import axios from 'axios';
+import { buscarPorId, buscarImagem } from "../../api/produtoApi";
+import { useEffect, useState } from 'react';
+import { useParams } from "react-router-dom";
 import InputMask from "react-input-mask"
 
 export default function Pagamento() {
+
+    const [produto, setProduto] = useState({});
+    const navigate = useNavigate();
+
+    console.log(produto)
+
+    const {idParam} = useParams();
+
+    useEffect(() => {
+        carregarProduto();
+    }, []);
+
+    async function carregarProduto() {
+        const resposta = await buscarPorId(idParam);
+        setProduto(resposta);   
+    }
 
     return (
         <main className="PagamentosCartao">
             <section className="container">
                 <div className="Produtos">
                     <div className="map">
-                        <h2>guarda-roupa de fototeta</h2>
+                        <h2>{produto.produto}</h2>
 
                         <div>
-                            <img src="/assets/images/guardasroupas.png" alt="" />
+                            <img src={buscarImagem(produto.imagem)} alt="" />
                         </div>
                     </div>
                 </div>
@@ -26,24 +42,24 @@ export default function Pagamento() {
 
                     <div className="inputs">
                         <select className="sel-entrega">
-                            <option className="opt" value="" disable selected>Selecione o Modo de Entrega</option>
-                            <option className="opt" key="">Expresso Padrão</option>
-                            <option className="opt" key="">Expresso Rápido</option>
-                            <option className="opt" key="">Retirar da Loja</option>
+                            <option className="opt" value="" disabled selected>Selecione o Modo de Entrega</option>
+                            <option className="opt" value='Expresso Padrão' key="">Expresso Padrão</option>
+                            <option className="opt" value='Expresso Rápido' key="">Expresso Rápido</option>
+                            <option className="opt" value='Retirar na Loja' key="">Retirar na Loja</option>
                         </select>
 
                         <div className="nav-input">
                             <div className="part-2">
                                 <select className="Estado">
-                                    <option value="" disable selected>Estado</option>
-                                    <option value="" key="">São Paulo</option>
-                                    <option value="" key="">Pinto Rosa</option>
+                                    <option value="" disabled selected>Estado</option>
+                                    <option value="São Paulo" key="">São Paulo</option>
+                                    <option value="Rio de Janeiro" key="">Rio de Janeiro</option>
                                 </select>
 
                                 <select className="Cidade">
-                                    <option value="" disable selected>Cidade</option>
-                                    <option value="" key="">São Paulo</option>
-                                    <option value="" key="">FotoTeta</option>
+                                    <option value="" disabled selected>Cidade</option>
+                                    <option value="São Paulo" key="">São Paulo</option>
+                                    <option value="Rio de Janeiro" key="">Rio de Janeiro</option>
                                 </select>
 
                                 <InputMask mask='99999-999' type="text" placeholder="CEP" id="" />
@@ -65,13 +81,13 @@ export default function Pagamento() {
                             </span>
 
                             <span className="line-2">
-                                <p>Subtotal dos Produtos</p>
-                                <span>12</span>
+                                <p>Subtotal dos Produto</p>
+                                <span> R${produto.preco}</span>
                                 {''} {/*Usar para puxar o subtotal dos produtos */}
                             </span>
                             <span className="line-3">
                                 <p>Subtotal do Frete</p>
-                                <span>12</span>
+                                <span>R$12</span>
                                 {''} {/*Usar para puxar o frete */}
                             </span>
                         </div>
@@ -79,7 +95,7 @@ export default function Pagamento() {
                         <div className="p-2">
                             <p>Total do Pedido (1 item): {''} {/*Colocar a quantidade de pedidos*/}</p>
                             <span className="change">
-                                {''} {/*Usar para puxar o total do pedido */}12
+                                {''} R${Number(produto.preco) + 12}
                             </span>
                         </div>
                     </div>
@@ -97,15 +113,15 @@ export default function Pagamento() {
 
                         <div className="selecionar-parcelas">
                             <select className="selecionar-parc">
-                                <option value="" key="" disable select>Selecione a quantidade</option>
-                                <option value="" key="">2x</option>
-                                <option value="" key="">3x</option>
-                                <option value="" key="">4x</option>
-                                <option value="" key="">5x</option>
-                                <option value="" key="">6x</option>
-                                <option value="" key="">7x</option>
-                                <option value="" key="">8x</option>
-                                <option value="" key="">9x</option>
+                                <option value="" disabled selected >Selecione a quantidade</option>
+                                <option value="2x" key="">2x</option>
+                                <option value="3x" key="">3x</option>
+                                <option value="4x" key="">4x</option>
+                                <option value="5x" key="">5x</option>
+                                <option value="6x" key="">6x</option>
+                                <option value="7x" key="">7x</option>
+                                <option value="8x" key="">8x</option>
+                                <option value="9x" key="">9x</option>
                             </select>
                         </div>
                     </div>
@@ -151,7 +167,7 @@ export default function Pagamento() {
                         <input type="text" placeholder="Nome do Títular" />
                     </div>
                     <div className="nav-confirmar">
-                        <Link to="" className="Link">Finalizar Compra</Link>
+                        <button> Finalizar Compra </button>
                     </div>
                 </div>
             </section>

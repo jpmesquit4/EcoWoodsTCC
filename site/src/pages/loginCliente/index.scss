@@ -97,6 +97,19 @@
             color: rgb(255, 0, 0);
           }
 
+          a {
+            text-decoration: none;
+          }
+
+          .cadastro {
+            color: black;
+          }
+
+          .cadastro:hover {
+            color: blue;
+            text-decoration: underline;
+          }
+
           input {
 
             font-family: 'Montserrat', sans-serif;

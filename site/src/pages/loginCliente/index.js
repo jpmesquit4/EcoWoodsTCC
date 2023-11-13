@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import storage from 'local-storage';
 import { cadastrarCliente } from '../../api/clienteApi';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar';
 import {useState, useRef, useEffect} from 'react';
 
@@ -96,6 +96,8 @@ export default function LoginCliente()  {
                   <h5>{erro}</h5>
 
                   <button onClick={entrarClick} disabled={carregando}>CONTINUE</button>
+
+                  <Link to='/cadastrocliente'> <h5 className='cadastro'>Fazer Cadastro</h5> </Link>
               </div>
 
             </div>

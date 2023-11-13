@@ -3,7 +3,7 @@ import './index.scss';
 import CabecalhoAdm from '../../components/cabecalhoAdmin';
 import MenuAdm from '../../components/menuAdmin';
 
-import { confirmAlert } from 'react-confirm-alert';
+    import { confirmAlert } from 'react-confirm-alert';
 
 import { listarTodosProdutos, buscarProdutosPorNome, removerProduto } from '../../api/produtoApi'
 import { useEffect, useState } from 'react';
