@@ -1,6 +1,5 @@
-* {
-    margin: 0px;
-    box-sizing: border-box;
+html {
+    height: 100vh;
 }
 
 .SituacaoPedido {
@@ -12,13 +11,14 @@
         flex-direction: column;
         width: 100%;
         height: 100%;
+        background: #F0E1D2;
 
         .sub-container {
             background: #F0E1D2;
             display: flex;
             flex-direction: column;
             width: 100%;
-            height: 100%;
+            height: auto;
 
             >h1 {
                 margin-top: 40px;
@@ -41,7 +41,7 @@
                     display: flex;
                     flex-direction: column;
                     background-color: #fff;
-                    width: 400px;
+                    width: 500px;
                     border-radius: 15px;
 
                     .cabecalho {
@@ -50,9 +50,9 @@
                         display: flex;
                         flex-direction: row;
                         align-items: center;
-                        justify-content: center;
                         width: 100%;
                         height: 150px;
+                        padding-left: 50px;
                         gap: 15px;
 
                         img {
@@ -80,22 +80,33 @@
                         }
                     }
 
-                    .Destino{
+                    .Destino {
                         background: #2A2A2A;
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
                         width: 100%;
                         height: 150px;
-                        padding: 0 50px;
+                        padding-left: 50px;
 
-                        img{
+                        img {
                             width: 62px;
                             height: 62px;
+                            margin-bottom: 10px;
                         }
-                        >div{
-                            .dest{
+
+                        >div {
+                            margin-bottom: 10px;
+
+                            .dest {
                                 font-size: 15px;
+                                font-family: 'montserrat';
+                                color: #fff;
+                            }
+
+                            .endereco {
+                                margin-top: 10px;
+                                font-size: 12px;
                                 font-family: 'montserrat';
                                 color: #fff;
                             }
@@ -103,9 +114,109 @@
                     }
                 }
 
-                .nav-direita{
-                    width: 400px;
+                .nav-direita {
+                    width: 500px;
                     background: #fff;
+                    padding: 30px 0;
+                    display: flex;
+                    flex-direction: column;
+
+                    .container-giga {
+                        gap: 35px;
+                        padding: 0 50px;
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .pedido-info {
+                        display: flex;
+                        flex-direction: row;
+
+                        .fundo-img {
+                            border-radius: 5px;
+                            width: 135px;
+                            padding: 10px;
+                            background: #2A2A2A;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+
+                            img {
+                                width: 115px;
+                                height: auto;
+                            }
+
+                            .info-produtos {
+                                display: flex;
+                                width: 100%;
+                                height: 100%;
+                                flex-direction: column-reverse;
+                            }
+
+
+                        }
+
+                    }
+
+                    .total-pedido {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        .valores-info {
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            font-size: 15px;
+
+                            span {
+                                width: 20%;
+                                font-family: 'gotham-book';
+                                font-weight: 500;
+                            }
+
+                            p {
+                                font-weight: 600;
+                                font-family: 'gotham-black';
+                                letter-spacing: 1px;
+                            }
+
+                            .total-valor {
+                                font-family: 'gotham-bold';
+                                color: #259830;
+                            }
+                        }
+                    }
+
+                    .informacoes-pedido {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 25px;
+
+                        >h2 {
+                            font-size: 20px;
+                            font-family: 'gotham-black';
+                            color: #2A2A2A;
+
+                        }
+
+                        .span-info {
+                            p {
+                                font-family: 'gotham-black';
+                                color: #2A2A2A;
+                            }
+
+                            span {
+                                font-size: 13.5px;
+                                font-weight: 600;
+                                font-family: 'gotham-light';
+                                color: #2a2a2a;
+                            }
+                        }
+                    }
                 }
             }
         }
