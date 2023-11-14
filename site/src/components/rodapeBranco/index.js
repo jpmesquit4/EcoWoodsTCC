@@ -4,7 +4,7 @@ export default function RodapeBranco() {
 
 
     return (
-        <div className="rodape">
+        <div className="rodape-branco">
             <div className="rodape-top">
                 <h1>EcoWoods - EW</h1>
             </div>

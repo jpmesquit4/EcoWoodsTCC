@@ -5,6 +5,7 @@ import { useEffect, useState, useParams } from 'react';
 import axios from 'axios';
 import InputMask from "react-input-mask"
 import Cabecalho from "../../components/cabecalhoPrincipal";
+import RodapeBranco from "../../components/rodapeBranco";
 
 export default function Situacao() {
 
@@ -50,9 +51,9 @@ export default function Situacao() {
                                     </div>
                                     <div className="info-produtos">
                                         <span>
-                                            Escrivaninha de Carvalho
+                                            Escrivaninha de Carvalho <br/>
                                             {/* Aqui vai ficar o nome do produto*/}
-                                            <span>1x Unidade {/* Aqui vai ficar a Quantidade */}</span>
+                                            <span className="unidade">1x Unidade {/* Aqui vai ficar a Quantidade */}</span>
                                         </span>
                                     </div>
                                 </div>
@@ -97,17 +98,22 @@ export default function Situacao() {
                                     </span>
                                 </div>
                             </div>
+
+                            <hr/>
+
                             <div className="agradecimento">
-                                <div>
+                                <div className="img-pica">
                                     <img src="/assets/images/group-name.png" alt="" />
                                 </div>
                                 <div className="agradecimentos-frase">
-                                    <p>Obrigado por comprar conosco, cuidaremos  de sua compra até a chegada de sua casa!</p>
+                                    <p>Obrigado por comprar conosco, cuidaremos <br/> de sua compra até a chegada de sua casa!</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            
+                <RodapeBranco/>
             </section>
         </main>
     );
