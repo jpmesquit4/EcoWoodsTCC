@@ -144,7 +144,7 @@ export default function CarrinhoCheio(props) {
                 </div>
 
                 <div className='botao-finalizar'>
-                    <button onClick={pagFinalizar}>Finalizar compra</button>
+                    <button onClick={() => pagFinalizar(produto.id)}>Finalizar compra</button>
                 </div>
 
 
