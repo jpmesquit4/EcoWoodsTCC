@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { buscarPorId, buscarImagem } from "../../api/produtoApi";
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
-import InputMask from "react-input-mask"
+import InputMask from "react-input-mask";
 
 export default function Pagamento() {
 

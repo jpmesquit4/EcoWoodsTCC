@@ -16,6 +16,7 @@ import Favoritos from './pages/favoritos';
 import CarrinhoProduto from './pages/carrinhoProduto';
 import Situacao from './pages/situacaoPedido';
 import Produtos from './components/produtos';
+import PerfilCliente from './pages/perfilCliente';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Resultado from './pages/resultadoBusca';
@@ -55,6 +56,7 @@ root.render(
 
           <Route path='/carrinho' element={<Carrinho/>} />
           <Route path='/favoritos' element={<Favoritos/>} />
+          <Route path='/perfilCliente' element={<PerfilCliente/>} />
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

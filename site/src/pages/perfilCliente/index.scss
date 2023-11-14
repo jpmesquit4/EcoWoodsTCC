@@ -1,0 +1,72 @@
+.pagina-perfilCliente {
+    display: flex;
+    flex-direction: column;
+
+    .conteudo {
+        background-color: #F0E1D2;
+
+        .conteudo-menu {
+
+            display: flex;
+            flex-direction: column;
+
+            margin: 50px 50px 0px 50px;
+
+
+
+
+            .cadastro {
+
+                > h1 {
+                    color: #2a2a2a;
+                    font-family: 'gotham black';
+                    font-size: 20px;
+                    padding: 20px 0px;
+                }
+
+                display: flex;
+                flex-direction: column;
+
+                background-color: #fff;
+                padding: 30px;
+                margin: 50px 0px;
+
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                    width: 250px;
+                    
+
+                    border: 1px solid #c7c7c7;
+                    border-radius: 5px;
+                    margin: 10px 0px;
+                }
+
+
+                label {
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 600;
+                    font-size: 10px;
+
+                    color: #747474;
+
+                    position: relative;
+                    margin: 5px 10px;
+
+                }
+
+                input {
+                    padding: 0px 10px 10px;
+                    border: none;
+                    border-radius: 5px;
+
+                    font-family: 'inter', sans-serif;
+                }
+
+                input:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+}
