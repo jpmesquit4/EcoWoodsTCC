@@ -8,6 +8,9 @@ import InputMask from "react-input-mask";
 export default function Pagamento() {
 
     const [produto, setProduto] = useState({});
+    const [parcelas, setParcelas] = useState();
+    const [entrega, setEntrega] = useState();
+
     const navigate = useNavigate();
 
     console.log(produto)
@@ -41,19 +44,45 @@ export default function Pagamento() {
                     <p>Opção de Envio</p>
 
                     <div className="inputs">
-                        <select className="sel-entrega">
+                        <select className="sel-entrega" value={entrega} onChange={e => setEntrega(e.target.value)}>
                             <option className="opt" value="" disabled selected>Selecione o Modo de Entrega</option>
-                            <option className="opt" value='Expresso Padrão' key="">Expresso Padrão</option>
-                            <option className="opt" value='Expresso Rápido' key="">Expresso Rápido</option>
-                            <option className="opt" value='Retirar na Loja' key="">Retirar na Loja</option>
+                            <option className="opt" value='12' key="">Expresso Padrão</option>
+                            <option className="opt" value='20' key="">Expresso Rápido</option>
+                            <option className="opt" value='0' key="">Retirar na Loja</option>
                         </select>
 
                         <div className="nav-input">
                             <div className="part-2">
                                 <select className="Estado">
                                     <option value="" disabled selected>Estado</option>
-                                    <option value="São Paulo" key="">São Paulo</option>
-                                    <option value="Rio de Janeiro" key="">Rio de Janeiro</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                    <option value="EX">Estrangeiro</option>
                                 </select>
 
                                 <select className="Cidade">
@@ -87,7 +116,7 @@ export default function Pagamento() {
                             </span>
                             <span className="line-3">
                                 <p>Subtotal do Frete</p>
-                                <span>R$12</span>
+                                <span>R${entrega}</span>
                                 {''} {/*Usar para puxar o frete */}
                             </span>
                         </div>
@@ -95,7 +124,7 @@ export default function Pagamento() {
                         <div className="p-2">
                             <p>Total do Pedido (1 item): {''} {/*Colocar a quantidade de pedidos*/}</p>
                             <span className="change">
-                                {''} R${Number(produto.preco) + 12}
+                                {''} R${Number(produto.preco) + Number(entrega)}
                             </span>
                         </div>
                     </div>
@@ -112,16 +141,16 @@ export default function Pagamento() {
                         </div>
 
                         <div className="selecionar-parcelas">
-                            <select className="selecionar-parc">
+                            <select className="selecionar-parc" value={parcelas} onChange={e => setParcelas(e.target.value)}>
                                 <option value="" disabled selected >Selecione a quantidade</option>
-                                <option value="2x" key="">2x</option>
-                                <option value="3x" key="">3x</option>
-                                <option value="4x" key="">4x</option>
-                                <option value="5x" key="">5x</option>
-                                <option value="6x" key="">6x</option>
-                                <option value="7x" key="">7x</option>
-                                <option value="8x" key="">8x</option>
-                                <option value="9x" key="">9x</option>
+                                <option value="2" key="">2x</option>
+                                <option value="3" key="">3x</option>
+                                <option value="4" key="">4x</option>
+                                <option value="5" key="">5x</option>
+                                <option value="6" key="">6x</option>
+                                <option value="7" key="">7x</option>
+                                <option value="8" key="">8x</option>
+                                <option value="9" key="">9x</option>
                             </select>
                         </div>
                     </div>
@@ -135,7 +164,7 @@ export default function Pagamento() {
                             <span className="line-2">
                                 <p>Taxa de Juros:</p>
                                 <span>
-                                    12
+                                    2
                                     {''} {/*Usar para puxar o subtotal dos produtos */}
                                     %
                                 </span>
@@ -143,7 +172,7 @@ export default function Pagamento() {
                             <span className="line-3">
                                 <p>Valor das Parcelas</p>
                                 <span>
-                                    12
+                                    R${((Number(produto.preco) + Number(entrega)) * (parcelas * 0.02))}
                                     {''} {/*Usar para puxar o frete */}
                                 </span>
                                 
@@ -153,7 +182,7 @@ export default function Pagamento() {
                         <div className="p-2">
                             <p>Total do Pedido</p>
                             <span className="change">
-                                {''} {/*Usar para puxar o total do pedido */}12
+                                {''} R${((Number(produto.preco) + Number(entrega)) * (parcelas * 0.02)) + (Number(produto.preco) + Number(entrega))}
                             </span>
                         </div>
                     </div>

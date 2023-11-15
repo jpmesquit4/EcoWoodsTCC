@@ -125,7 +125,7 @@ export default function CarrinhoCheio(props) {
 
                             <div className='valor'>
                                 <input type="number" min='1' max='10' />
-                                <p>{props.produto.preco}</p>
+                                <p>R${props.produto.preco}</p>
                             </div>
                         </div>
 

@@ -1,4 +1,4 @@
-import { inserirCliente, loginCliente} from '../repository/clienteRepository.js'
+import { inserirCliente, listarInfoClientes, loginCliente} from '../repository/clienteRepository.js'
 import { Router } from "express";
 
 const server = Router();
@@ -52,6 +52,17 @@ server.post('/cliente/cadastro', async (req, resp) => {
     }
 })
 
+server.get('/info/cliente', async (req, resp) => {
+    try {
+        const resposta = await listarInfoClientes();
+        resp.send(resposta);
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
+    }
+})
 
 // server.get('/cliente', async (req, resp) => {
 //     try {

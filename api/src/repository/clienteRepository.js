@@ -25,3 +25,15 @@ export async function loginCliente(usuario, email, senha) {
     return linhas[0];
  
 }
+
+export async function listarInfoClientes() {
+    const comando = 
+    `
+    SELECT ID_Usuario AS id, NM_Usuario AS nome, DS_Email AS email, DT_Nascimento as nascimento, DS_Genero as genero
+    FROM TB_Usuario 
+    `;
+
+    const [linhas] = await con.query(comando, [])
+    return linhas[0];
+ 
+}
