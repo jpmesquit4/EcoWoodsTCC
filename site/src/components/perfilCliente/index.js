@@ -1,5 +1,5 @@
 import './index.scss';
-import { alterarInfo, listarInfoClientes } from '../../api/clienteApi';
+import { alterarInfo, inserirCliente, listarInfoClientes } from '../../api/clienteApi';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { buscarPorId } from '../../api/produtoApi';
@@ -56,13 +56,15 @@ export default function Perfil(props) {
         setEmail('');
         setNascimento('');
         setGenero('');
+        setIdUsuario(0);
     }
 
     async function salvarClickCliente() {
         try {
             const cliente = storage('cliente-logado').id;
-                await alterarInfo(idUsuario, nome, email, nascimento, genero, cliente);
-                toast.dark('🚀 Informações alteradas com sucesso!');
+            await alterarInfo(idUsuario, nome, email, nascimento, genero);
+            toast.dark('🚀 Informações alteradas com sucesso!');
+
         } catch (err) {
             if (err.response)
                 toast.error(err.response.data.erro);
@@ -107,8 +109,7 @@ export default function Perfil(props) {
                         <input type="text" value={genero} onChange={e => setGenero(e.target.value)} />
                     </div>
 
-                    <button onClick={salvarClickCliente}> SALVAR </button>
-                    <button onClick={novoClick}>Novo</button>
+                    <button onClick={salvarClickCliente} > {idUsuario === 0 ? 'Cadastrar' : 'Alterar'} </button>
                 </div>
 
             </div>

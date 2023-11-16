@@ -39,7 +39,7 @@ server.post('/cliente/cadastro', async (req, resp) => {
         throw new Error('Data de nascimento é obrigatório!')
 
         if(!novoUsuario.genero)
-        throw new Error('Genero é obrigatório!')
+        throw new Error('Gênero é obrigatório!')
 
         const resposta = await inserirCliente(novoUsuario);
 
