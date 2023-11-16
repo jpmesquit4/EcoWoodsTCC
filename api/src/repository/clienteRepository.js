@@ -26,14 +26,35 @@ export async function loginCliente(usuario, email, senha) {
  
 }
 
-export async function listarInfoClientes() {
+export async function listarInfoClientes(id) {
     const comando = 
     `
-    SELECT ID_Usuario AS id, NM_Usuario AS nome, DS_Email AS email, DT_Nascimento as nascimento, DS_Genero as genero
-    FROM TB_Usuario 
+    SELECT  ID_Usuario AS id,
+            NM_Usuario AS nome,
+            DS_Email AS email,
+            DT_Nascimento as nascimento,
+            DS_Genero as genero
+    FROM    TB_Usuario
+    where   id_Usuario = ?
     `;
 
-    const [linhas] = await con.query(comando, [])
+    const [linhas] = await con.query(comando, [id])
     return linhas[0];
  
+}
+
+export async function alterarInfo(id, usuario) {
+    const comando =
+        `
+        UPDATE  TB_Usuario
+        SET     NM_Usuario              = ?,
+                DS_Email                = ?,
+                DT_Nascimento           = ?,
+                DS_Genero               = ?,
+                ID_Usuario              = ?
+        WHERE   ID_Usuario = ${id}
+        `;
+
+    const [resposta] = await con.query(comando, [usuario.nome, usuario.email, usuario.nascimento, usuario.genero, id])
+    return resposta.affectedRows;
 }

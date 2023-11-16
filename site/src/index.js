@@ -56,7 +56,7 @@ root.render(
 
           <Route path='/carrinho' element={<Carrinho/>} />
           <Route path='/favoritos' element={<Favoritos/>} />
-          <Route path='/perfilCliente/:dParam' element={<PerfilCliente/>} />
+          <Route path='/perfilCliente/:idParam' element={<PerfilCliente/>} />
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

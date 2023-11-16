@@ -26,7 +26,18 @@ export async function inserirCliente(usuario, email, senha, nascimento, genero) 
     return resposta.data;
 }
 
-export async function listarInfoClientes() {
-    const resposta = await api.get('/info/cliente');
+export async function listarInfoClientes(id) {
+    const resposta = await api.get(`/cliente/${id}`);
+    return resposta.data;
+}
+
+export async function alterarInfo(id, nome, email, nascimento, genero) {
+    const resposta = await api.put(`/usuario/${id}`, {
+        nome: nome,
+        email: email,
+        nascimento: nascimento,
+        genero: genero,
+    })
+
     return resposta.data;
 }

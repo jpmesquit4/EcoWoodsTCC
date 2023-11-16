@@ -1,4 +1,4 @@
-import { inserirCliente, listarInfoClientes, loginCliente} from '../repository/clienteRepository.js'
+import { inserirCliente, listarInfoClientes, loginCliente, alterarInfo} from '../repository/clienteRepository.js'
 import { Router } from "express";
 
 const server = Router();
@@ -52,11 +52,46 @@ server.post('/cliente/cadastro', async (req, resp) => {
     }
 })
 
-server.get('/info/cliente', async (req, resp) => {
+server.get('/cliente/:id', async (req, resp) => {
     try {
-        const resposta = await listarInfoClientes();
-        resp.send(resposta);
+        const id = Number(req.params.id);
 
+        const resposta = await listarInfoClientes(id);
+        
+        if (!resposta)
+            resp.status(404).send([]);
+        else
+            resp.send(resposta);
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
+    }
+})
+
+server.put('/usuario/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const usuario = req.body;
+
+        if (!usuario.nome)
+        throw new Error('Nome do usuario é obrigatório!')
+
+        if (!usuario.email)
+            throw new Error('Email do usuario é obrigatório!')
+
+        if (!usuario.nascimento)
+            throw new Error('Nascimento é obrigatório!')
+
+        if(!usuario.genero)
+            throw new Error('Gênero é obrigatório!')
+
+        const resposta = await alterarInfo(id, usuario)
+        if (resposta != 1)
+            throw new Error('Usuario não pode ser alterado.');
+
+        resp.status(204).send()
     } catch (err) {
         resp.status(400).send({
             erro: err.message

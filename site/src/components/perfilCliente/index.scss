@@ -1,0 +1,203 @@
+.pagina-perfilCliente {
+    display: flex;
+    flex-direction: column;
+
+    .conteudo {
+        background-color: #F0E1D2;
+
+        .conteudo-menu {
+
+            display: flex;
+            flex-direction: column;
+        
+            margin: 0px 50px 0px 50px;
+            
+            .cadastro {
+        
+                display: flex;
+                flex-direction: column;
+        
+                background-color: #fff;
+                padding: 50px;
+                margin: 50px 0px;
+                border-radius: 10px;
+        
+                button {
+                    padding: 15px 20px;
+                    width: 200px;
+                    background-color: #2a2a2a;
+                    align-self: flex-start;
+        
+                    border: none;
+                    border-radius: 25px;
+                    color: #fff;
+        
+                    font-family: 'montserrat', sans-serif;
+                    letter-spacing: 2px;
+                    border: 2px solid transparent;
+        
+                    transition: 0.5s;
+                    margin-top: 20px;
+                }
+        
+                button:hover {
+                    cursor: pointer;
+                    transform: scale(1.03);
+                    border: 2px solid #2a2a2a;
+                    background-color: transparent;
+                    color: #2a2a2a;
+                }
+        
+                button:active {
+                    transform: scale(1.0);
+                    background-color: #2a2a2a;
+                    color: white;
+                }
+        
+                > h1 {
+                    color: #2a2a2a;
+                    font-family: 'gotham black';
+                    font-size: 20px;
+                    padding: 20px 0px;
+                }
+        
+                
+        
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                    width: 250px;
+                    
+        
+                    border: 1px solid #c7c7c7;
+                    border-radius: 5px;
+                    margin: 10px 0px;
+                }
+        
+        
+                label {
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 600;
+                    font-size: 10px;
+        
+                    color: #747474;
+        
+                    position: relative;
+                    margin: 5px 10px;
+        
+                }
+        
+                input {
+                    padding: 0px 10px 10px;
+                    border: none;
+                    border-radius: 5px;
+        
+                    font-family: 'inter', sans-serif;
+                }
+        
+                input:focus {
+                    outline: none;
+                }
+            }
+        }
+        
+
+        .conteudo-cabecalho {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            background-color: white;
+            padding: 50px;
+
+            margin: 50px 50px 0px;
+            border-radius: 10px;
+
+            span {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                gap: 20px;
+            }
+
+
+            img {
+                width: 65px;
+                height: 65px;
+                border-radius: 50%;
+            }
+
+            h1 {
+                font-family: 'montserrat';
+            }
+
+            p {
+                font-family: 'gotham black';
+                letter-spacing: 0.5px;
+                color: rgba(0, 0, 0, 0.5);
+            }
+
+            .icon-perfil {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'montserrat', sans-serif;
+                width: 50px;
+                height: 50px;
+                background-color: #adcae6;
+                border-radius: 50%;
+                color: #fff;
+
+                text-transform:uppercase;
+            }
+        }
+
+        .conteudo-pedidos-servicos {
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+            
+            margin: 0px 50px 50px 50px;
+            
+            .pedidos {
+                display: flex;
+                flex-direction: column;
+
+                background-color: white;
+                width: 50%;
+                padding: 30px 30px;
+                border-radius: 10px;
+
+                h1 {
+                    margin-bottom: 20px;
+                    font-size: 20px;
+                    font-family: 'gotham black';
+                }
+
+
+                > div {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 20px;
+
+                    > div {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        p {
+                            font-family: 'gotham light';
+                            font-weight: 600;
+                            color: rgb(0, 0, 0);
+                            font-size: 12px;
+                            margin-top: 10px;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
