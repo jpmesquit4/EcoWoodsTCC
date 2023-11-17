@@ -29,7 +29,7 @@ export default function CadastroCliente() {
     setCarregando(true)   
     
     try {
-      const r = await axios.post('http://localhost:6969/cliente/cadastro', {
+      const r = await axios.post('http://129.148.42.252:3020/cliente/cadastro', {
           usuario: usuario,
           email: email,
           senha: senha,
