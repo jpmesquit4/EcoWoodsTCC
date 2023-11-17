@@ -20,7 +20,7 @@ export default function Resultado() {
         setProdutos(resposta);
         }
     }
-
+ 
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -63,7 +63,7 @@ export default function Resultado() {
                     </div>
 
                     <div className="header-mid">
-                        <h1>EcoWoods</h1>
+                        <Link className='ecoback' to='/'>EcoWoods</Link>
                     </div>
 
                     <div className="header-bot">
