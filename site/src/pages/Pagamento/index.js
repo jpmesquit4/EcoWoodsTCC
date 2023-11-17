@@ -1,7 +1,7 @@
 import "./index.scss";
 import { useNavigate } from 'react-router-dom';
-import { buscarPorId, buscarImagem } from "../../api/produtoApi";
-import { inserirInfoEndereco } from "../../api/clienteApi";
+import { buscarPorId, buscarImagem, consultarPreco } from "../../api/produtoApi";
+import { inserirInfoEndereco, listarInfoClientes } from "../../api/clienteApi";
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import InputMask from "react-input-mask";
@@ -14,6 +14,7 @@ export default function Pagamento() {
     const [produto, setProduto] = useState({});
     const [parcelas, setParcelas] = useState();
     const [entrega, setEntrega] = useState();
+    const [preco, setPreco] = useState({});
 
     const[estado, setEstado] = useState('');
     const[cidade, setCidade] = useState('');
@@ -21,7 +22,12 @@ export default function Pagamento() {
     const[bairro, setBairro] = useState('');
     const[rua, setRua] = useState('');
     const[numero, setNumero] = useState('');
-    const[usuario, setUsuario] = useState('');
+    const[id, setId] = useState();
+
+    async function carregarInfos() {
+        const resposta = await listarInfoClientes(idParam);
+        setId(resposta.id || 0);
+    }
 
     const[nomeTitularCartao, setNomeTitularCartao] = useState();
     const[numeroCartao, setNumeroCartao] = useState();
@@ -31,7 +37,7 @@ export default function Pagamento() {
     async function salvarClickEndereco() {
         try {
             const cliente = storage('cliente-logado').id;
-                await inserirInfoEndereco(cliente, cep, rua, numero, bairro, estado, cidade);
+            await inserirInfoEndereco(id, cep, rua, numero, bairro, estado, cidade);
                 toast.dark('🚀 Produto alterado com sucesso!');
         } catch (err) {
             if (err.response)
@@ -50,6 +56,35 @@ export default function Pagamento() {
     useEffect(() => {
         carregarProduto();
     }, []);
+
+    useEffect(() => {
+        carregarInfos();
+    }, []);
+
+    useEffect(() => {
+        carregarPrecos();
+    }, []);
+
+     async function carregarPrecos() {
+         const resposta = await consultarPreco(idParam);
+         setPreco(resposta);   
+     }
+
+    // async function carregarPrecos() {
+    //     const resposta = await consultarPreco(idParam);
+    //     setPreco(resposta.preco);
+    // }
+
+    console.log(preco)
+
+    // const [produtoFretado, setProdutoFretado] = useState();
+
+    // console.log(produtoFretado)
+
+    // function produtoFrete() {
+    //     setProdutoFretado(preco.preco + entrega)
+    // }
+
 
     async function carregarProduto() {
         const resposta = await buscarPorId(idParam);
@@ -216,7 +251,7 @@ export default function Pagamento() {
                             <InputMask type="text" mask="99/9999" placeholder="Vencimento" value={vencimento} onChange={(e) => setVencimento(e.target.value)} />
                             <InputMask type="text" maxLength="4" placeholder="CVV" value={cvv} onChange={(e) => setCvv(e.target.value)} />
                         </div>
-                        <input type="text" placeholder="Nome do Títular" />
+                        <input type="text" placeholder="Nome do Títular" value={nomeTitularCartao} onChange={(e) => setNomeTitularCartao(e.target.value)} />
                     </div>
                     <div className="nav-confirmar">
                         <button onClick={pagSituacaoPedido}> Finalizar Pedido </button>

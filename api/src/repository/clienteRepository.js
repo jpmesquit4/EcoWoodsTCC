@@ -18,7 +18,7 @@ export async function inserirInfoEndereco(endereco, usuario) {
 
     const [resposta] = await con.query(comando, [usuario.id, endereco.cep, endereco.rua, endereco.numero, endereco.bairro, endereco.estado, endereco.cidade])
 
-    return endereco;
+    return usuario;
 }
 
 export async function loginCliente(usuario, email, senha) {

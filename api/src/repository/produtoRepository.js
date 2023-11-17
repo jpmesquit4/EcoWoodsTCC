@@ -161,5 +161,17 @@ export async function alterarImagem(imagem, id) {
     return resposta.affectedRows;
 }
 
+export async function consultarPreco(id){
+   
+    let comando=`
+    SELECT TP.ID_Produto as id, TP.VL_Preco as preco
+    FROM TB_Produto TP
+    INNER JOIN Tabela_Preco TPrecos ON TP.ID_Produto = TPrecos.ID_Produto
+    WHERE TP.ID_Produto = ?;   
+    `
+    const [resp] = await con.query(comando,[id]);
+    return resp;
+}
+
 
 

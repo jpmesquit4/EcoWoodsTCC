@@ -14,9 +14,9 @@ export async function cadastrarCliente(usuario, email, senha) {
     return resposta.data;
 }
 
-export async function inserirInfoEndereco(usuario, cep, rua, numero, bairro, estado, cidade) {
+export async function inserirInfoEndereco(id, cep, rua, numero, bairro, estado, cidade) {
     const resposta = await api.post('/cliente/endereco', {
-        usuario: usuario.id,
+        id: id,
         cep: cep,
         rua: rua,
         numero: numero,

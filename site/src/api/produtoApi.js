@@ -71,6 +71,11 @@ export async function buscarPorId(id) {
     return resposta.data;
 }
 
+export async function consultarPreco(id) {
+    const resposta = await api.get(`preco/produto/${id}`);
+    return resposta.data;
+}
+
 export async function consultarProdutos() {
     const resposta = await api.get(`/produto/filtroCategoriaOne`);
     return resposta.data;
