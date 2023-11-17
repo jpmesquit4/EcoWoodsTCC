@@ -1,7 +1,7 @@
 import './index.scss';
 import { alterarInfo, inserirCliente, listarInfoClientes } from '../../api/clienteApi';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { buscarPorId } from '../../api/produtoApi';
 import { toast } from 'react-toastify';
 import storage from 'local-storage'
@@ -119,45 +119,38 @@ export default function Perfil(props) {
                 <div className='pedidos'>
                     <h1>Meus pedidos</h1>
 
-                    <div>
+                    <div>   
                         <div>
-                            <img src="/assets/images/creditcard.png" alt="" />
-                            <p>Histórico</p>
-                        </div>
-
-                        <div>
-                            <img src="/assets/images/creditcard.png" alt="" />
+                            <img src="/assets/images/entregues.png" alt="" />
                             <p>Entregues</p>
                         </div>
-
                         <div>
-                            <img src="/assets/images/creditcard.png" alt="" />
-                            <p>Favoritos</p>
+                            <img src="/assets/images/historico.png" alt="" />
+                            <p>Historico de Pedidos</p>
                         </div>
+                        <Link className='linknav' to='/favoritos'>
+                            <img src="/assets/images/favoritos.png" alt="" />
+                            <p>Favoritos</p>
+                            {/* <Link className='linknav' to='/favoritos'>Favoritos</Link> */}
+                        </Link>
                     </div>
                 </div>
 
-                <div className='pedidos'>
+                <div className='pedidos-menor'>
                     <h1>Mais serviços</h1>
 
                     <div>
                         <div>
-                            <img src="/assets/images/creditcard.png" alt="" />
-                            <p>Histórico</p>
+                            <img src="/assets/images/insta.png" alt="" />
+                            <p>Nosso Contato</p>
                         </div>
 
                         <div>
-                            <img src="/assets/images/creditcard.png" alt="" />
-                            <p>Entregues</p>
-                        </div>
-
-                        <div>
-                            <img src="/assets/images/creditcard.png" alt="" />
-                            <p>Favoritos</p>
+                            <img src="/assets/images/carteira.png" alt="" />
+                            <p>Pagamento</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     )
