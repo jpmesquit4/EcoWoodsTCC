@@ -11,6 +11,16 @@ export async function inserirCliente(usuario) {
      return usuario;
 }
 
+export async function inserirInfoEndereco(endereco, usuario) {
+    const comando = `insert into TB_Endereco(ID_Usuario, DS_Cep, DS_Rua, DS_Numero, DS_Bairro, DS_Estado, DS_Cidade)
+                                      value(?,?,?,?,?,?,?);`
+
+
+    const [resposta] = await con.query(comando, [usuario.id, endereco.cep, endereco.rua, endereco.numero, endereco.bairro, endereco.estado, endereco.cidade])
+
+    return endereco;
+}
+
 export async function loginCliente(usuario, email, senha) {
     const comando = 
     `
@@ -58,3 +68,4 @@ export async function alterarInfo(id, usuario) {
     const [resposta] = await con.query(comando, [usuario.nome, usuario.email, usuario.nascimento, usuario.genero, id])
     return resposta.affectedRows;
 }
+

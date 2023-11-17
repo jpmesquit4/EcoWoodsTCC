@@ -1,9 +1,13 @@
 import "./index.scss";
 import { useNavigate } from 'react-router-dom';
 import { buscarPorId, buscarImagem } from "../../api/produtoApi";
+import { inserirInfoEndereco } from "../../api/clienteApi";
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import InputMask from "react-input-mask";
+import { toast } from 'react-toastify';
+import storage from 'local-storage';
+
 
 export default function Pagamento() {
 
@@ -11,9 +15,35 @@ export default function Pagamento() {
     const [parcelas, setParcelas] = useState();
     const [entrega, setEntrega] = useState();
 
-    const navigate = useNavigate();
+    const[estado, setEstado] = useState('');
+    const[cidade, setCidade] = useState('');
+    const[cep, setCep] = useState('');
+    const[bairro, setBairro] = useState('');
+    const[rua, setRua] = useState('');
+    const[numero, setNumero] = useState('');
+    const[usuario, setUsuario] = useState('');
 
-    console.log(produto)
+    const[nomeTitularCartao, setNomeTitularCartao] = useState();
+    const[numeroCartao, setNumeroCartao] = useState();
+    const[cvv, setCvv] = useState();
+    const[vencimento, setVencimento] = useState();
+
+    async function salvarClickEndereco() {
+        try {
+            const cliente = storage('cliente-logado').id;
+                await inserirInfoEndereco(cliente, cep, rua, numero, bairro, estado, cidade);
+                toast.dark('🚀 Produto alterado com sucesso!');
+        } catch (err) {
+            if (err.response)
+                toast.error(err.response.data.erro);
+            else
+                toast.error(err.message);
+        }
+    }
+
+    
+
+    const navigate = useNavigate();
 
     const {idParam} = useParams();
 
@@ -24,6 +54,10 @@ export default function Pagamento() {
     async function carregarProduto() {
         const resposta = await buscarPorId(idParam);
         setProduto(resposta);   
+    }
+
+    function pagSituacaoPedido(){
+        navigate('/situacaoPedidos');
     }
 
     return (
@@ -53,7 +87,7 @@ export default function Pagamento() {
 
                         <div className="nav-input">
                             <div className="part-2">
-                                <select className="Estado">
+                                <select className="Estado" value={estado} onChange={e => setEstado(e.target.value)}>
                                     <option value="" disabled selected>Estado</option>
                                     <option value="AC">Acre</option>
                                     <option value="AL">Alagoas</option>
@@ -85,19 +119,15 @@ export default function Pagamento() {
                                     <option value="EX">Estrangeiro</option>
                                 </select>
 
-                                <select className="Cidade">
-                                    <option value="" disabled selected>Cidade</option>
-                                    <option value="São Paulo" key="">São Paulo</option>
-                                    <option value="Rio de Janeiro" key="">Rio de Janeiro</option>
-                                </select>
+                                <input type="text" className="Cidade" placeholder="Cidade" value={cidade} onChange={e => setCidade(e.target.value)} ></input>
 
-                                <InputMask mask='99999-999' type="text" placeholder="CEP" id="" />
+                                <InputMask mask='99999-999' type="text" placeholder="CEP" id="" value={cep} onChange={e => setCep(e.target.value)} />
                             </div>
 
                             <div className="part-1">
-                                <input type="text" placeholder="Bairro" id="" />
-                                <input type="text" placeholder="Rua" id="" />
-                                <input type='text' placeholder='Complemento (Opcional)' id='' />
+                                <input type="text" placeholder="Bairro" id="" value={bairro} onChange={e => setBairro(e.target.value)} />
+                                <input type="text" placeholder="Rua" id="" value={rua} onChange={e => setRua(e.target.value)}/>
+                                <input type='text' placeholder='Número' id='' value={numero} onChange={e => setNumero(e.target.value)} />
                             </div>
                         </div>
                     </div>
@@ -130,19 +160,12 @@ export default function Pagamento() {
                     </div>
 
                     <div className="nav-parcelamento">
-                        <div className="nav-button">
-                            <label className="switch">
-                                <span className="switch-text">Parcelamento</span>
-                                <div className="switch-wrapper">
-                                    <input type="checkbox" />
-                                    <span className="switch-button"></span>
-                                </div>
-                            </label>
-                        </div>
+                        
 
                         <div className="selecionar-parcelas">
                             <select className="selecionar-parc" value={parcelas} onChange={e => setParcelas(e.target.value)}>
-                                <option value="" disabled selected >Selecione a quantidade</option>
+                                <option value="" disabled selected >Opções de pagamento</option>
+                                <option value="1" key="">A vista</option>
                                 <option value="2" key="">2x</option>
                                 <option value="3" key="">3x</option>
                                 <option value="4" key="">4x</option>
@@ -188,15 +211,16 @@ export default function Pagamento() {
                     </div>
 
                     <div className="nav-pagamento">
-                        <InputMask type="text" mask="9999.9999.9999.9999" placeholder="Número do Cartão" id="" />
+                            <InputMask type="text" mask="9999.9999.9999.9999" placeholder="Número do Cartão" value={numeroCartao} onChange={(e) => setNumeroCartao(e.target.value)} />
                         <div>
-                            <InputMask type="text" mask="99/9999" placeholder="Vencimento" id="" />
-                            <InputMask type="text" maxLength="4" placeholder="CVV" id="" />
+                            <InputMask type="text" mask="99/9999" placeholder="Vencimento" value={vencimento} onChange={(e) => setVencimento(e.target.value)} />
+                            <InputMask type="text" maxLength="4" placeholder="CVV" value={cvv} onChange={(e) => setCvv(e.target.value)} />
                         </div>
                         <input type="text" placeholder="Nome do Títular" />
                     </div>
                     <div className="nav-confirmar">
-                        <button> Finalizar Compra </button>
+                        <button onClick={pagSituacaoPedido}> Finalizar Pedido </button>
+                        <button onClick={salvarClickEndereco}> Salvar Endereco </button>
                     </div>
                 </div>
             </section>

@@ -1,4 +1,4 @@
-import { inserirCliente, listarInfoClientes, loginCliente, alterarInfo} from '../repository/clienteRepository.js'
+import { inserirCliente, listarInfoClientes, loginCliente, alterarInfo, inserirInfoEndereco} from '../repository/clienteRepository.js'
 import { Router } from "express";
 
 const server = Router();
@@ -17,6 +17,43 @@ server.post('/cliente/login', async (req, resp) => {
 
     } catch (err) {
         resp.status(401).send({
+            erro: err.message
+        });
+    }
+})
+
+server.post('/cliente/endereco', async (req, resp) => {
+    
+    try {
+        const endereco = req.body;
+        const usuario = req.body;
+
+        if(!endereco.cep)
+        throw new Error('CEP é obrigatório!')
+
+        if(!endereco.rua)
+        throw new Error('Nome da rua é obrigatório!')
+
+        if(!endereco.numero)
+        throw new Error('Número da residencia é obrigatório!')
+
+        if(!endereco.bairro)
+        throw new Error('Nome do bairro é obrigatório!')
+
+        if(!endereco.estado)
+        throw new Error('Estado é obrigatório!')
+
+        if(!endereco.cidade)
+        throw new Error('Cidade é obrigatória!')
+
+        if(!usuario.id)
+        throw new Error('ID é obrigatório!')
+
+        const resposta = await inserirInfoEndereco(endereco, usuario);
+        resp.send(resposta);
+
+    } catch (err) {
+        resp.status(400).send({
             erro: err.message
         });
     }
