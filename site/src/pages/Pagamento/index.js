@@ -24,8 +24,10 @@ export default function Pagamento() {
     const[numero, setNumero] = useState('');
     const[id, setId] = useState();
 
+    const cliente = storage('cliente-logado').id;
+
     async function carregarInfos() {
-        const resposta = await listarInfoClientes(idParam);
+        const resposta = await listarInfoClientes(cliente);
         setId(resposta.id || 0);
     }
 
@@ -36,9 +38,8 @@ export default function Pagamento() {
 
     async function salvarClickEndereco() {
         try {
-            const cliente = storage('cliente-logado').id;
             await inserirInfoEndereco(id, cep, rua, numero, bairro, estado, cidade);
-                toast.dark('🚀 Produto alterado com sucesso!');
+                toast.dark('🚀 Endereço cadastrado com sucesso!');
         } catch (err) {
             if (err.response)
                 toast.error(err.response.data.erro);
