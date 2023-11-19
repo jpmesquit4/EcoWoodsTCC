@@ -28,6 +28,18 @@ export async function inserirInfoEndereco(id, cep, rua, numero, bairro, estado, 
     return resposta.data;
 }
 
+export async function inserirInfoCartao(id, titular, cartao, cvv, vencimento) {
+    const resposta = await api.post('/cliente/cartao', {
+        id: id,
+        titular: titular,
+        cartao: cartao,
+        cvv: cvv,
+        vencimento: vencimento
+    })
+
+    return resposta.data;
+}
+
 export async function inserirCliente(usuario, email, senha, nascimento, genero) {
     const resposta = await api.post('/cliente/cadastro', {
         usuario: usuario,
@@ -42,6 +54,11 @@ export async function inserirCliente(usuario, email, senha, nascimento, genero) 
 
 export async function listarInfoClientes(id) {
     const resposta = await api.get(`/cliente/${id}`);
+    return resposta.data;
+}
+
+export async function listarEnderecos(id) {
+    const resposta = await api.get(`/endereco/${id}`);
     return resposta.data;
 }
 

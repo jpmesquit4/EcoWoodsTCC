@@ -39,7 +39,7 @@ root.render(
           <Route path='/cadastrocliente' element={<CadastroCliente />}/>
           <Route path='/loginadm' element={<LoginADM />}/>
           <Route path='/resultadoBuscar' element={<Resultado/>} />
-          <Route path='/situacaoPedidos' element={<Situacao />} />
+          <Route path='/situacaoPedidos/:idParam' element={<Situacao />} />
 
           <Route path='/finalizarPedidos/:idParam' element={<Pagamento />} />
           <Route path='/carrinhoProduto/:idParam' element={<CarrinhoProduto />} />

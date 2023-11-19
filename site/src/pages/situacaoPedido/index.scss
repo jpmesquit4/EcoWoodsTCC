@@ -45,6 +45,62 @@ html {
                     width: 500px;
                     border-radius: 15px;
 
+                    .caminho-pedido {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                        margin-top: 30px;
+
+                        .balls {
+                            display: flex;
+                            flex-direction: row;
+
+                            > div {
+                                height: 400px;  
+                                background-color: #000;
+                                width: 2px;
+                                
+                                .bolinha-verde {
+                                    height: 25px;  
+                                    background-color: #259830;;
+                                    width: 25px;
+                                    border-radius: 50%; 
+                                    position: relative;
+                                    right: 12px;
+                                    margin-bottom: 50px;
+                                }
+
+                                > .bolinha {
+                                    height: 25px;  
+                                    background-color: #2a2a2a;
+                                    width: 25px;
+                                    border-radius: 50%; 
+                                    position: relative;
+                                    right: 12px;
+                                    margin-bottom: 50px;
+                                }
+                            }
+                        }
+
+                        .info-caminho {
+                            .situacao {
+
+                                margin: 0px 0px 40px;
+
+                                h1 {
+                                    font-size: 16px;
+                                    text-transform: uppercase;
+                                    font-family: 'gotham';
+                                }   
+
+                                p {
+                                    font-size: 14px;
+                                    font-family: 'inter';
+                                }
+                            }
+                        }
+                    }
+
                     .cabecalho {
                         border-radius: 15px 15px 0 0;
                         background: #2A2A2A;
@@ -121,6 +177,7 @@ html {
                     padding: 30px 0 0;
                     display: flex;
                     flex-direction: column;
+                    border-bottom-left-radius: 10px;
 
                     .container-giga {
                         gap: 35px;
@@ -136,6 +193,7 @@ html {
 
                         .fundo-img {
                             border-radius: 5px;
+
                             width: 135px;
                             padding: 10px;
                             background: #2A2A2A;
@@ -229,7 +287,9 @@ html {
                     .agradecimento{
                         display: flex;
                         flex-direction: row;
-                        
+                        border-top: 1px solid #2a2a2a;
+                        margin-top: 35px;
+
                         .img-pica{
                             width: 17%;
                             height: 85px;

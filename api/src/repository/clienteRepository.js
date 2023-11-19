@@ -21,6 +21,35 @@ export async function inserirInfoEndereco(endereco, usuario) {
     return usuario;
 }
 
+export async function listarEnderecos(usuario) {
+    const comando = `
+        select  ID_Usuario as user,
+                DS_Cep as cep,
+                DS_Rua as rua,
+                DS_Numero as numero,
+                DS_Bairro as bairro,
+                DS_Estado as estado,
+                DS_Cidade as cidade
+        from TB_Endereco
+        where ID_Usuario = ?;                  
+    `
+
+
+    const [linhas] = await con.query(comando, [usuario.id])
+    return linhas[0];
+}
+
+
+export async function inserirInfoCartao(cartao, usuario) {
+    const comando = `insert into TB_Cartao(ID_Usuario, NM_Titular, DS_Cartao, DS_CVV, DS_Vencimento)
+                                      value(?,?,?,?,?);`
+
+
+    const [resposta] = await con.query(comando, [usuario.id, cartao.titular, cartao.cartao, cartao.cvv, cartao.vencimento])
+
+    return usuario;
+}
+
 export async function loginCliente(usuario, email, senha) {
     const comando = 
     `

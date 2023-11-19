@@ -1,7 +1,7 @@
 import "./index.scss";
 import { useNavigate } from 'react-router-dom';
 import { buscarPorId, buscarImagem, consultarPreco } from "../../api/produtoApi";
-import { inserirInfoEndereco, listarInfoClientes } from "../../api/clienteApi";
+import { inserirInfoEndereco, listarInfoClientes, inserirInfoCartao } from "../../api/clienteApi";
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import InputMask from "react-input-mask";
@@ -14,7 +14,6 @@ export default function Pagamento() {
     const [produto, setProduto] = useState({});
     const [parcelas, setParcelas] = useState();
     const [entrega, setEntrega] = useState();
-    const [preco, setPreco] = useState({});
 
     const[estado, setEstado] = useState('');
     const[cidade, setCidade] = useState('');
@@ -31,15 +30,27 @@ export default function Pagamento() {
         setId(resposta.id || 0);
     }
 
-    const[nomeTitularCartao, setNomeTitularCartao] = useState();
-    const[numeroCartao, setNumeroCartao] = useState();
-    const[cvv, setCvv] = useState();
-    const[vencimento, setVencimento] = useState();
+    const[titular, setTitular] = useState('');
+    const[cartao, setCartao] = useState('');
+    const[cvv, setCvv] = useState('');
+    const[vencimento, setVencimento] = useState('');
 
     async function salvarClickEndereco() {
         try {
             await inserirInfoEndereco(id, cep, rua, numero, bairro, estado, cidade);
                 toast.dark('🚀 Endereço cadastrado com sucesso!');
+        } catch (err) {
+            if (err.response)
+                toast.error(err.response.data.erro);
+            else
+                toast.error(err.message);
+        }
+    }
+
+    async function salvarClickCartao() {
+        try {
+            await inserirInfoCartao(id, titular, cartao, cvv, vencimento);
+                toast.dark('🚀 Cartão cadastrado com sucesso!');
         } catch (err) {
             if (err.response)
                 toast.error(err.response.data.erro);
@@ -62,31 +73,6 @@ export default function Pagamento() {
         carregarInfos();
     }, []);
 
-    useEffect(() => {
-        carregarPrecos();
-    }, []);
-
-     async function carregarPrecos() {
-         const resposta = await consultarPreco(idParam);
-         setPreco(resposta);   
-     }
-
-    // async function carregarPrecos() {
-    //     const resposta = await consultarPreco(idParam);
-    //     setPreco(resposta.preco);
-    // }
-
-    console.log(preco)
-
-    // const [produtoFretado, setProdutoFretado] = useState();
-
-    // console.log(produtoFretado)
-
-    // function produtoFrete() {
-    //     setProdutoFretado(preco.preco + entrega)
-    // }
-
-
     async function carregarProduto() {
         const resposta = await buscarPorId(idParam);
         setProduto(resposta);   
@@ -94,6 +80,22 @@ export default function Pagamento() {
 
     function pagSituacaoPedido(){
         navigate('/situacaoPedidos');
+    }
+
+    const total = Number(produto.preco) + Number(entrega);
+    const valorParcela = ((Number(produto.preco) + Number(entrega)) * (parcelas * 0.02));
+    const valorParcelaFormatado = Number(valorParcela.toFixed(2));
+    const totalPedido = ((Number(produto.preco) + Number(entrega)) * (parcelas * 0.02)) + (Number(produto.preco) + Number(entrega));
+    const totalPedidoFormatado = Number(totalPedido.toFixed(2));
+
+    const mostrarComponente = true;
+
+    const [ checkbox, setCheckbox ] = useState();
+    console.log(checkbox);
+
+
+    function pagSituacaoPedido(id) {
+        navigate(`/situacaoPedidos/${id}`)
     }
 
     return (
@@ -165,6 +167,10 @@ export default function Pagamento() {
                                 <input type="text" placeholder="Rua" id="" value={rua} onChange={e => setRua(e.target.value)}/>
                                 <input type='text' placeholder='Número' id='' value={numero} onChange={e => setNumero(e.target.value)} />
                             </div>
+
+                            <div className="nav-confirmar">
+                                <button className="salvarEndereco" onClick={salvarClickEndereco}> Salvar Endereco </button>
+                            </div>
                         </div>
                     </div>
 
@@ -190,18 +196,31 @@ export default function Pagamento() {
                         <div className="p-2">
                             <p>Total do Pedido (1 item): {''} {/*Colocar a quantidade de pedidos*/}</p>
                             <span className="change">
-                                {''} R${Number(produto.preco) + Number(entrega)}
+                                {''} R${!total ? produto.preco : total}
                             </span>
                         </div>
                     </div>
 
+                    
                     <div className="nav-parcelamento">
+                        
+                        
+
+                        <div className="nav-button">
+                            <label className="switch">
+                                <span className="switch-text">Parcelamento</span>
+                                <div className="switch-wrapper">
+                                    <input type="checkbox" value={checkbox} onChange={(e) => setCheckbox(e.target.checked)}/>
+                                    <span className="switch-button"></span>
+                                </div>
+                            </label>
+                        </div>
+
                         
 
                         <div className="selecionar-parcelas">
                             <select className="selecionar-parc" value={parcelas} onChange={e => setParcelas(e.target.value)}>
                                 <option value="" disabled selected >Opções de pagamento</option>
-                                <option value="1" key="">A vista</option>
                                 <option value="2" key="">2x</option>
                                 <option value="3" key="">3x</option>
                                 <option value="4" key="">4x</option>
@@ -212,7 +231,11 @@ export default function Pagamento() {
                                 <option value="9" key="">9x</option>
                             </select>
                         </div>
+                        
+                        
                     </div>
+                    
+                    {checkbox ? (
 
                     <div className="Detalhes">
                         <div className="p-1">
@@ -231,7 +254,7 @@ export default function Pagamento() {
                             <span className="line-3">
                                 <p>Valor das Parcelas</p>
                                 <span>
-                                    R${((Number(produto.preco) + Number(entrega)) * (parcelas * 0.02))}
+                                    R${!valorParcela ? '0' : valorParcelaFormatado}
                                     {''} {/*Usar para puxar o frete */}
                                 </span>
                                 
@@ -241,22 +264,44 @@ export default function Pagamento() {
                         <div className="p-2">
                             <p>Total do Pedido</p>
                             <span className="change">
-                                {''} R${((Number(produto.preco) + Number(entrega)) * (parcelas * 0.02)) + (Number(produto.preco) + Number(entrega))}
+                                {''} R${!totalPedido ? '0' : totalPedidoFormatado}
                             </span>
                         </div>
                     </div>
 
+                        ) : 
+                        
+                        
+                        <div className="Detalhes-avista">
+                        <div className="p-1">
+                            <span className="line-1">
+                                <p>Detalhes Preço À vista</p>
+                            </span>
+                        </div>
+
+                        <div className="p-2">
+                            <p>Total do Pedido</p>
+                            <span className="change">
+                                {''} R${!total ? '0' : total}
+                            </span>
+                        </div>
+                    </div>
+                        }
+
                     <div className="nav-pagamento">
-                            <InputMask type="text" mask="9999.9999.9999.9999" placeholder="Número do Cartão" value={numeroCartao} onChange={(e) => setNumeroCartao(e.target.value)} />
+                            <InputMask type="text" mask="9999.9999.9999.9999" placeholder="Número do Cartão" value={cartao} onChange={(e) => setCartao(e.target.value)} />
                         <div>
                             <InputMask type="text" mask="99/9999" placeholder="Vencimento" value={vencimento} onChange={(e) => setVencimento(e.target.value)} />
                             <InputMask type="text" maxLength="4" placeholder="CVV" value={cvv} onChange={(e) => setCvv(e.target.value)} />
                         </div>
-                        <input type="text" placeholder="Nome do Títular" value={nomeTitularCartao} onChange={(e) => setNomeTitularCartao(e.target.value)} />
+                        <input type="text" placeholder="Nome do Títular" value={titular} onChange={(e) => setTitular(e.target.value)} />
+
+                        <div className="nav-confirmar">
+                            <button className="salvarEndereco" onClick={salvarClickCartao}> Salvar Endereco </button>
+                        </div>
                     </div>
                     <div className="nav-confirmar">
-                        <button onClick={pagSituacaoPedido}> Finalizar Pedido </button>
-                        <button onClick={salvarClickEndereco}> Salvar Endereco </button>
+                        <button onClick={() => pagSituacaoPedido(produto.id)}> Finalizar Pedido </button>
                     </div>
                 </div>
             </section>

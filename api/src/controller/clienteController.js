@@ -1,4 +1,4 @@
-import { inserirCliente, listarInfoClientes, loginCliente, alterarInfo, inserirInfoEndereco} from '../repository/clienteRepository.js'
+import { inserirCliente, listarInfoClientes, loginCliente, alterarInfo, inserirInfoEndereco, inserirInfoCartao, listarEnderecos} from '../repository/clienteRepository.js'
 import { Router } from "express";
 
 const server = Router();
@@ -59,6 +59,46 @@ server.post('/cliente/endereco', async (req, resp) => {
     }
 })
 
+server.post('/cliente/cartao', async (req, resp) => {
+    
+    try {
+        const cartao = req.body;
+        const usuario = req.body;
+
+        if(!cartao.titular)
+        throw new Error('Nome do titular é obrigatório!')
+
+        if(!cartao.cartao)
+        throw new Error('Número do Cartão é obrigatório!')
+
+        if(cartao.cartao.length < 16)
+        throw new Error('Preencha todo o campo do Número do cartão!')
+
+        if(!cartao.cvv)
+        throw new Error('CVV é obrigatório!')
+
+        if(cartao.cvv.length < 4)
+        throw new Error('Preencha todo o campo do CVV!')
+
+        if(!cartao.vencimento)
+        throw new Error('Data de vencimento é obrigatório!')
+
+        if(cartao.vencimento.length < 6)
+        throw new Error('Preencha todo o campo de Vencimento!')
+
+        if(!usuario.id)
+        throw new Error('ID é obrigatório!')
+
+        const resposta = await inserirInfoCartao(cartao, usuario);
+        resp.send(resposta);
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
+    }
+})
+
 server.post('/cliente/cadastro', async (req, resp) => {
     try {
         const novoUsuario = req.body;
@@ -81,6 +121,24 @@ server.post('/cliente/cadastro', async (req, resp) => {
         const resposta = await inserirCliente(novoUsuario);
 
         resp.send(resposta);
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
+    }
+})
+
+server.get('/endereco/:id', async (req, resp) => {
+    try {
+        const id = req.params;
+
+        const resposta = await listarEnderecos(id);
+        
+        if (!resposta)
+            resp.status(404).send([]);
+        else
+            resp.send(resposta);
 
     } catch (err) {
         resp.status(400).send({
