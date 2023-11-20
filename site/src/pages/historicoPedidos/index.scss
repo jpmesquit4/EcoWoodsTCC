@@ -1,0 +1,136 @@
+.pagina-HistoricoPedidos{
+    display: flex;
+    flex-direction: column;
+
+    .menu {
+        background-color: antiquewhite;
+        padding-top: 20px;
+        height: 100vh;
+
+        .cabecalho-meio {
+            text-align: center;
+
+            h1 {
+                font-family: 'gotham';
+                margin: 50px 0px 70px;
+            }
+        }
+
+        .historico {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0px 80px;
+
+            .pedido-1 {
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                padding: 30px;
+                border-radius: 10px;    
+
+                .pedido-1-top {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    span {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+
+                        p {
+                            padding-right: 100px;
+                            font-family: 'gotham';
+                            text-transform: uppercase;
+                            font-weight: 600;
+                        }
+                    }
+
+                    p {
+                        font-family: 'gotham';
+                        text-transform: uppercase;
+                        font-weight: 600;
+                    }
+                }
+
+                .pedido-1-middle {
+                    display: flex;
+                    flex-direction: row;
+                    margin-bottom: 30px;
+
+                    p {
+                        padding-right: 150px;
+                        font-family: 'gotham';
+                        text-transform: uppercase;
+                        
+                    }
+                }
+
+                .pedido-1-bot {
+                    display: flex;
+                    flex-direction: row;
+
+                    .part-image {
+                         img {
+                            background-color: #2a2a2a;
+                            padding: 10px;
+                            border-radius: 5px;
+                         }
+                    }
+
+                    .part-info {
+                        display: flex;
+                        flex-direction: column;
+
+                        padding: 20px;
+
+                        h1 {
+                            font-family: 'gotham black';
+                            text-transform: uppercase;
+                            font-weight: 600;
+                            font-size: 18px;
+                        }
+
+                        p {
+                            font-family: 'gotham';
+                            text-transform: uppercase;
+                            font-size: 14px;
+                        }
+
+                        button {
+                            margin: 10px 0px 5px;
+                            padding: 12px 30px;
+                            border-radius: 30px;
+                            border: none;
+                            background-color: #2a2a2a;
+                            color: white;
+                            font-family: 'montserrat';
+                            letter-spacing: 1px;
+
+                            transition: 0.5s;
+                            border: 2px solid transparent;
+                        }
+
+                        button:hover {
+                            transform: scale(1.03);
+                            border: 2px solid #2a2a2a;
+                            background-color: transparent;
+                            color: #2a2a2a;
+                            cursor: pointer;
+                        }
+
+                        button:active {
+                            transform: scale(1.0);
+                            background-color: #2a2a2a;
+                            color: white;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+
+}

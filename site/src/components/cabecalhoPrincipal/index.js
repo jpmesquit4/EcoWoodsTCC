@@ -1,6 +1,8 @@
 import './index.scss';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import storage from 'local-storage';
+import { carregarProduto } from '../../api/produtoApi';
 
 export default function Cabecalho(props) {
 
@@ -18,6 +20,15 @@ export default function Cabecalho(props) {
     function voltarHome() {
         navigate('/')
     }
+
+    const cliente = storage('cliente-logado').id;
+
+    function pagPerfilcliente(cliente) {
+        navigate(`/perfilCliente/${cliente}`)
+    }
+
+
+
 
     return (
         <div className='pagina-cabecalho'>
@@ -46,8 +57,7 @@ export default function Cabecalho(props) {
 
                     <p>Favoritos</p>
 
-                    <img onClick={abrirCarrinhovazio} src="/assets/images/sacola.png" alt="" />
-                    <p className="notification">{props.cartCount}</p>
+                    <img onClick={() => pagPerfilcliente(cliente)} src="/assets/images/icon-perfil-cabecalho.png" alt="" />
                 </div>
             </div>
 

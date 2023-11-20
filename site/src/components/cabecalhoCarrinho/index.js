@@ -34,8 +34,7 @@ export default function CabecalhoCarrinho() {
 
                     <p>Favoritos</p>
 
-                    <img src="/assets/images/sacola.png" alt="" />
-                    <p className="notification">0</p>
+                    <img src="/assets/images/icon-perfil-cabecalho.png" alt="" />
                 </div>
             </div>
         </div>

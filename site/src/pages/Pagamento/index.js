@@ -78,9 +78,9 @@ export default function Pagamento() {
         setProduto(resposta);   
     }
 
-    function pagSituacaoPedido(){
-        navigate('/situacaoPedidos');
-    }
+    // function pagSituacaoPedido(){
+    //     navigate('/situacaoPedidos');
+    // }
 
     const total = Number(produto.preco) + Number(entrega);
     const valorParcela = ((Number(produto.preco) + Number(entrega)) * (parcelas * 0.02));
@@ -297,7 +297,7 @@ export default function Pagamento() {
                         <input type="text" placeholder="Nome do Títular" value={titular} onChange={(e) => setTitular(e.target.value)} />
 
                         <div className="nav-confirmar">
-                            <button className="salvarEndereco" onClick={salvarClickCartao}> Salvar Endereco </button>
+                            <button className="salvarEndereco" onClick={salvarClickCartao}> Salvar Cartão </button>
                         </div>
                     </div>
                     <div className="nav-confirmar">

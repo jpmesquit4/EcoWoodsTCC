@@ -90,19 +90,17 @@
 
             gap: 20px;
 
-            .notification {
-                text-align: center;
-                background-color: black;
-                border-radius: 50%;
-                padding: 1px 2px;
-                font-size: 10px;
+            img {
+                transition: 0.3s;
+            }
 
-                color: #fff;
+            img:hover {
+                cursor: pointer;
+                transform: scale(1.03);
+            }
 
-                position: relative;
-                right: 22px;
-                bottom: 10px;
-
+            img:active {
+                transform: scale(1.0);
             }
         }
         

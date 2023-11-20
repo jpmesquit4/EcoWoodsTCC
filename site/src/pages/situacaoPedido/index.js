@@ -297,8 +297,8 @@ export default function Situacao() {
                                         <span>E-mail: {infoCliente.email}{/*Email do Cliente*/}</span>
                                     </span>
                                     <span className="span-info">
-                                        <p>Telefone</p>
-                                        <span>(11) 98760-4376{/*Numero do Cliente*/}</span>
+                                        <p>Nome do Cliente</p>
+                                        <span>{infoCliente.nome}{/*Numero do Cliente*/}</span>
                                     </span>
                                     <span className="span-info">
                                         <p>Transportadora</p>

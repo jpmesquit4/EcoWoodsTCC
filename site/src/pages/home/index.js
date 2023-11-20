@@ -26,6 +26,12 @@ export default function Home() {
         navigate('/resultadoBuscar')
     }
 
+    const cliente = storage('cliente-logado').id;
+
+    function pagPerfilcliente(cliente) {
+        navigate(`/perfilCliente/${cliente}`)
+    }
+
     return (
         <div className="pagina-home">
             <div className="cabecalho-top">
@@ -51,8 +57,7 @@ export default function Home() {
 
                     <p onClick={paginaFavoritos}>Favoritos</p>
 
-                    <img src="/assets/images/sacolaDeCompras.png" alt="" />
-                    <p className="notification">0</p>
+                    <img onClick={() => pagPerfilcliente(cliente)} src="/assets/images/icon-perfil-cabecalho-branco.png" alt="" />
                 </div>
             </div>
 
