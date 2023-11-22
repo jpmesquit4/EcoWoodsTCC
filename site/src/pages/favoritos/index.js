@@ -24,7 +24,7 @@ export default function Favoritos() {
     }, [])
     
     async function filtrar() {
-        const url = `http://129.148.42.252:3020/produto/busca?nome=${filtro}`;
+        const url = `http://129.148.42.252:5020/produto/busca?nome=${filtro}`;
 
         let response = await axios.get(url);
 
@@ -54,7 +54,7 @@ export default function Favoritos() {
     }
 
     async function carregarProduto() {
-        const url = 'http://129.148.42.252:3020/produto';
+        const url = 'http://129.148.42.252:5020/produto';
 
         let response = await axios.get(url);
 
