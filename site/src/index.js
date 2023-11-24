@@ -12,12 +12,12 @@ import ConsultarProdutos from './pages/consultarProdutos';
 import Pagamento from './pages/Pagamento';
 import DetalhesProduto from './pages/detalhesProduto';
 import Carrinho from './pages/carrinho';
-import Favoritos from './pages/favoritos';
 import CarrinhoProduto from './pages/carrinhoProduto';
 import Situacao from './pages/situacaoPedido';
 import Produtos from './components/produtos';
 import PerfilCliente from './pages/perfilCliente';
 import HistoricoPedidos from './pages/historicoPedidos';
+import PagamentoEndereco from './pages/pagamentoEndereco';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Resultado from './pages/resultadoBusca';
@@ -51,12 +51,12 @@ root.render(
           <Route path='/produtos/:idParam' element={<Produtos />} />
 
           <Route path='/consultarprodutos' element={<ConsultarProdutos/>} />
+          <Route path='/cartao/endereco/:idParam' element={<PagamentoEndereco/>} />
           <Route path='/admin' element={<AdmPainel/>} />
 
           <Route path='/detalhesProduto/:idParam' element={<DetalhesProduto/>} />
 
           <Route path='/carrinho' element={<Carrinho/>} />
-          <Route path='/favoritos' element={<Favoritos/>} />
           <Route path='/historicoPedidos' element={<HistoricoPedidos/>} />
           <Route path='/perfilCliente/:idParam' element={<PerfilCliente/>} />
         </Routes>

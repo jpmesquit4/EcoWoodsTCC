@@ -231,32 +231,32 @@ export default function Situacao() {
                                 <div className="info-caminho">
                                     <div className="situacao">
                                         <h1>pedido concluído</h1>
-                                        <p>{dataAtual + ', dia estimado'} {''}</p>
+                                        <p>{'dia estimado: ' + dataAtual} {''}</p>
                                     </div>
 
                                     <div className="situacao">
                                         <h1>pagamento aceito</h1>
-                                        <p>{dataAtual + ', dia estimado'} {''}</p>
+                                        <p>{'dia estimado: ' + dataAtual} {''}</p>
                                     </div>
 
                                     <div className="situacao">
                                         <h1>pedido separado</h1>
-                                        <p>{dataAtual + ', dia estimado'} {''}</p>
+                                        <p>{'dia estimado: ' + dataAtual} {''}</p>
                                     </div>
 
                                     <div className="situacao">
                                         <h1>enviado para a transportadora</h1>
-                                        <p>{dataAtual + ', dia estimado'} {''}</p>
+                                        <p>{'dia estimado: ' + dataAtual} {''}</p>
                                     </div>
 
                                     <div className="situacao">
                                         <h1>saiu para a entrega</h1>
-                                        <p>{dataAtual + ', dia estimado'} {''}</p>
+                                        <p>{'dia estimado: ' + dataAtual} {''}</p>
                                     </div>
 
                                     <div className="situacao">
                                         <h1>pedido entregue</h1>
-                                        <p>{dataAtual + ', dia estimado' } {''}</p>
+                                        <p>{'dia estimado: ' + dataAtual } {''}</p>
                                     </div>
                                 </div>
                             </div>

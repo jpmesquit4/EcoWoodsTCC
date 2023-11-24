@@ -50,6 +50,19 @@ export async function inserirInfoCartao(cartao, usuario) {
     return usuario;
 }
 
+export async function listarCartaoPorID(id) {
+    const comando = 
+    `
+    SELECT  ID_Usuario as usuario, NM_Titular as titular, DS_Cartao as numero, DS_CVV as cvv, DS_Vencimento as vencimento
+    FROM    TB_Cartao
+    where   ID_Usuario = ?
+    `;
+
+    const [linhas] = await con.query(comando, [id])
+    return linhas[0];
+ 
+}
+
 export async function loginCliente(usuario, email, senha) {
     const comando = 
     `

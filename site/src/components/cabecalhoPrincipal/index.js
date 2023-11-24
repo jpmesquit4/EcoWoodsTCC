@@ -53,10 +53,6 @@ export default function Cabecalho(props) {
                 </div>
 
                 <div className="header-bot">
-                    <p>Fale Conosco</p>
-
-                    <p>Favoritos</p>
-
                     <img onClick={() => pagPerfilcliente(cliente)} src="/assets/images/icon-perfil-cabecalho.png" alt="" />
                 </div>
             </div>

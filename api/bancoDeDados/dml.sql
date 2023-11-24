@@ -1,3 +1,4 @@
+-- Criar banco de dados
 create database ecoWoodsDB;
 USE ecoWoodsDB;
 
@@ -15,6 +16,10 @@ CREATE TABLE TB_Admin (
     DS_Senha VARCHAR(100)
 );
 
+CREATE TABLE TB_Pedido_Item (
+    ID_Pedido_Item INT PRIMARY KEY AUTO_INCREMENT,
+    ds_quantidade_item varchar(20)
+); 
 
 CREATE TABLE TB_Produto (
     ID_Produto INT PRIMARY KEY AUTO_INCREMENT,
@@ -39,45 +44,22 @@ CREATE TABLE TB_Usuario (
     DS_Genero VARCHAR(100)
 );
 
+select * from TB_Usuario;
+
 CREATE TABLE TB_Endereco (
     ID_Endereco INT PRIMARY KEY AUTO_INCREMENT,
-    ID_Usuario INT,
-    NR_Cep VARCHAR(100),
-    DS_Endereco VARCHAR(200),
-    NR_Numero VARCHAR(10),
-    DS_Complemento VARCHAR(100),
+    ID_Usuario int,
+    DS_Cep VARCHAR(100),
+    DS_Rua VARCHAR(200),
+    DS_Numero VARCHAR(10),
     DS_Bairro VARCHAR(100),
     DS_Estado VARCHAR(100),
     DS_Cidade VARCHAR(100),
-    DS_Referencia VARCHAR(100),
     FOREIGN KEY (ID_Usuario) REFERENCES TB_Usuario(ID_Usuario)
 );
-
-
-CREATE TABLE TB_Pedido (
-    ID_Pedido INT PRIMARY KEY AUTO_INCREMENT,
-    ID_Endereco_Entrega INT,
-    DS_Nota_Fiscal VARCHAR(100),
-    TB_Forma_Pagamento VARCHAR(20),
-    QTD_Parcela INT,
-    DT_Pedido DATE,
-    DS_Situacao VARCHAR(100),
-    FOREIGN KEY (ID_Endereco_Entrega) REFERENCES TB_Endereco(ID_Endereco)
-);
-
-CREATE TABLE TB_Pedido_Item (
-    ID_Pedido_Item INT PRIMARY KEY AUTO_INCREMENT,
-    ID_Pedido INT,
-    ID_Produto INT,
-    QTD_Item INT,
-    VL_Valor_Final DECIMAL(8,2),
-    BT_Pagamento BOOL,
-    FOREIGN KEY (ID_Produto) REFERENCES TB_Produto(ID_Produto),
-    FOREIGN KEY (ID_Pedido) REFERENCES TB_Pedido(ID_Pedido)
-);
-
-CREATE TABLE TB_Carrinho (
-    ID_Carrinho INT PRIMARY KEY AUTO_INCREMENT,
+    
+CREATE TABLE Tabela_Preco (
+    ID_Preco INT PRIMARY KEY AUTO_INCREMENT,
     ID_Produto INT,
     FOREIGN KEY (ID_Produto) REFERENCES TB_Produto(ID_Produto)
 );
@@ -88,11 +70,36 @@ CREATE TABLE TB_Cartao (
     ID_Cartao INT PRIMARY KEY AUTO_INCREMENT,
     ID_Usuario INT,
     NM_Titular VARCHAR(100),
-    NR_Cartao VARCHAR(100),
+    DS_Cartao VARCHAR(150),
     DS_CVV INT,
     DS_Vencimento VARCHAR(100),
     FOREIGN KEY (ID_Usuario) REFERENCES TB_Usuario(ID_Usuario)
 );
+
+CREATE TABLE TB_Pedido (
+    ID_Pedido INT PRIMARY KEY AUTO_INCREMENT,
+    ID_Endereco INT,
+    ID_Cartao int,
+    ID_Pedido_Item int,
+    nr_entrega int,
+    ds_totalpedido varchar(100), 
+    bt_parcela boolean,
+    ds_quantidade_parcela varchar(50),
+    FOREIGN KEY (ID_Endereco) REFERENCES TB_Endereco(ID_Endereco),
+    FOREIGN KEY (ID_Cartao) REFERENCES TB_Cartao(ID_Cartao)
+);
+
+
+CREATE TABLE TB_Carrinho (
+    ID_Carrinho INT PRIMARY KEY AUTO_INCREMENT,
+    ID_Produto INT,
+    ID_Pedido_Item int,
+    FOREIGN KEY (ID_Produto) REFERENCES TB_Produto(ID_Produto)
+);
+
+
+
+
 
 
 
@@ -122,13 +129,18 @@ VALUES
     ('Lavanderia');
 
 INSERT INTO TB_Produto (ID_Categoria, NM_Produto, DS_Descricao, VL_Preco, NR_Estoque, DS_Tamanho, img_produto)
-VALUES (1, 'Mesa Oval', 'Feita principalmente de madeira maciça.', 2430.00, 8, 'jhsda' ,'');
-
-INSERT INTO TB_Categoria (NM_Categoria)
-VALUES ('Sala de Estar');
+VALUES (1, 'Cadeira com Almofada', 'Cadeira de madeira: durável, elegante e versátil. Ideal para qualquer ambiente. Construção robusta, design clássico. Sofisticação e conforto em uma peça única.', 49.99, 10, '5x5x5', 'storage/imageProdutos/9a8bd2da5c9a3eaf1fd00331193b4fc5'),
+		(1, 'Armario/Gabinete', 'Armário de madeira: Durável e estiloso, é a solução perfeita para organização. Oferece resistência e design clássico. Ideal para agregar charme e funcionalidade a qualquer espaço.', '499.99', 10,'5x5x1', 'storage/imageProdutos/a2016110b23f8836182894aa99f2ed48'),
+        (2,'Prateleira', 'Prateleira de madeira: Funcional e elegante, é a escolha ideal para organização. Perfeita para exibir itens decorativos ou manter seus pertences organizados.', '599.99', 10, '2x1x1', 'storage/imageProdutos/0885864647543f63874b0019376a9daa'),
+        (2,'Estante com gavetas', 'Estante de madeira: Funcional, elegante e versátil. Ideal para exibir e organizar.', '129.99', 13, '2x2x3','storage/imageProdutos/e04438daeaa5b3e5230b67c26d7cc59e'),
+        (3,'Guarda-Roupas', 'Guarda-roupa de madeira: Prático e estiloso, oferece amplo espaço para organização. Perfeito para armazenar roupas com durabilidade e um toque de design.', '699.99',10, '3x3x3', 'storage/imageProdutos/3c9559f64ce7228455f216adb12a191a'),
+        (3,'Guarda-Roupas Simples', 'Guarda-roupa de madeira: Prático e estiloso, oferece amplo espaço para organização. Perfeito para armazenar roupas com durabilidade e um toque de design.', '159.99',10, '3x3x3', 'storage/imageProdutos/505e7700cd67cb7c8c3fb17f9a9d37d4'),
+        (4,'Mesa para Escritório', 'Mesa de escritório de madeira: Combinação de funcionalidade e estilo. Proporciona um espaço de trabalho durável e elegante. Ideal para promover produtividade em um ambiente atraente.', '200.00',10,  '3x6x1', 'storage/imageProdutos/5215aea1a60a1d28d7a253e3f84a3d34'),
+        (4,'Mesa para Escritório com Gavetas', 'Mesa de escritório de madeira: Combinação de funcionalidade e estilo. Proporciona um espaço de trabalho durável e elegante. Ideal para promover produtividade emum ambiente atraente.', '350.00',12,  '8x1x1', 'storage/imageProdutos/577042cd480322dd837336a5eb8116f2'),
+        (5,'Gabinete para Banheiro', 'Gabinete de banheiro de madeira: Solução prática e estilosa para organizar itens de higiene. Construído com durabilidade e design funcional. Ideal para adicionar charme ao ambiente do banheiro.', '100.00',10,  '1x1x1', 'storage/imageProdutos/8045ac1cbba610b5543df5a0a81f584b');
 
 INSERT INTO TB_Usuario (NM_Usuario, DS_email, DS_Senha, DT_Nascimento, DS_Genero)
-VALUES ('joao', 'mesquita@gmail.com', '1234', '2006-10-10', 'Masculino');
+VALUES ('joao', 'mesquita@gmail.com', '123', '2006-10-12', 'Masculino');
 
 INSERT INTO TB_Admin (NM_Adm, DS_email, DS_Senha)
 VALUES ('admin', 'admin@admin.com.br', '1234');
@@ -136,21 +148,16 @@ VALUES ('admin', 'admin@admin.com.br', '1234');
 -- Consultas
 SELECT * FROM TB_Categoria;
 SELECT * FROM TB_Produto;
-SELECT * FROM TB_Usuario;
+SELECT * FROM TB_Usuario;	
 SELECT * FROM TB_Admin;
+SELECT * FROM TB_Endereco;
+SELECT * FROM TB_Cartao;
+select * from TB_Pedido_Item;
+select * from TB_Carrinho;
+drop table TB_Pedido_Item;
 
--- Outras consultas
--- (Adapte conforme necessário)
-
--- Excluir registro do administrador
-DELETE FROM TB_Admin WHERE ID_Adm = 2;
-
--- Buscar usuário pelo email, senha e nome
-SELECT ID_Usuario AS id, NM_Usuario AS nome, DS_Email AS email
-FROM TB_Usuario
-WHERE DS_Email = 'mesquita@gmail.com' AND DS_Senha = '1234' AND NM_Usuario = 'joao';
+select *
+from TB_Endereco
+where ID_Usuario = 1;
 
 -- Fechar o banco de dados
-DROP DATABASE ecoWoodsDB;
-
-

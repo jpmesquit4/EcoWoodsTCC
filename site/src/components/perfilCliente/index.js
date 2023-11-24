@@ -6,8 +6,11 @@ import { buscarPorId } from '../../api/produtoApi';
 import { toast } from 'react-toastify';
 import storage from 'local-storage'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Perfil(props) {
+
+    const navigate = useNavigate();
 
     const [infoCliente, setInfoCliente] = useState({});
 
@@ -75,6 +78,14 @@ export default function Perfil(props) {
 
     console.log(infoCliente)
 
+    function PagHistorico() {
+        navigate('/historicoPedidos');
+    }
+
+    function PagCartaoEndereco(id) {
+        navigate(`/cartao/endereco/${id}`);
+    }
+
     return (
         <div className='conteudo'>
             <div className='conteudo-cabecalho'>
@@ -121,18 +132,9 @@ export default function Perfil(props) {
 
                     <div>   
                         <div>
-                            <img src="/assets/images/entregues.png" alt="" />
-                            <p>Entregues</p>
-                        </div>
-                        <div>
-                            <img src="/assets/images/historico.png" alt="" />
+                            <img onClick={PagHistorico} src="/assets/images/historico.png" alt="" />
                             <p>Historico de Pedidos</p>
                         </div>
-                        <Link className='linknav' to='/favoritos'>
-                            <img src="/assets/images/favoritos.png" alt="" />
-                            <p>Favoritos</p>
-                            {/* <Link className='linknav' to='/favoritos'>Favoritos</Link> */}
-                        </Link>
                     </div>
                 </div>
 
@@ -141,13 +143,8 @@ export default function Perfil(props) {
 
                     <div>
                         <div>
-                            <img src="/assets/images/insta.png" alt="" />
-                            <p>Nosso Contato</p>
-                        </div>
-
-                        <div>
-                            <img src="/assets/images/carteira.png" alt="" />
-                            <p>Pagamento</p>
+                            <img onClick={() => {PagCartaoEndereco(cliente)}} src="/assets/images/carteira.png" alt="" />
+                            <p>Cartão e Endereço</p>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 import { alterarProdutoPorID, consultarProdutos, buscarTodosProdutos, inserirProduto, removerProduto, alterarImagem, buscarPorId, buscarPorNome, buscarPorCategoria, consultarPreco} from '../repository/produtoRepository.js'
 import multer from 'multer';
 import { Router } from "express";
+import { listarCartaoPorID } from '../repository/clienteRepository.js';
 
 const server = Router();
 const upload = multer({ dest: 'storage/imageProdutos'})
@@ -136,6 +137,23 @@ server.get('/produto/:id', async (req, resp) => {
     }
 })
 
+server.get('/cartao/:id', async (req, resp) => {
+    try {
+        const id = Number(req.params.id);
+
+        const resposta = await listarCartaoPorID(id);
+        
+        if (!resposta)
+            resp.status(404).send([]);
+        else
+            resp.send(resposta);
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
+    }
+})
 
 
 server.put('/produto/:id/image', upload.single('image'), async (req, resp) => {

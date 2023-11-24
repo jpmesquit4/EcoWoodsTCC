@@ -5,7 +5,8 @@ import cors from 'cors';
 
 import produtoController from './controller/produtoController.js';
 import clienteController from './controller/clienteController.js';
-import usuarioController from './controller/usuarioController.js'
+import usuarioController from './controller/usuarioController.js';
+import produtoClienteController from './controller/produtoClienteController.js';
 
 const server = express();
 server.use(cors());
@@ -19,6 +20,7 @@ server.use('/storage/imageProdutos', express.static('storage/imageProdutos'));
 server.use(produtoController);
 server.use(clienteController);
 server.use(usuarioController);
+server.use(produtoClienteController);
 
 
 

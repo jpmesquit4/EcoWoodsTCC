@@ -35,7 +35,6 @@ export default function PagDetalhes(props) {
                 <div className='info'>
                     <div className='nomeProduto'>
                         <h1> { props.produto.produto } </h1>
-                        <img src="/assets/images/favoritar-result.png" alt="" />
                     </div>
 
                     <p>{ props.produto.preco }</p>

@@ -7,21 +7,23 @@ import { useParams } from "react-router-dom";
 import InputMask from "react-input-mask";
 import { toast } from 'react-toastify';
 import storage from 'local-storage';
+import { criarTabela, listarPedidoItem, removerQuantidade, removerTabela } from "../../api/produtoCliente";
 
 
-export default function Pagamento() {
+export default function Pagamento(props) {
 
     const [produto, setProduto] = useState({});
     const [parcelas, setParcelas] = useState();
     const [entrega, setEntrega] = useState();
 
-    const[estado, setEstado] = useState('');
-    const[cidade, setCidade] = useState('');
-    const[cep, setCep] = useState('');
-    const[bairro, setBairro] = useState('');
-    const[rua, setRua] = useState('');
-    const[numero, setNumero] = useState('');
-    const[id, setId] = useState();
+    const [estado, setEstado] = useState('');
+    const [cidade, setCidade] = useState('');
+    const [cep, setCep] = useState('');
+    const [bairro, setBairro] = useState('');
+    const [rua, setRua] = useState('');
+    const [numero, setNumero] = useState('');
+    const [id, setId] = useState();
+    const [quantidade, setQuantidade] = useState('');
 
     const cliente = storage('cliente-logado').id;
 
@@ -30,15 +32,22 @@ export default function Pagamento() {
         setId(resposta.id || 0);
     }
 
-    const[titular, setTitular] = useState('');
-    const[cartao, setCartao] = useState('');
-    const[cvv, setCvv] = useState('');
-    const[vencimento, setVencimento] = useState('');
+    async function carregarQuantidade() {
+        const resposta = await listarPedidoItem();
+        setQuantidade(resposta.quantidade || 0);
+    }
+
+    console.log(quantidade)
+
+    const [titular, setTitular] = useState('');
+    const [cartao, setCartao] = useState('');
+    const [cvv, setCvv] = useState('');
+    const [vencimento, setVencimento] = useState('');
 
     async function salvarClickEndereco() {
         try {
             await inserirInfoEndereco(id, cep, rua, numero, bairro, estado, cidade);
-                toast.dark('🚀 Endereço cadastrado com sucesso!');
+            toast.dark('🚀 Endereço cadastrado com sucesso!');
         } catch (err) {
             if (err.response)
                 toast.error(err.response.data.erro);
@@ -50,7 +59,7 @@ export default function Pagamento() {
     async function salvarClickCartao() {
         try {
             await inserirInfoCartao(id, titular, cartao, cvv, vencimento);
-                toast.dark('🚀 Cartão cadastrado com sucesso!');
+            toast.dark('🚀 Cartão cadastrado com sucesso!');
         } catch (err) {
             if (err.response)
                 toast.error(err.response.data.erro);
@@ -59,15 +68,21 @@ export default function Pagamento() {
         }
     }
 
-    
+
 
     const navigate = useNavigate();
 
-    const {idParam} = useParams();
+    const { idParam } = useParams();
 
     useEffect(() => {
         carregarProduto();
     }, []);
+
+    useEffect(() => {
+        carregarQuantidade();
+    }, []);
+
+
 
     useEffect(() => {
         carregarInfos();
@@ -75,22 +90,26 @@ export default function Pagamento() {
 
     async function carregarProduto() {
         const resposta = await buscarPorId(idParam);
-        setProduto(resposta);   
+        setProduto(resposta);
+    }
+
+    async function criarRemoverTB() {
+
     }
 
     // function pagSituacaoPedido(){
     //     navigate('/situacaoPedidos');
     // }
 
-    const total = Number(produto.preco) + Number(entrega);
-    const valorParcela = ((Number(produto.preco) + Number(entrega)) * (parcelas * 0.02));
-    const valorParcelaFormatado = Number(valorParcela.toFixed(2));
-    const totalPedido = ((Number(produto.preco) + Number(entrega)) * (parcelas * 0.02)) + (Number(produto.preco) + Number(entrega));
-    const totalPedidoFormatado = Number(totalPedido.toFixed(2));
+    const total = (Number(produto.preco) + Number(entrega)) * Number(quantidade);
+    const valorParcela = ((Number(produto.preco) + Number(entrega)) * (parcelas * 0.02)) * Number(quantidade);
+    const valorParcelaFormatado = Number(valorParcela.toFixed(2)) * Number(quantidade);
+    const totalPedido = (((Number(produto.preco) + Number(entrega)) * (parcelas * 0.02)) + (Number(produto.preco) + Number(entrega))) * Number(quantidade);
+    const totalPedidoFormatado = Number(totalPedido.toFixed(2)) * Number(quantidade);
 
     const mostrarComponente = true;
 
-    const [ checkbox, setCheckbox ] = useState();
+    const [checkbox, setCheckbox] = useState();
     console.log(checkbox);
 
 
@@ -164,12 +183,12 @@ export default function Pagamento() {
 
                             <div className="part-1">
                                 <input type="text" placeholder="Bairro" id="" value={bairro} onChange={e => setBairro(e.target.value)} />
-                                <input type="text" placeholder="Rua" id="" value={rua} onChange={e => setRua(e.target.value)}/>
+                                <input type="text" placeholder="Rua" id="" value={rua} onChange={e => setRua(e.target.value)} />
                                 <input type='text' placeholder='Número' id='' value={numero} onChange={e => setNumero(e.target.value)} />
                             </div>
 
                             <div className="nav-confirmar">
-                                <button className="salvarEndereco" onClick={salvarClickEndereco}> Salvar Endereco </button>
+
                             </div>
                         </div>
                     </div>
@@ -201,22 +220,22 @@ export default function Pagamento() {
                         </div>
                     </div>
 
-                    
+
                     <div className="nav-parcelamento">
-                        
-                        
+
+
 
                         <div className="nav-button">
                             <label className="switch">
                                 <span className="switch-text">Parcelamento</span>
                                 <div className="switch-wrapper">
-                                    <input type="checkbox" value={checkbox} onChange={(e) => setCheckbox(e.target.checked)}/>
+                                    <input type="checkbox" value={checkbox} onChange={(e) => setCheckbox(e.target.checked)} />
                                     <span className="switch-button"></span>
                                 </div>
                             </label>
                         </div>
 
-                        
+
 
                         <div className="selecionar-parcelas">
                             <select className="selecionar-parc" value={parcelas} onChange={e => setParcelas(e.target.value)}>
@@ -231,65 +250,65 @@ export default function Pagamento() {
                                 <option value="9" key="">9x</option>
                             </select>
                         </div>
-                        
-                        
+
+
                     </div>
-                    
+
                     {checkbox ? (
 
-                    <div className="Detalhes">
-                        <div className="p-1">
-                            <span className="line-1">
-                                <p>Detalhes Preço Parcelado</p>
-                            </span>
+                        <div className="Detalhes">
+                            <div className="p-1">
+                                <span className="line-1">
+                                    <p>Detalhes Preço Parcelado</p>
+                                </span>
 
-                            <span className="line-2">
-                                <p>Taxa de Juros:</p>
-                                <span>
-                                    2
-                                    {''} {/*Usar para puxar o subtotal dos produtos */}
-                                    %
+                                <span className="line-2">
+                                    <p>Taxa de Juros:</p>
+                                    <span>
+                                        2
+                                        {''} {/*Usar para puxar o subtotal dos produtos */}
+                                        %
+                                    </span>
                                 </span>
-                            </span>
-                            <span className="line-3">
-                                <p>Valor das Parcelas</p>
-                                <span>
-                                    R${!valorParcela ? '0' : valorParcelaFormatado}
-                                    {''} {/*Usar para puxar o frete */}
+                                <span className="line-3">
+                                    <p>Valor das Parcelas</p>
+                                    <span>
+                                        R${!valorParcela ? '0' : valorParcelaFormatado}
+                                        {''} {/*Usar para puxar o frete */}
+                                    </span>
+
                                 </span>
-                                
-                            </span>
+                            </div>
+
+                            <div className="p-2">
+                                <p>Total do Pedido</p>
+                                <span className="change">
+                                    {''} R${!totalPedido ? '0' : totalPedidoFormatado}
+                                </span>
+                            </div>
                         </div>
 
-                        <div className="p-2">
-                            <p>Total do Pedido</p>
-                            <span className="change">
-                                {''} R${!totalPedido ? '0' : totalPedidoFormatado}
-                            </span>
-                        </div>
-                    </div>
+                    ) :
 
-                        ) : 
-                        
-                        
+
                         <div className="Detalhes-avista">
-                        <div className="p-1">
-                            <span className="line-1">
-                                <p>Detalhes Preço À vista</p>
-                            </span>
-                        </div>
+                            <div className="p-1">
+                                <span className="line-1">
+                                    <p>Detalhes Preço À vista</p>
+                                </span>
+                            </div>
 
-                        <div className="p-2">
-                            <p>Total do Pedido</p>
-                            <span className="change">
-                                {''} R${!total ? '0' : total}
-                            </span>
+                            <div className="p-2">
+                                <p>Total do Pedido</p>
+                                <span className="change">
+                                    {''} R${!total ? '0' : total}
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                        }
+                    }
 
                     <div className="nav-pagamento">
-                            <InputMask type="text" mask="9999.9999.9999.9999" placeholder="Número do Cartão" value={cartao} onChange={(e) => setCartao(e.target.value)} />
+                        <InputMask type="text" mask="9999.9999.9999.9999" placeholder="Número do Cartão" value={cartao} onChange={(e) => setCartao(e.target.value)} />
                         <div>
                             <InputMask type="text" mask="99/9999" placeholder="Vencimento" value={vencimento} onChange={(e) => setVencimento(e.target.value)} />
                             <InputMask type="text" maxLength="4" placeholder="CVV" value={cvv} onChange={(e) => setCvv(e.target.value)} />
@@ -297,11 +316,25 @@ export default function Pagamento() {
                         <input type="text" placeholder="Nome do Títular" value={titular} onChange={(e) => setTitular(e.target.value)} />
 
                         <div className="nav-confirmar">
-                            <button className="salvarEndereco" onClick={salvarClickCartao}> Salvar Cartão </button>
                         </div>
                     </div>
                     <div className="nav-confirmar">
-                        <button onClick={() => pagSituacaoPedido(produto.id)}> Finalizar Pedido </button>
+                        <button onClick={async () => {
+                            try {
+                                await salvarClickEndereco();
+                                await salvarClickCartao();
+                                await removerTabela();
+
+                                setTimeout(async () => {
+                                    await criarTabela();
+                                    pagSituacaoPedido(produto.id);
+                                }, 1000);
+                            } catch (err) {
+                                console.error('Erro:', err);
+                                // Lida com erros, se necessário
+                            }
+
+                        }}> Finalizar Pedido </button>
                     </div>
                 </div>
             </section>

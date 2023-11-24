@@ -30,10 +30,6 @@ export default function CabecalhoCarrinho() {
                 </div>
 
                 <div className="header-bot">
-                    <p>Fale Conosco</p>
-
-                    <p>Favoritos</p>
-
                     <img src="/assets/images/icon-perfil-cabecalho.png" alt="" />
                 </div>
             </div>

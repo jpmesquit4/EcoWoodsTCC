@@ -4,10 +4,13 @@ import './index.scss';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import { confirmAlert } from 'react-confirm-alert';
+import { inserirQuantidadeItem } from '../../api/produtoCliente';
+import { toast } from 'react-toastify';
 
 export default function CarrinhoCheio(props) {
 
     const [produto, setProduto] = useState({});
+    const [quantidade, setQuantidade] = useState(1);
 
     const navigate = useNavigate();
 
@@ -32,6 +35,18 @@ export default function CarrinhoCheio(props) {
 
     function pagFinalizar(id) {
         navigate(`/finalizarPedidos/${id}`)
+    }
+
+    async function salvarClickQuantidade() {
+        try {
+            await inserirQuantidadeItem(quantidade);
+                toast.dark('🚀 Quantidade inserida com sucesso!');
+        } catch (err) {
+            if (err.response)
+                toast.error(err.response.data.erro);
+            else
+                toast.error(err.message);
+        }
     }
 
     async function alertClickPrazo() {
@@ -124,8 +139,8 @@ export default function CarrinhoCheio(props) {
                             </div>
 
                             <div className='valor'>
-                                <input type="number" min='1' max='10' />
-                                <p>R${props.produto.preco}</p>
+                                <input type="number" min='1' max='10' value={quantidade} onChange={e => setQuantidade(e.target.value)} quantidadeItem={quantidade}/>
+                                <p>R${Number(props.produto.preco) * quantidade}</p>
                             </div>
                         </div>
 
@@ -144,7 +159,11 @@ export default function CarrinhoCheio(props) {
                 </div>
 
                 <div className='botao-finalizar'>
-                    <button onClick={() => pagFinalizar(produto.id)}>Finalizar compra</button>
+                    {/* <button onClick={() => pagFinalizar(produto.id)}>Finalizar compra</button> */}
+                    <button onClick={() => {
+                        salvarClickQuantidade();
+                        pagFinalizar(produto.id);                    
+                    }}>Finalizar    </button>
                 </div>
 
 

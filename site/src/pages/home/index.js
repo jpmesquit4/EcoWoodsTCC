@@ -53,9 +53,6 @@ export default function Home() {
                 </div>
 
                 <div className="header-bot">
-                    <p>Fale Conosco</p>
-
-                    <p onClick={paginaFavoritos}>Favoritos</p>
 
                     <img onClick={() => pagPerfilcliente(cliente)} src="/assets/images/icon-perfil-cabecalho-branco.png" alt="" />
                 </div>
@@ -268,7 +265,7 @@ export default function Home() {
                                 <img src="/assets/images/icons-comentarios.png" alt="" />
 
                                 <div className="ig">
-                                    <h1>Daniel</h1>
+                                    <h1>Daniel Ribeiro</h1>
                                 </div>
                             </span>
 
@@ -302,7 +299,7 @@ export default function Home() {
                                 <img src="/assets/images/icons-comentarios.png" alt="" />
 
                                 <div className="ig">
-                                    <h1>João Mesquita</h1>
+                                    <h1>Rafael Silva</h1>
                                 </div>
                             </span>
 

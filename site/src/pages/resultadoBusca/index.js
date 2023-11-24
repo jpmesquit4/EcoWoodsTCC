@@ -108,22 +108,6 @@ export default function Resultado() {
 
                         <hr />
 
-                        <div className='input-move'>
-                            <label for="valor">Valor</label>
-                            <input type="range" id="valor" name="volume" min="0" max="100" />
-
-                            <div className='nav-valores'>
-                                <span>
-                                    {/* usar para aparecer os valores disponiveis minimo */}
-                                    {''}
-                                </span>
-
-                                <span>
-                                    {/* usar para aparecer os valores disponiveis maximos */}
-                                    {''}
-                                </span>
-                            </div>
-                        </div>
                     </div>
 
                     <div className="nav-right">
@@ -148,8 +132,6 @@ export default function Resultado() {
 
                                         <p className='precoProduto'> R${item.preco} </p>
 
-                                        <img src="/assets/images/favoritar-result.png" alt="" />
-
                                         <svg onClick={() => abrirDetalhes(item.id)} xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
                                             <path d="M0.760249 17.9069L19.3437 -4.46763e-05L19.3434 17.9071L0.760249 17.9069Z" fill="#2A2A2A"/>
                                         </svg>
@@ -161,23 +143,6 @@ export default function Resultado() {
                                 
                             </div>
                         
-                        <div className='change-pages'>
-                            <span className='click-menor'>
-                                <img src="/assets/images/menor.png" alt="" />
-                            </span>
-                            
-                            <span>
-                                <p>1</p>
-                                <p>2</p>
-                                <p>3</p>
-                                <p>4</p>
-                                <p>5</p>
-                            </span>
-
-                            <span className='click-maior'>
-                                <img src="/assets/images/menor.png" alt="" />
-                            </span>
-                        </div>
                     </div>
                 </main>
             </section>

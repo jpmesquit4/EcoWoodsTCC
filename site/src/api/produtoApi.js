@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://129.148.42.252:5020'
+    baseURL: 'http://localhost:6969'
 })
 
 export async function cadastrarProduto(nome, descricao, preco, estoque, categoria, tamanhos, adm) {
@@ -71,6 +71,11 @@ export async function buscarPorId(id) {
     return resposta.data;
 }
 
+export async function listarCartaoPorID(id) {
+    const resposta = await api.get(`/cartao/${id}`);
+    return resposta.data;
+}
+
 export async function consultarPreco(id) {
     const resposta = await api.get(`preco/produto/${id}`);
     return resposta.data;
@@ -86,6 +91,6 @@ export function buscarImagem(imagem) {
 }
 
 export async function carregarProdutoCategorizado(categoria) {
-    const resposta = await api.get(`http://129.148.42.252:5020/produto/filtroCategoria?categoria=${categoria}`);
+    const resposta = await api.get(`http://localhost:6969/produto/filtroCategoria?categoria=${categoria}`);
     return resposta.data;
 }
