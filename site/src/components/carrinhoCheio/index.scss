@@ -73,15 +73,19 @@
         .produto {
             display: flex;
             flex-direction: row;
+            align-items: center;
 
             .part-imagem {
                 border-right: 1px solid #d1d1d1;
+                
 
                 img {
-                    width: 25vw;
-                    height: 50vh;
+                    width: 25.8vw;
+                    height: auto;
                     background-color: #fff;
                     padding: 10px;
+                    position: relative;
+                    top: 2px;
                 }
             }
 
@@ -90,7 +94,7 @@
                 flex-direction: column;
                 justify-content: space-between;
                 width: 30.8vw;
-                height: 50vh;
+                height: auto;
                 background-color: #fff;
 
                 h1 {
@@ -106,8 +110,8 @@
                     flex-direction: column;
                     justify-content: space-between;
 
-                    height: 60%;
-                    padding: 20px 10px 0px 10px;
+                    height: auto;
+                    padding: 20px 10px 20px 10px;
                     border-top: 1px solid #d1d1d1;
                 
                     

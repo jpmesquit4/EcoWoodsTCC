@@ -38,7 +38,7 @@ export default function CadastroCliente() {
       });
 
       setTimeout(() => {
-        navigate('/');
+        navigate('/logincliente');
       }, 3000)
 
     } catch (err) {
