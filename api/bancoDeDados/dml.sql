@@ -64,8 +64,6 @@ CREATE TABLE Tabela_Preco (
     FOREIGN KEY (ID_Produto) REFERENCES TB_Produto(ID_Produto)
 );
 
-
-
 CREATE TABLE TB_Cartao (
     ID_Cartao INT PRIMARY KEY AUTO_INCREMENT,
     ID_Usuario INT,
@@ -89,21 +87,12 @@ CREATE TABLE TB_Pedido (
     FOREIGN KEY (ID_Cartao) REFERENCES TB_Cartao(ID_Cartao)
 );
 
-
 CREATE TABLE TB_Carrinho (
     ID_Carrinho INT PRIMARY KEY AUTO_INCREMENT,
     ID_Produto INT,
     ID_Pedido_Item int,
     FOREIGN KEY (ID_Produto) REFERENCES TB_Produto(ID_Produto)
 );
-
-
-
-
-
-
-
-
 
 CREATE TABLE TB_Tamanho_Produto (
     ID_Tamanho INT PRIMARY KEY AUTO_INCREMENT,
@@ -116,7 +105,6 @@ CREATE TABLE TB_Produto_Imagem (
     ID_Imagem_produto INT PRIMARY KEY AUTO_INCREMENT,
     IMG_Produto VARCHAR(100)
 );
-
 
 -- Inserir dados
 INSERT INTO TB_Categoria (NM_Categoria)
